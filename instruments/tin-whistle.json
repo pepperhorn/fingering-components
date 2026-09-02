@@ -1,0 +1,94 @@
+{
+  "id": "tin-whistle",
+  "name": "Tin whistle",
+  "family": "fipple",
+  "note": "Six holes, no thumb hole. Second octave is produced by overblowing, not by a key, so octave is carried in the fingering metadata rather than as a key state.",
+  "viewBox": [
+    0,
+    0,
+    80,
+    213
+  ],
+  "defaults": {
+    "circle": {
+      "r": 9
+    },
+    "pill": {
+      "w": 8,
+      "h": 14
+    }
+  },
+  "panels": [
+    {
+      "id": "front"
+    }
+  ],
+  "keys": [
+    {
+      "id": "h1",
+      "label": "Hole 1",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 44,
+      "hand": "L",
+      "digit": "1",
+      "group": "h1"
+    },
+    {
+      "id": "h2",
+      "label": "Hole 2",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 71,
+      "hand": "L",
+      "digit": "2",
+      "group": "h2"
+    },
+    {
+      "id": "h3",
+      "label": "Hole 3",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 98,
+      "hand": "L",
+      "digit": "3",
+      "group": "h3"
+    },
+    {
+      "id": "h4",
+      "label": "Hole 4",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 125,
+      "hand": "R",
+      "digit": "1",
+      "group": "h4"
+    },
+    {
+      "id": "h5",
+      "label": "Hole 5",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 152,
+      "hand": "R",
+      "digit": "2",
+      "group": "h5"
+    },
+    {
+      "id": "h6",
+      "label": "Hole 6",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 179,
+      "hand": "R",
+      "digit": "3",
+      "group": "h6"
+    }
+  ]
+}

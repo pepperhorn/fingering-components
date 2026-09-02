@@ -1,0 +1,109 @@
+{
+  "id": "nuvo-dood",
+  "name": "Nuvo Dood",
+  "family": "single-reed",
+  "note": "PROVISIONAL LAYOUT — confirm hole count against the instrument in hand before publishing. Modelled as thumb plus five front holes with a simplified reed mouthpiece.",
+  "viewBox": [
+    0,
+    0,
+    118,
+    186
+  ],
+  "defaults": {
+    "circle": {
+      "r": 9
+    },
+    "pill": {
+      "w": 8,
+      "h": 14
+    }
+  },
+  "panels": [
+    {
+      "id": "front"
+    },
+    {
+      "id": "rear",
+      "label": "back",
+      "origin": [
+        78,
+        34
+      ],
+      "box": [
+        0,
+        0,
+        34,
+        40
+      ]
+    }
+  ],
+  "keys": [
+    {
+      "id": "thumb",
+      "label": "Thumb hole",
+      "shape": "circle",
+      "r": 8,
+      "x": 17,
+      "y": 20,
+      "panel": "rear",
+      "hand": "L",
+      "digit": "thumb",
+      "group": "rear"
+    },
+    {
+      "id": "h1",
+      "label": "Hole 1",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 44,
+      "hand": "L",
+      "digit": "1",
+      "group": "h1"
+    },
+    {
+      "id": "h2",
+      "label": "Hole 2",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 71,
+      "hand": "L",
+      "digit": "2",
+      "group": "h2"
+    },
+    {
+      "id": "h3",
+      "label": "Hole 3",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 98,
+      "hand": "L",
+      "digit": "3",
+      "group": "h3"
+    },
+    {
+      "id": "h4",
+      "label": "Hole 4",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 125,
+      "hand": "R",
+      "digit": "1",
+      "group": "h4"
+    },
+    {
+      "id": "h5",
+      "label": "Hole 5",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 152,
+      "hand": "R",
+      "digit": "2",
+      "group": "h5"
+    }
+  ]
+}

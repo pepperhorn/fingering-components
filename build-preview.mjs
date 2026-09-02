@@ -1,0 +1,131 @@
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+
+const root = path.dirname(fileURLToPath(import.meta.url));
+const read = (p) => readFileSync(path.join(root, p), 'utf8');
+
+const strip = (src) => src
+  .replace(/^\s*import[^;]+;\s*$/gm, '')
+  .replace(/^export\s*\{[^}]*\}\s*from[^;]+;\s*$/gm, '')   // re-exports
+  .replace(/^export default[^;]+;\s*$/gm, '')
+  .replace(/^export /gm, '');
+
+const lib = ['src/keys.js', 'src/layout.js', 'src/render.js'].map((f) => strip(read(f))).join('\n');
+
+const instruments = {};
+for (const f of readdirSync(path.join(root, 'instruments')).sort()) {
+  instruments[f.replace('.json', '')] = JSON.parse(read(`instruments/${f}`));
+}
+const data = {};
+for (const f of readdirSync(path.join(root, 'fingerings')).sort()) {
+  data[f.replace('.json', '')] = JSON.parse(read(`fingerings/${f}`));
+}
+
+const html = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fingering chart components</title>
+<style>
+  :root {
+    --fc-ink: #1f3340;
+    --fc-line: #1f3340;
+    --fc-paper: #fbfaf7;
+    --fc-font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --rule: #cfc9bd;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 18px 72px;
+    background: var(--fc-paper); color: var(--fc-ink);
+    font-family: var(--fc-font); line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 1.55rem; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 4px; }
+  .sub { margin: 0 0 26px; font-size: .92rem; opacity: .72; max-width: 60ch; }
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+  p.hint { font-size: .85rem; opacity: .7; margin: 0 0 14px; max-width: 62ch; }
+  .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 14px 10px; }
+  .legend figure { margin: 0; text-align: center; }
+  .legend figcaption { font-size: .74rem; opacity: .75; margin-top: 4px; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
+  .scroll svg { display: block; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 18px; align-items: end; }
+  .gallery figure { margin: 0; text-align: center; }
+  .gallery figcaption { font-size: .76rem; opacity: .8; margin-top: 6px; }
+  .gallery svg { max-width: 100%; height: auto; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .82em; background: rgba(31,51,64,.06); padding: 1px 4px; border-radius: 3px; }
+  pre { background: rgba(31,51,64,.05); padding: 12px 14px; border-radius: 6px; overflow-x: auto; font-size: .78rem; line-height: 1.45;
+        font-family: ui-monospace, Menlo, Consolas, monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Fingering chart components</h1>
+  <p class="sub">Shapes and states are the vocabulary; each instrument is a layout of named keys; each note is just a list of which keys are down.</p>
+
+  <h2>Key shapes</h2>
+  <div class="legend" id="shapes"></div>
+
+  <h2>Key states</h2>
+  <div class="legend" id="states"></div>
+
+  <h2>Saxophone, written range</h2>
+  <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>. Scroll sideways on a narrow screen.</p>
+  <div class="scroll" id="sax"></div>
+
+  <h2>Empty layouts</h2>
+  <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
+  <div class="gallery" id="gallery"></div>
+
+  <h2>Recorder, first octave</h2>
+  <div class="scroll" id="recorder"></div>
+
+  <h2>Writing a fingering</h2>
+  <pre id="sample"></pre>
+</div>
+
+<script type="module">
+${lib}
+
+const INSTRUMENTS = ${JSON.stringify(instruments)};
+const DATA = ${JSON.stringify(data)};
+
+const set = (id, html) => { document.getElementById(id).innerHTML = html; };
+
+/* shape legend */
+const shapeDemos = [
+  ['circle', 'circle', { r: 11 }],
+  ['oval', 'oval', { rx: 12, ry: 7 }],
+  ['pill', 'pill', { w: 12, h: 24 }],
+  ['bar', 'bar', { w: 26, h: 7 }],
+  ['spatula', 'spatula', { w: 20, h: 17 }],
+  ['lever', 'lever', { w: 9, h: 18 }],
+  ['roller', 'roller', {}],
+  ['teardrop', 'teardrop', { w: 13, h: 24 }],
+];
+set('shapes', shapeDemos.map(([name, shape, geo]) =>
+  \`<figure><svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ shape, x: 30, y: 20, state: 'closed', ...geo })}</svg><figcaption>\${name}</figcaption></figure>\`
+).join(''));
+
+set('states', STATES.map((state) =>
+  \`<figure><svg viewBox="0 0 60 44" width="60" height="44">\${DEFS}\${drawKey({ shape: 'circle', x: 30, y: 24, r: 11, state, hideWhenNA: false })}</svg><figcaption>\${state}</figcaption></figure>\`
+).join(''));
+
+set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240 }));
+set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 10, width: 1060 }));
+
+set('gallery', Object.values(INSTRUMENTS).map((inst) =>
+  \`<figure>\${renderFingering(inst, { label: '' }, { title: false, width: 130 })}<figcaption>\${inst.name}</figcaption></figure>\`
+).join(''));
+
+document.getElementById('sample').textContent = JSON.stringify(DATA.saxophone.fingerings[0], null, 2);
+</script>
+</body>
+</html>
+`;
+
+writeFileSync(path.join(root, 'preview.html'), html);
+console.log('preview.html', (html.length / 1024).toFixed(1), 'kB');

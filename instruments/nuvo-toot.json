@@ -1,0 +1,144 @@
+{
+  "id": "nuvo-toot",
+  "name": "Nuvo TooT",
+  "family": "fipple",
+  "note": "PROVISIONAL LAYOUT — confirm against the instrument in hand before publishing. Modelled as recorder-style: thumb plus six front holes, with two keyed touchpieces on the lower joint.",
+  "viewBox": [
+    0,
+    0,
+    118,
+    213
+  ],
+  "defaults": {
+    "circle": {
+      "r": 9
+    },
+    "pill": {
+      "w": 8,
+      "h": 14
+    }
+  },
+  "panels": [
+    {
+      "id": "front"
+    },
+    {
+      "id": "rear",
+      "label": "back",
+      "origin": [
+        78,
+        34
+      ],
+      "box": [
+        0,
+        0,
+        34,
+        40
+      ]
+    }
+  ],
+  "keys": [
+    {
+      "id": "thumb",
+      "label": "Thumb hole",
+      "shape": "circle",
+      "r": 8,
+      "x": 17,
+      "y": 20,
+      "panel": "rear",
+      "hand": "L",
+      "digit": "thumb",
+      "group": "rear"
+    },
+    {
+      "id": "h1",
+      "label": "Hole 1",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 44,
+      "hand": "L",
+      "digit": "1",
+      "group": "h1"
+    },
+    {
+      "id": "h2",
+      "label": "Hole 2",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 71,
+      "hand": "L",
+      "digit": "2",
+      "group": "h2"
+    },
+    {
+      "id": "h3",
+      "label": "Hole 3",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 98,
+      "hand": "L",
+      "digit": "3",
+      "group": "h3"
+    },
+    {
+      "id": "h4",
+      "label": "Hole 4",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 125,
+      "hand": "R",
+      "digit": "1",
+      "group": "h4"
+    },
+    {
+      "id": "h5",
+      "label": "Hole 5",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 152,
+      "hand": "R",
+      "digit": "2",
+      "group": "h5"
+    },
+    {
+      "id": "h6",
+      "label": "Hole 6",
+      "shape": "circle",
+      "r": 9,
+      "x": 40,
+      "y": 179,
+      "hand": "R",
+      "digit": "3",
+      "group": "h6"
+    },
+    {
+      "id": "key-1",
+      "label": "Lower key 1",
+      "shape": "pill",
+      "w": 8,
+      "h": 14,
+      "x": 60,
+      "y": 152,
+      "hand": "R",
+      "digit": "3",
+      "group": "keys"
+    },
+    {
+      "id": "key-2",
+      "label": "Lower key 2",
+      "shape": "pill",
+      "w": 8,
+      "h": 14,
+      "x": 60,
+      "y": 178,
+      "hand": "R",
+      "digit": "4",
+      "group": "keys"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "instrument": "recorder",
+  "pitch": "sounding-c-soprano",
+  "note": "Starter set: the naturals of the first octave, plus C6 over the break. Second-octave and chromatic fingerings still to be added — they differ between baroque and German fingering, so add them per variant.",
+  "fingerings": [
+    {
+      "note": "C",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6a",
+        "h6b",
+        "h7a",
+        "h7b"
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6a",
+        "h6b"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h6a",
+        "h6b",
+        "h7a",
+        "h7b"
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "h1",
+        "h2",
+        "h3"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "h1",
+        "h2"
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "h1"
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 6,
+      "down": [
+        "h2"
+      ]
+    }
+  ]
+}
