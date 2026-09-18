@@ -1,92 +1,104 @@
 {
   "id": "clarinet",
-  "name": "Clarinet (Boehm, 17-key)",
+  "name": "Clarinet (B♭ Boehm, 17-key)",
   "family": "single-reed",
-  "viewBox": [0, 0, 138, 296],
+  "transposing": true,
+  "note": "Front view, same conventions as the saxophone: thumb keys inline on the left, a divider between the hands, pinky tables built from plates and rollers.",
+  "viewBox": [0, 0, 92, 236],
   "defaults": {
     "circle": { "r": 9 },
     "oval": { "rx": 6.5, "ry": 3.8 },
-    "pill": { "w": 15, "h": 6.5 },
-    "spatula": { "w": 14, "h": 11 }
+    "pill": { "w": 12, "h": 5.5, "rad": 2.75 },
+    "plate": { "w": 10.5, "h": 11.5 }
   },
-  "panels": [
-    { "id": "front" },
-    { "id": "rear", "label": "back", "origin": [96, 30], "box": [0, 0, 38, 70] }
-  ],
+  "panels": [{ "id": "front" }],
+  "guides": [{ "id": "hand-divider", "x1": 34, "y1": 121, "x2": 54, "y2": 121 }],
 
   "clusters": [
     {
       "id": "throat",
       "label": "Throat keys",
-      "anchor": [26, 30],
-      "flow": { "axis": "y", "pitch": 12 },
-      "defaults": { "shape": "pill", "w": 13, "h": 6, "rad": 3 }
+      "note": "A above LH1; G♯ beside it, lower. Both pressed by the side of the left first finger.",
+      "anchor": [44, 18],
+      "defaults": { "shape": "bean" }
     },
     {
       "id": "trill",
       "label": "Trill keys",
-      "anchor": [75, 62],
-      "rotate": 3,
-      "flow": { "axis": "y", "pitch": 12 },
-      "defaults": { "shape": "pill", "w": 15, "h": 6.5, "rad": 3.2 }
+      "note": "Right-hand side keys at the joint, pressed by the side of the right first finger.",
+      "anchor": [64, 104],
+      "flow": { "axis": "y", "pitch": 8 },
+      "defaults": { "shape": "pill", "w": 11, "h": 5, "rad": 2.5 }
     },
     {
       "id": "lh-table",
-      "label": "LH pinky levers",
-      "note": "Fan pivots to the RIGHT of the levers, so they curve away from the body of the instrument. Member order top-to-bottom is the thing to confirm against your own teaching chart.",
-      "anchor": [66, 176],
-      "flow": { "shape": "arc", "radius": 46, "startAngle": 195, "step": -16, "rotateMembers": true, "memberRotate": -180, "tilt": 0.5 },
-      "defaults": { "shape": "spatula", "w": 14, "h": 11, "rad": 4 }
+      "label": "LH pinky keys",
+      "note": "Two-by-two plates at the foot of the upper joint, rollers between the rows. Confirm member positions against your instrument.",
+      "anchor": [18, 116],
+      "rotate": 4,
+      "defaults": { "shape": "plate", "w": 10.5, "h": 11.5 }
     },
     {
       "id": "rh-table",
-      "label": "RH pinky levers",
-      "anchor": [32, 216],
-      "flow": { "shape": "arc", "radius": 46, "startAngle": -18, "step": 16, "rotateMembers": true, "tilt": 0.5 },
-      "defaults": { "shape": "spatula", "w": 14, "h": 11, "rad": 4 }
+      "label": "RH pinky keys",
+      "note": "Two-by-two plates at the foot of the lower joint, rollers between the rows. Confirm member positions against your instrument.",
+      "anchor": [69, 204],
+      "rotate": -4,
+      "defaults": { "shape": "plate", "w": 10.5, "h": 11.5 }
     }
   ],
 
   "variants": {
     "throat-pills": {
-      "clusters": { "throat": { "anchor": [25, 26], "rotate": -6 } },
+      "clusters": { "throat": { "anchor": [30, 20], "rotate": -6, "flow": { "axis": "y", "pitch": 12 } } },
       "keys": {
         "throat-a": { "shape": "pill", "w": 13, "h": 6, "bend": null, "taper": null, "dx": null, "dy": null },
         "throat-gs": { "shape": "pill", "w": 13, "h": 6, "bend": null, "dx": null, "dy": null, "rot": null }
+      }
+    },
+    "ring-keys": {
+      "keys": {
+        "thumb-hole": { "ringed": true },
+        "lh1": { "ringed": true }, "lh2": { "ringed": true }, "lh3": { "ringed": true },
+        "rh1": { "ringed": true }, "rh2": { "ringed": true }, "rh3": { "ringed": true }
       }
     }
   },
 
   "keys": [
-    { "id": "thumb-hole", "label": "Thumb hole", "shape": "circle", "r": 9, "x": 19, "y": 22, "panel": "rear", "hand": "L", "digit": "thumb", "group": "rear" },
-    { "id": "register", "label": "Register key", "shape": "pill", "w": 18, "h": 7, "relativeTo": "thumb-hole", "place": "below", "gap": 10, "panel": "rear", "hand": "L", "digit": "thumb", "group": "rear" },
+    { "id": "register", "label": "Register key (thumb)", "shape": "bean", "w": 6, "h": 14, "bend": -0.6, "dir": "right", "x": 17, "y": 30, "hand": "L", "digit": "thumb", "group": "rear" },
+    { "id": "thumb-hole", "label": "Thumb hole", "shape": "circle", "r": 7.5, "x": 17, "y": 43, "hand": "L", "digit": "thumb", "group": "rear" },
 
-    { "id": "throat-a", "label": "Throat A", "cluster": "throat", "shape": "bean", "w": 8, "h": 22, "bend": 0, "taper": 0.8, "dx": 0, "dy": 0, "hand": "L", "digit": "1", "group": "throat" },
-    { "id": "throat-gs", "label": "Throat G\u266f", "cluster": "throat", "shape": "bean", "w": 6.5, "h": 12, "bend": 1.5, "dx": 12, "dy": 12, "rot": 35, "hand": "L", "digit": "1", "group": "throat" },
+    { "id": "throat-a", "label": "Throat A", "cluster": "throat", "w": 7.5, "h": 18, "bend": 0, "taper": 0.8, "dx": 0, "dy": 0, "hand": "L", "digit": "1", "group": "throat" },
+    { "id": "throat-gs", "label": "Throat G♯", "cluster": "throat", "w": 6, "h": 11, "bend": 1.5, "dx": -10, "dy": 6, "rot": 35, "hand": "L", "digit": "1", "group": "throat" },
 
-    { "id": "lh1", "label": "Left 1 ring", "shape": "circle", "x": 48, "y": 54, "hand": "L", "digit": "1", "group": "lh-stack" },
-    { "id": "lh2", "label": "Left 2 ring", "shape": "circle", "relativeTo": "lh1", "place": "below", "gap": 10, "hand": "L", "digit": "2", "group": "lh-stack" },
-    { "id": "lh3", "label": "Left 3 ring", "shape": "circle", "relativeTo": "lh2", "place": "below", "gap": 10, "hand": "L", "digit": "3", "group": "lh-stack" },
-    { "id": "lh1-eb", "label": "Left 1 side E\u266d/B\u266d", "shape": "oval", "relativeTo": "lh1", "place": "right", "gap": 3, "offset": [0, -8], "hand": "L", "digit": "1", "group": "lh-aux" },
+    { "id": "lh1", "label": "Left 1", "shape": "circle", "x": 44, "y": 44, "hand": "L", "digit": "1", "group": "lh-stack" },
+    { "id": "lh2", "label": "Left 2", "shape": "circle", "x": 44, "y": 70, "hand": "L", "digit": "2", "group": "lh-stack" },
+    { "id": "lh3", "label": "Left 3", "shape": "circle", "x": 44, "y": 96, "hand": "L", "digit": "3", "group": "lh-stack" },
+    { "id": "lh1-eb", "label": "Left 1 side E♭/B♭", "shape": "oval", "x": 60, "y": 36, "hand": "L", "digit": "1", "group": "lh-aux" },
 
-    { "id": "trill-1", "label": "Trill 1 (A/B\u266d)", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill" },
+    { "id": "trill-1", "label": "Trill 1 (A/B♭)", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill" },
     { "id": "trill-2", "label": "Trill 2", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill" },
     { "id": "trill-3", "label": "Trill 3", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill" },
     { "id": "trill-4", "label": "Trill 4", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill" },
 
-    { "id": "lh-ab-eb", "label": "LH A\u266d/E\u266d", "cluster": "lh-table", "hand": "L", "digit": "4", "group": "lh-table" },
-    { "id": "lh-fs-cs", "label": "LH F\u266f/C\u266f", "cluster": "lh-table", "hand": "L", "digit": "4", "group": "lh-table" },
-    { "id": "lh-e-b", "label": "LH E/B", "cluster": "lh-table", "hand": "L", "digit": "4", "group": "lh-table" },
-    { "id": "lh-f-c", "label": "LH F/C", "cluster": "lh-table", "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-fs-cs", "label": "LH F♯/C♯", "cluster": "lh-table", "dx": -5.9, "dy": 0, "radii": [5, 2.5, 2.5, 2.5], "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-ab-eb", "label": "LH A♭/E♭", "cluster": "lh-table", "dx": 5.9, "dy": 0, "radii": [2.5, 5, 2.5, 2.5], "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-e-b", "label": "LH E/B", "cluster": "lh-table", "dx": -5.9, "dy": 16, "radii": [2.5, 2.5, 2.5, 5], "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-f-c", "label": "LH F/C", "cluster": "lh-table", "dx": 5.9, "dy": 16, "radii": [2.5, 2.5, 5, 2.5], "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-roller-l", "label": "LH roller (left)", "cluster": "lh-table", "shape": "cylinder", "dx": -5.9, "dy": 8, "w": 3.6, "h": 8.5, "rot": 90, "radii": null, "hand": "L", "digit": "4", "group": "rollers" },
+    { "id": "lh-roller-r", "label": "LH roller (right)", "cluster": "lh-table", "shape": "cylinder", "dx": 5.9, "dy": 8, "w": 3.6, "h": 8.5, "rot": 90, "radii": null, "hand": "L", "digit": "4", "group": "rollers" },
 
-    { "id": "rh1", "label": "Right 1 ring", "shape": "circle", "x": 48, "y": 160, "hand": "R", "digit": "1", "group": "rh-stack" },
-    { "id": "rh2", "label": "Right 2 ring", "shape": "circle", "relativeTo": "rh1", "place": "below", "gap": 10, "hand": "R", "digit": "2", "group": "rh-stack" },
-    { "id": "rh3", "label": "Right 3 ring", "shape": "circle", "relativeTo": "rh2", "place": "below", "gap": 10, "hand": "R", "digit": "3", "group": "rh-stack" },
-    { "id": "rh-side-eb", "label": "Side E\u266d/B\u266d", "shape": "oval", "relativeTo": "rh1", "place": "right", "gap": 3, "offset": [0, -10], "hand": "R", "digit": "1", "group": "rh-aux" },
+    { "id": "rh1", "label": "Right 1", "shape": "circle", "x": 44, "y": 146, "hand": "R", "digit": "1", "group": "rh-stack" },
+    { "id": "rh2", "label": "Right 2", "shape": "circle", "x": 44, "y": 172, "hand": "R", "digit": "2", "group": "rh-stack" },
+    { "id": "rh3", "label": "Right 3", "shape": "circle", "x": 44, "y": 198, "hand": "R", "digit": "3", "group": "rh-stack" },
+    { "id": "rh-side-eb", "label": "Side E♭/B♭ (sliver key)", "shape": "bean", "w": 5, "h": 11, "bend": 0, "x": 60, "y": 150, "hand": "R", "digit": "1", "group": "rh-aux" },
 
-    { "id": "rh-f-c", "label": "RH F/C", "cluster": "rh-table", "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-fs-cs", "label": "RH F\u266f/C\u266f", "cluster": "rh-table", "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-e-b", "label": "RH E/B", "cluster": "rh-table", "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-ab-eb", "label": "RH A\u266d/E\u266d", "cluster": "rh-table", "hand": "R", "digit": "4", "group": "rh-table" }
+    { "id": "rh-ab-eb", "label": "RH A♭/E♭", "cluster": "rh-table", "dx": -5.9, "dy": 0, "radii": [5, 2.5, 2.5, 2.5], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-fs-cs", "label": "RH F♯/C♯", "cluster": "rh-table", "dx": 5.9, "dy": 0, "radii": [2.5, 5, 2.5, 2.5], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-f-c", "label": "RH F/C", "cluster": "rh-table", "dx": -5.9, "dy": 16, "radii": [2.5, 2.5, 2.5, 5], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-e-b", "label": "RH E/B", "cluster": "rh-table", "dx": 5.9, "dy": 16, "radii": [2.5, 2.5, 5, 2.5], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-roller-l", "label": "RH roller (left)", "cluster": "rh-table", "shape": "cylinder", "dx": -5.9, "dy": 8, "w": 3.6, "h": 8.5, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" },
+    { "id": "rh-roller-r", "label": "RH roller (right)", "cluster": "rh-table", "shape": "cylinder", "dx": 5.9, "dy": 8, "w": 3.6, "h": 8.5, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" }
   ]
 }

@@ -108,12 +108,21 @@ const inkFor = (k) => (k.tone === 2 ? INK2 : INK);
 /* Shape primitives                                                    */
 /* ------------------------------------------------------------------ */
 
-/** Round tone hole or pearl touchpiece. Sax/flute/clarinet stacks, recorder holes. */
+/**
+ * Round tone hole or pearl touchpiece. Sax/flute/clarinet stacks, recorder holes.
+ * `ringed: true` adds the metal ring of a ring key (clarinet, open-hole flute):
+ * a thin concentric outline `ringGap` outside the hole.
+ */
 export function circle(k) {
   const r = k.r ?? 9;
   const geom = (attr, shrink = 1) =>
     `<circle cx="${k.x}" cy="${k.y}" r="${r * shrink}" ${attr}/>`;
-  return paint(k, [k.x - r, k.y - r, r * 2, r * 2], geom, k.fillFrom);
+  const hole = paint(k, [k.x - r, k.y - r, r * 2, r * 2], geom, k.fillFrom);
+  if (!k.ringed || k.state === 'na') return hole;
+  const pressed = k.state === 'closed' || k.state === 'highlight';
+  const ring = `<circle cx="${k.x}" cy="${k.y}" r="${r + (k.ringGap ?? 2.4)}" fill="none"`
+    + ` stroke="${pressed ? (k.state === 'highlight' ? HIGHLIGHT : inkFor(k)) : LINE}" stroke-width="${pressed ? 1.8 : 1}"/>`;
+  return ring + hole;
 }
 
 /** Ellipse. Bis key, side keys, rollers, small auxiliary touchpieces. */
@@ -384,7 +393,7 @@ export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardro
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
   switch (k.shape) {
-    case 'circle': { const r = k.r ?? 9; return [r * 2, r * 2]; }
+    case 'circle': { const r = (k.r ?? 9) + (k.ringed ? (k.ringGap ?? 2.4) : 0); return [r * 2, r * 2]; }
     case 'oval': { const rx = k.rx ?? 6.5, ry = k.ry ?? 3.8; return [rx * 2, ry * 2]; }
     case 'roller': { const rx = k.rx ?? 6, ry = k.ry ?? 3.2; return [rx * 2, ry * 2]; }
     case 'bar': return [k.w ?? 20, k.h ?? 5];
