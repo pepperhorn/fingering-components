@@ -87,8 +87,12 @@ export function diagramBody(rawLayout, fingering, opts = {}) {
 
   for (const panel of byPanel(layout)) {
     const [ox, oy] = panel.origin || [0, 0];
+    // each key carries its id and state so CSS (looks, apps) can target it
     const body = panel.keys
-      .map((k) => drawKey({ ...k, state: states[k.id], tone: tone(k) }))
+      .map((k) => {
+        const svg = drawKey({ ...k, state: states[k.id], tone: tone(k) });
+        return svg && `<g class="fc-key" data-key="${k.id}" data-state="${states[k.id]}">${svg}</g>`;
+      })
       .join('');
     let frame = '';
     if (panel.id !== 'front' && panel.frame !== false && panel.box) {
@@ -101,26 +105,49 @@ export function diagramBody(rawLayout, fingering, opts = {}) {
                 : '');
     }
     const guides = (panel.id === 'front' ? layout.guides || [] : [])
-      .map((g) => `<line x1="${g.x1}" y1="${g.y1}" x2="${g.x2}" y2="${g.y2}" stroke="${LINE}"`
+      .map((g) => `<line class="fc-guide" x1="${g.x1}" y1="${g.y1}" x2="${g.x2}" y2="${g.y2}" stroke="${LINE}"`
         + ` stroke-width="${g.width ?? 1.2}" stroke-linecap="round"/>`).join('');
     parts.push(`<g transform="translate(${ox} ${oy})">${frame}${guides}${body}</g>`);
   }
-  return parts.join('');
+  const out = parts.join('');
+  return opts.look ? `<g class="fc-look-${opts.look}">${out}</g>` : out;
+}
+
+/*
+ * Looks — whole-diagram treatments for app use (falling-tile targets,
+ * backdrops). `ghost` fades everything (--fc-ghost); `dotted` draws unpressed
+ * keys as dotted, unfilled outlines and leaves pressed keys solid.
+ */
+export const LOOK_CSS = '<style>'
+  + '.fc-look-ghost{opacity:var(--fc-ghost,.28)}'
+  + '.fc-look-dotted .fc-key:not([data-state="closed"]):not([data-state="highlight"]) *,.fc-look-dotted .fc-guide'
+  + '{stroke-dasharray:.01 2.4;stroke-linecap:round;stroke-width:1.5}'
+  + '.fc-look-dotted .fc-key[data-state="open"] *{fill:none}'
+  + '</style>';
+
+/*
+ * Orientation. 'horizontal' lays the instrument on its side, mouthpiece
+ * left: the diagram turns a quarter anticlockwise and width/height swap.
+ */
+function orient(body, w, h, o) {
+  if (o !== 'horizontal') return [body, w, h];
+  return [`<g transform="translate(0 ${w}) rotate(-90)">${body}</g>`, h, w];
 }
 
 /**
  * A single labelled diagram as a standalone SVG.
  */
 export function renderFingering(layout, fingering, opts = {}) {
-  const [, , w, h] = layout.viewBox;
+  const [, , vw, vh] = layout.viewBox;
+  const [body, w, h] = orient(diagramBody(layout, fingering, opts), vw, vh, opts.orient);
   const titleH = opts.title === false ? 0 : 26;
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h + titleH}" width="${opts.width || w}">`
-    + DEFS
+    + DEFS + (opts.look ? LOOK_CSS : '')
     + (titleH
         ? `<text x="${w / 2}" y="17" text-anchor="middle" font-size="16" font-weight="600"`
         + ` font-family="${FONT}" fill="${TEXT}">${label(fingering)}</text>`
         : '')
-    + `<g transform="translate(0 ${titleH})">${diagramBody(layout, fingering, opts)}</g>`
+    + `<g transform="translate(0 ${titleH})">${body}</g>`
     + `</svg>`;
 }
 
@@ -134,7 +161,8 @@ function label(f) {
  */
 export function renderChart(layout, fingerings, opts = {}) {
   const cols = opts.columns || 9;
-  const [, , cw, ch] = layout.viewBox;
+  const [, , vw, vh] = layout.viewBox;
+  const [, cw, ch] = orient('', vw, vh, opts.orient);
   const gapX = opts.gapX ?? 16;
   const gapY = opts.gapY ?? 34;
   const titleH = 30;
@@ -153,11 +181,11 @@ export function renderChart(layout, fingerings, opts = {}) {
     return `<g transform="translate(${cx} ${cy})">${note}`
       + `<text x="${cw / 2}" y="19" text-anchor="middle" font-size="17" font-weight="600"`
       + ` font-family="${FONT}" fill="${TEXT}">${label(f)}</text>`
-      + `<g transform="translate(0 ${titleH})">${diagramBody(layout, f, opts)}</g></g>`;
+      + `<g transform="translate(0 ${titleH})">${orient(diagramBody(layout, f, opts), vw, vh, opts.orient)[0]}</g></g>`;
   }).join('');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -14 ${W} ${H + 14}" width="${opts.width || W}">`
-    + DEFS + cells + `</svg>`;
+    + DEFS + (opts.look ? LOOK_CSS : '') + cells + `</svg>`;
 }
 
 export { resolveLayout, contentBounds } from './layout.js';

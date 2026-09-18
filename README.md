@@ -79,6 +79,16 @@ Colours are CSS custom properties: `--fc-ink` (pressed), `--fc-line`
 keys in `--fc-ink-2`. Setting `--fc-key: none; --fc-stroke: 1.1` with a serif
 font gives the original outline look.
 
+## Orientation and looks
+
+`renderFingering` and `renderChart` take `orient: 'horizontal'` (the
+instrument on its side, mouthpiece left; labels stay upright) and
+`look: 'ghost'` (whole diagram faded via `--fc-ghost`) or `look: 'dotted'`
+(unpressed keys as dotted, unfilled outlines; pressed keys stay solid). Every
+key is wrapped in `<g class="fc-key" data-key="…" data-state="…">`, so an app
+can restyle or animate individual keys — e.g. dotted fingerings falling onto
+a ghosted instrument, piano-tiles style.
+
 ## Layout variants
 
 A layout can carry named, additive overrides under `variants`. Pass one or
