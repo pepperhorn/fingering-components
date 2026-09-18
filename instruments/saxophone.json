@@ -28,7 +28,7 @@
       "id": "side",
       "label": "Side keys",
       "note": "Top to bottom: high E (C3), side C (Tc), side B\u266d (Ta), west of the right-hand stack.",
-      "anchor": [21, 124],
+      "anchor": [21, 108],
       "rotate": 0,
       "flow": { "axis": "y", "pitch": 17 },
       "defaults": { "shape": "bean", "w": 6.5, "h": 15, "bend": 0, "taper": 0.85 }
@@ -79,10 +79,10 @@
       }
     },
     "side-levers": {
-      "clusters": { "side": { "anchor": [16, 124], "defaults": { "shape": "lever", "size": "lg", "stemDir": "right", "w": null, "h": null, "bend": null, "taper": null } } }
+      "clusters": { "side": { "anchor": [16, 108], "defaults": { "shape": "lever", "size": "lg", "stemDir": "right", "w": null, "h": null, "bend": null, "taper": null } } }
     },
     "side-pills": {
-      "clusters": { "side": { "anchor": [18, 128], "flow": { "axis": "y", "pitch": 12 }, "defaults": { "shape": "pill", "w": 15, "h": 6.5, "rad": 3.2, "bend": null, "taper": null } } }
+      "clusters": { "side": { "anchor": [18, 113], "flow": { "axis": "y", "pitch": 12 }, "defaults": { "shape": "pill", "w": 15, "h": 6.5, "rad": 3.2, "bend": null, "taper": null } } }
     },
     "high-fs-double": {
       "keys": { "high-fs": { "x": 22.5 }, "high-fs-2": { "default": "open", "x": 29 } }
