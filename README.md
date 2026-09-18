@@ -49,6 +49,13 @@ can open from the filesystem.
 | `plate` | rectangle with per-corner `radii` — tiles into pinky tables |
 | `dome` | half-ellipse on a flat base — table end caps, split-circle pinky pair |
 | `cylinder` | roller seen side-on — sits between pinky keys |
+| `pin` | teardrop hung from a pivot pearl on an arm |
+| `lh-hook` (alias `hook`) | lobe pointing left, rod down its right side — clarinet RH pinky and trill keys |
+| `rh-hook` | mirrored hook, rod on the left — clarinet LH pinky F/C |
+
+`circle` also takes `ringed: true` (a ring key's metal ring) and `hole: true`
+(an open tone hole whose centre stays empty until covered; themable with
+`--fc-hole`).
 
 Geometry is per-key and optional: `r`, `rx`/`ry`, `w`/`h`, `rad`, `rot`.
 Family defaults live in the layout's `defaults` block, keyed by shape name.
@@ -79,7 +86,7 @@ several: `renderChart(sax, notes, { variant: 'palm-leaf side-levers' })`.
 The saxophone ships `palm-bean`, `palm-taper`, `palm-leaf`, `side-levers`,
 `side-pills`, `high-fs-single`, `rh-table-stacked`, `lh-table-domes`, `rh-table-domes`,
 `lh-table-spatulas` and `rh-table-spatulas`; the clarinet ships
-`throat-pills`.
+`throat-pills` and `ring-keys`.
 
 ## States
 
