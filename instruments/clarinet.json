@@ -17,7 +17,7 @@
   "clusters": [
     {"id": "trill", "label": "Trill keys", "note": "Four lh-hooks stacked on the left, centred between LH2 and LH3; pressed by the side of the right first finger.", "anchor": [26, 70.85], "defaults": {"shape": "lh-hook", "w": 9.45, "h": 5.4, "stemW": 2.03}},
     {"id": "lh-table", "label": "LH pinky keys", "note": "Right of the stack at the joint: F/C as an rh-hook (lobe right, rod left) on top, E/B and F\u266f/C\u266f as upside-down teardrops below. A\u266d/E\u266d (full Boehm only) is hidden by default.", "anchor": [61, 128]},
-    {"id": "rh-table", "label": "RH pinky keys", "note": "Two-by-two below-right of the right-hand stack, each key a lobe with its rod on the right. A\u266d/E\u266d and F\u266f/C\u266f on top (rods run down past the lower keys), F/C and E/B below. Confirm positions against your instrument.", "anchor": [53, 212], "defaults": {"shape": "lh-hook", "h": 8, "stemW": 3}}
+    {"id": "rh-table", "label": "RH pinky keys", "note": "Two-by-two below-right of the right-hand stack, each key a lobe with its rod on the right. A\u266d/E\u266d and F\u266f/C\u266f on top (rods run down past the lower keys), F/C and E/B below. Confirm positions against your instrument.", "anchor": [43, 212], "defaults": {"shape": "lh-hook", "h": 8, "stemW": 3}}
   ],
 
   "variants": {
