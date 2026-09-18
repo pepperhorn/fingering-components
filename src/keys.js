@@ -206,7 +206,9 @@ export function pin(k) {
  * Hook — a pinky lobe that turns down into a stem: rounded outer end,
  * straight top, and at the inner end a stem dropping `stem` below the lobe.
  * Stack several for the clarinet RH pinky keys. Lobe points left by
- * default; `flip: true` points it right.
+ * default; `flip: true` points it right. Registered as `lh-hook` (lobe left,
+ * rod right — clarinet RH pinky keys) and `rh-hook` (mirrored: lobe right,
+ * rod left — clarinet LH pinky keys); `hook` is an alias of `lh-hook`.
  */
 export function hook(k) {
   const w = k.w ?? 16, h = k.h ?? 7, st = k.stem ?? 12, sw = k.stemW ?? 3;
@@ -431,7 +433,8 @@ export function taper(k) {
   return paint(k, [k.x + x0, k.y - h / 2, x1 - x0, h], geom, k.fillFrom);
 }
 
-export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook };
+export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook,
+  'lh-hook': hook, 'rh-hook': (k) => hook({ ...k, flip: !k.flip }) };
 
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
@@ -446,7 +449,7 @@ export function bbox(k) {
     case 'taper': return [(k.w ?? 8) + Math.abs(k.bend ?? 1.2), k.h ?? 24];
     case 'leaf': return [(k.w ?? 8) + Math.abs(k.bend ?? 1), k.h ?? 22];
     case 'pin': return [k.w ?? 8, (k.h ?? 16) + 2 * (k.knob ?? 2.6) + (k.armLen ?? 4)];
-    case 'hook': return [k.w ?? 16, (k.h ?? 7) + (k.stem ?? 12)];
+    case 'hook': case 'lh-hook': case 'rh-hook': return [k.w ?? 16, (k.h ?? 7) + (k.stem ?? 12)];
     case 'cylinder': return [k.w ?? 3.2, k.h ?? 7];
     case 'dome': return [k.w ?? 16, k.h ?? 8];
     case 'plate': return [k.w ?? 16, k.h ?? 14];

@@ -122,7 +122,8 @@ const shapeDemos = [
   ['leaf', { shape: 'leaf', w: 10, h: 28 }],
   ['bean', { shape: 'bean', w: 9, h: 26, bend: 3 }],
   ['pin', { shape: 'pin', w: 9, h: 18, y: 26 }],
-  ['hook', { shape: 'hook', w: 22, h: 9, stem: 10, y: 16 }],
+  ['lh-hook', { shape: 'lh-hook', w: 22, h: 9, stem: 10, y: 16 }],
+  ['rh-hook', { shape: 'rh-hook', w: 22, h: 9, stem: 10, y: 16 }],
 ];
 set('shapes', shapeDemos.map(([name, geo]) =>
   \`<figure>\${['open', 'closed'].map((state) => \`<svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ x: 30, y: 20, state, ...geo })}</svg>\`).join('')}<figcaption>\${name}</figcaption></figure>\`
