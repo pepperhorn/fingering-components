@@ -120,7 +120,8 @@
   },
 
   "keys": [
-    { "id": "octave", "label": "Octave (thumb)", "shape": "circle", "r": 6.5, "x": 15, "y": 31, "hand": "L", "digit": "thumb", "group": "octave" },
+    { "id": "thumb-rest", "label": "Left thumb rest", "shape": "circle", "r": 6.5, "x": 15, "y": 33, "hand": "L", "digit": "thumb", "group": "octave" },
+    { "id": "octave", "label": "Octave key (thumb)", "shape": "bean", "w": 6, "h": 14, "bend": -0.6, "dir": "right", "x": 15, "y": 20.5, "hand": "L", "digit": "thumb", "group": "octave" },
 
     { "id": "front-f", "label": "Front F", "shape": "circle", "r": 5, "relativeTo": "lh1", "place": "above", "gap": 8, "hand": "L", "digit": "1", "group": "lh-aux" },
 
