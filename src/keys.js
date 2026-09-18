@@ -111,13 +111,17 @@ const inkFor = (k) => (k.tone === 2 ? INK2 : INK);
 /**
  * Round tone hole or pearl touchpiece. Sax/flute/clarinet stacks, recorder holes.
  * `ringed: true` adds the metal ring of a ring key (clarinet, open-hole flute):
- * a thin concentric outline `ringGap` outside the hole.
+ * a thin concentric outline `ringGap` outside the hole. `hole: true` marks an
+ * open tone hole: its centre stays empty (`--fc-hole`, default none) until
+ * covered, instead of taking the key-surface fill.
  */
 export function circle(k) {
   const r = k.r ?? 9;
   const geom = (attr, shrink = 1) =>
     `<circle cx="${k.x}" cy="${k.y}" r="${r * shrink}" ${attr}/>`;
-  const hole = paint(k, [k.x - r, k.y - r, r * 2, r * 2], geom, k.fillFrom);
+  // open tone holes (clarinet, recorder) are empty until covered
+  const g = k.hole ? (attr, shrink) => geom(attr.replace(`fill="${KEY}"`, 'fill="var(--fc-hole, none)"'), shrink) : geom;
+  const hole = paint(k, [k.x - r, k.y - r, r * 2, r * 2], g, k.fillFrom);
   if (!k.ringed || k.state === 'na') return hole;
   const pressed = k.state === 'closed' || k.state === 'highlight';
   const ring = `<circle cx="${k.x}" cy="${k.y}" r="${r + (k.ringGap ?? 2.4)}" fill="none"`
