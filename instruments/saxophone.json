@@ -4,7 +4,7 @@
   "family": "single-reed",
   "transposing": true,
   "note": "Layout is written-pitch and identical for soprano/alto/tenor/baritone. Sounding pitch is a property of the horn, not the chart.",
-  "viewBox": [0, 0, 108, 286],
+  "viewBox": [0, 0, 100, 242],
   "defaults": {
     "circle": { "r": 9 },
     "oval": { "rx": 6.5, "ry": 3.8 },
@@ -13,6 +13,7 @@
     "teardrop": { "w": 11, "h": 20 }
   },
   "panels": [{ "id": "front" }],
+  "guides": [{ "id": "hand-divider", "x1": 31, "y1": 125, "x2": 50, "y2": 125 }],
 
   "clusters": [
     {
@@ -26,28 +27,88 @@
     {
       "id": "side",
       "label": "Side keys",
-      "anchor": [69, 114],
+      "note": "Top to bottom: high E (C3), side C (Tc), side B\u266d (Ta), west of the right-hand stack.",
+      "anchor": [21, 146],
       "rotate": 0,
-      "flow": { "axis": "y", "pitch": 10.5 },
-      "defaults": { "shape": "pill", "w": 15, "h": 6.5, "rad": 3.2 }
+      "flow": { "axis": "y", "pitch": 17 },
+      "defaults": { "shape": "bean", "w": 6.5, "h": 15, "bend": 0, "taper": 0.85 }
     },
     {
       "id": "lh-table",
       "label": "LH pinky table",
-      "anchor": [23, 188],
-      "rotate": -7,
-      "flow": { "axis": "y", "pitch": 15.5, "drift": -1.4 },
-      "defaults": { "shape": "spatula", "w": 15, "h": 13, "rad": 5 }
+      "note": "East of the stack, straddling the LH/RH divider. One table: a short, wide G\u266f on top, tall B | C\u266f side by side, and a curved B\u266d wrapping underneath.",
+      "anchor": [61, 104],
+      "rotate": 0,
+      "defaults": { "shape": "plate", "w": 20, "h": 16 }
     },
     {
       "id": "rh-table",
       "label": "RH pinky keys",
-      "anchor": [38, 256],
-      "rotate": 9,
-      "flow": { "axis": "x", "pitch": 18 },
-      "defaults": { "shape": "spatula", "w": 16, "h": 14, "rad": 5 }
+      "note": "Low E\u266d (D\u266f) stacked above low C, rollers above D\u266f and between the two, at seven o'clock of the right-hand stack.",
+      "anchor": [21, 222],
+      "rotate": -6,
+      "defaults": { "shape": "plate", "w": 7.5, "h": 20, "radii": [3, 3, 3.5, 3.5] }
     }
   ],
+
+  "variants": {
+    "lh-table-domes": {
+      "keys": {
+        "lh-gs": { "shape": "dome", "h": 7, "w": 17, "dy": 1.5, "radii": null },
+        "lh-cs": { "h": 10, "w": 8, "dx": 4.25, "dy": 11, "radii": [1.5, 1.5, 1.5, 1.5] },
+        "lh-b": { "h": 10, "w": 8, "dx": -4.25, "dy": 11, "radii": [1.5, 1.5, 1.5, 1.5] },
+        "lh-bb": { "shape": "dome", "dir": "down", "w": 17, "h": 7, "bend": null, "dy": 20.5 },
+        "lh-roller-top": { "default": "na" }, "lh-roller-bottom": { "default": "na" }
+      }
+    },
+    "rh-table-domes": {
+      "clusters": { "rh-table": { "anchor": [22, 224], "rotate": 0 } },
+      "keys": {
+        "rh-eb": { "shape": "dome", "w": 17, "h": 8, "dx": 0, "dy": -4.8, "radii": null },
+        "rh-c": { "shape": "dome", "dir": "down", "w": 17, "h": 8, "dx": 0, "dy": 4.8, "radii": null },
+        "rh-roller-top": { "default": "na" }, "rh-roller-bottom": { "default": "na" }
+      }
+    },
+    "side-levers": {
+      "clusters": { "side": { "anchor": [16, 146], "defaults": { "shape": "lever", "size": "lg", "stemDir": "right", "w": null, "h": null, "bend": null, "taper": null } } }
+    },
+    "side-pills": {
+      "clusters": { "side": { "anchor": [18, 150], "flow": { "axis": "y", "pitch": 12 }, "defaults": { "shape": "pill", "w": 15, "h": 6.5, "rad": 3.2, "bend": null, "taper": null } } }
+    },
+    "high-fs-double": {
+      "keys": { "high-fs": { "x": 22.5 }, "high-fs-2": { "default": "open", "x": 29 } }
+    },
+    "rh-table-spatulas": {
+      "clusters": { "rh-table": { "anchor": [36, 229], "rotate": 9, "flow": { "axis": "x", "pitch": 18 }, "defaults": { "shape": "spatula", "w": 16, "h": 14, "rad": 5, "radii": null } } },
+      "keys": { "rh-eb": { "dx": null, "dy": null, "w": null, "h": null }, "rh-c": { "dx": null, "dy": null, "w": null, "h": null }, "rh-roller-top": { "default": "na" }, "rh-roller-bottom": { "default": "na" } }
+    },
+    "palm-leaf": {
+      "clusters": { "palm": { "anchor": [66, 30], "rotate": 0, "defaults": { "shape": "leaf", "w": 8.5, "h": 21, "end": 0.45, "bend": 1, "tipRound": null } } },
+      "keys": {
+        "palm-eb": { "dx": -1, "dy": -12.5, "rot": 12 },
+        "palm-d": { "dx": 10.5, "dy": 0, "rot": 12 },
+        "palm-f": { "dx": 0, "dy": 13.5, "rot": 12 }
+      }
+    },
+    "lh-table-spatulas": {
+      "clusters": { "lh-table": { "anchor": [60, 100], "flow": { "axis": "y", "pitch": 13.5, "drift": 1 }, "defaults": { "shape": "spatula", "w": 14, "h": 12, "rad": 4.5 } } },
+      "keys": {
+        "lh-gs": { "dx": null, "dy": null, "h": null, "radii": null },
+        "lh-cs": { "dx": null, "dy": null, "w": null, "h": null, "radii": null },
+        "lh-b": { "dx": null, "dy": null, "w": null, "h": null, "radii": null, "ddx": -1.5 },
+        "lh-bb": { "shape": "spatula", "dx": null, "dy": null, "w": null, "h": null, "bend": null, "dir": null, "ddx": -3 },
+        "lh-roller-top": { "default": "na" }, "lh-roller-bottom": { "default": "na" }
+      }
+    },
+    "palm-bean": {
+      "clusters": { "palm": { "flow": { "axis": "x", "pitch": 11.5, "stagger": -6 }, "defaults": { "shape": "bean", "w": 8.5, "h": 18, "bend": 1.3, "taper": 0.72, "tipRound": null } } },
+      "keys": { "palm-f": { "rot": -8 }, "palm-eb": { "rot": 6 }, "palm-d": { "rot": 20 } }
+    },
+    "palm-taper": {
+      "clusters": { "palm": { "anchor": [60, 30], "flow": { "axis": "x", "pitch": 11, "stagger": -7 }, "defaults": { "shape": "taper", "w": 7.5, "h": 24, "tip": 0.8, "bend": 1.4, "curve": 1.7, "tipRound": null } } },
+      "keys": { "palm-f": { "rot": -10 }, "palm-eb": { "rot": 2 }, "palm-d": { "rot": 14 } }
+    }
+  },
 
   "keys": [
     { "id": "octave", "label": "Octave (thumb)", "shape": "circle", "r": 6.5, "x": 13, "y": 46, "hand": "L", "digit": "thumb", "group": "octave" },
@@ -60,19 +121,22 @@
 
     { "id": "bis", "label": "Bis B\u266d", "shape": "oval", "relativeTo": "lh1", "place": "below", "gap": 0, "offset": [16, 0], "hand": "L", "digit": "1", "group": "lh-aux" },
 
-    { "id": "palm-d", "label": "Palm D", "cluster": "palm", "hand": "L", "digit": "palm", "group": "palm" },
-    { "id": "palm-eb", "label": "Palm E\u266d", "cluster": "palm", "hand": "L", "digit": "palm", "group": "palm" },
-    { "id": "palm-f", "label": "Palm F", "cluster": "palm", "hand": "L", "digit": "palm", "group": "palm" },
+    { "id": "palm-d", "label": "Palm D (C1)", "cluster": "palm", "index": 2, "hand": "L", "digit": "palm", "group": "palm" },
+    { "id": "palm-eb", "label": "Palm E\u266d (C2)", "cluster": "palm", "index": 1, "hand": "L", "digit": "palm", "group": "palm" },
+    { "id": "palm-f", "label": "Palm F (C4)", "cluster": "palm", "index": 0, "hand": "L", "digit": "palm", "group": "palm" },
 
-    { "id": "side-bb", "label": "Side B\u266d", "cluster": "side", "index": 0, "hand": "R", "digit": "1", "group": "side" },
-    { "id": "side-c", "label": "Side C", "cluster": "side", "index": 1, "hand": "R", "digit": "1", "group": "side" },
-    { "id": "side-e", "label": "Side E (high E)", "cluster": "side", "index": 3, "hand": "R", "digit": "1", "group": "side" },
-    { "id": "high-fs", "label": "High F\u266f", "shape": "oval", "relativeTo": "side-e", "place": "left", "gap": 3, "offset": [0, -8], "hand": "R", "digit": "1", "group": "side" },
+    { "id": "side-bb", "label": "Side B\u266d (Ta)", "cluster": "side", "index": 2, "hand": "R", "digit": "1", "group": "side" },
+    { "id": "side-c", "label": "Side C (Tc)", "cluster": "side", "index": 1, "hand": "R", "digit": "1", "group": "side" },
+    { "id": "side-e", "label": "Side E (high E, C3)", "cluster": "side", "index": 0, "hand": "R", "digit": "1", "group": "side" },
+    { "id": "high-fs", "label": "High F\u266f (C5)", "shape": "bean", "w": 5.5, "h": 10, "bend": 0, "x": 27, "y": 196, "hand": "R", "digit": "1", "group": "side" },
+    { "id": "high-fs-2", "label": "High F\u266f, second touch (pro horns)", "shape": "bean", "w": 5.5, "h": 10, "bend": 0, "x": 27, "y": 196, "default": "na", "hand": "R", "digit": "1", "group": "side" },
 
-    { "id": "lh-gs", "label": "G\u266f", "cluster": "lh-table", "hand": "L", "digit": "4", "group": "lh-table" },
-    { "id": "lh-cs", "label": "Low C\u266f", "cluster": "lh-table", "hand": "L", "digit": "4", "group": "lh-table" },
-    { "id": "lh-b", "label": "Low B", "cluster": "lh-table", "ddx": -1.5, "hand": "L", "digit": "4", "group": "lh-table" },
-    { "id": "lh-bb", "label": "Low B\u266d", "cluster": "lh-table", "ddx": -3, "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-gs", "label": "G\u266f", "cluster": "lh-table", "dx": 0, "dy": 0, "h": 9.5, "radii": [4.75, 4.75, 3, 3], "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-cs", "label": "Low C\u266f", "cluster": "lh-table", "dx": 5.9, "dy": 12.8, "w": 8.2, "h": 12.6, "radii": [2, 2, 3.5, 3.5], "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-b", "label": "Low B", "cluster": "lh-table", "dx": -5.9, "dy": 12.8, "w": 8.2, "h": 12.6, "radii": [2, 2, 3.5, 3.5], "hand": "L", "digit": "4", "group": "lh-table" },
+    { "id": "lh-roller-top", "label": "LH roller (upper, B | C\u266f)", "cluster": "lh-table", "shape": "cylinder", "dx": 0, "dy": 7.9, "w": 3.4, "h": 7, "rot": 90, "radii": null, "hand": "L", "digit": "4", "group": "rollers" },
+    { "id": "lh-roller-bottom", "label": "LH roller (lower, B | C\u266f)", "cluster": "lh-table", "shape": "cylinder", "dx": 0, "dy": 17.7, "w": 3.4, "h": 7, "rot": 90, "radii": null, "hand": "L", "digit": "4", "group": "rollers" },
+    { "id": "lh-bb", "label": "Low B\u266d", "cluster": "lh-table", "shape": "bean", "dx": 0, "dy": 26, "w": 8.5, "h": 23, "bend": 1.6, "dir": "right", "hand": "L", "digit": "4", "group": "lh-table" },
 
     { "id": "rh1", "label": "Right 1 (F)", "shape": "circle", "x": 41, "y": 150, "hand": "R", "digit": "1", "group": "rh-stack" },
     { "id": "rh2", "label": "Right 2 (E)", "shape": "circle", "relativeTo": "rh1", "place": "below", "gap": 10, "hand": "R", "digit": "2", "group": "rh-stack" },
@@ -80,7 +144,9 @@
 
     { "id": "alt-fs", "label": "Alternate F\u266f", "shape": "oval", "relativeTo": "rh2", "place": "below", "gap": 0, "offset": [16, 0], "hand": "R", "digit": "3", "group": "rh-aux" },
 
-    { "id": "rh-eb", "label": "Low E\u266d", "cluster": "rh-table", "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-c", "label": "Low C", "cluster": "rh-table", "hand": "R", "digit": "4", "group": "rh-table" }
+    { "id": "rh-eb", "label": "Low E\u266d (D\u266f)", "cluster": "rh-table", "dx": 0, "dy": -9, "w": 9, "h": 12, "radii": [3, 3, 2, 2], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-c", "label": "Low C", "cluster": "rh-table", "dx": 0, "dy": 10, "w": 10, "h": 16, "radii": [2, 2, 4, 4], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-roller-top", "label": "RH roller (above D\u266f)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": -17, "w": 3.4, "h": 8, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" },
+    { "id": "rh-roller-bottom", "label": "RH roller (between D\u266f and C)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": -0.5, "w": 3.4, "h": 9, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" }
   ]
 }

@@ -40,9 +40,15 @@ can open from the filesystem.
 | `pill` | side keys, trill keys, thumb levers |
 | `bar` | long lever bars (flute B♭ bar, clarinet linkage) |
 | `spatula` | pinky tables — sax LH G♯/C♯/B/B♭ and RH E♭/C, clarinet levers, flute foot |
-| `lever` | stemmed side/trill levers where the stem reads as articulation |
+| `lever` | stemmed side/trill levers; `size` sm/md/lg, rod stem with pivot (`stemStyle: "line"` for the hairline) |
 | `roller` | paired rollers between spatulas |
 | `teardrop` (alias `drop`) | sax palm keys, and any bulb-and-taper touchpiece |
+| `taper` | long, slim tapered drop — engraved-chart palm keys |
+| `leaf` | almond pad, widest in the middle — realistic palm keys |
+| `bean` | curved, optionally tapered capsule — side keys, clarinet throat A/G♯, sax low B♭ |
+| `plate` | rectangle with per-corner `radii` — tiles into pinky tables |
+| `dome` | half-ellipse on a flat base — table end caps, split-circle pinky pair |
+| `cylinder` | roller seen side-on — sits between pinky keys |
 
 Geometry is per-key and optional: `r`, `rx`/`ry`, `w`/`h`, `rad`, `rot`.
 Family defaults live in the layout's `defaults` block, keyed by shape name.
@@ -56,6 +62,24 @@ nowhere to go and the shape falls back to a plain bulb rather than breaking.
 
 Partial fills follow the shape: a `half` teardrop fills from the bulb end up,
 which is what you want when a chart shows a palm key only partly depressed.
+
+## Themes, highlight and two-tone
+
+Colours are CSS custom properties: `--fc-ink` (pressed), `--fc-line`
+(outline), `--fc-key` (unpressed surface), `--fc-accent`, `--fc-highlight`,
+`--fc-ink-2` (second tone), `--fc-text`, `--fc-font`, `--fc-stroke`. The
+`highlight` state calls a key out; `{ twoTone: 'hand' }` draws right-hand
+keys in `--fc-ink-2`. Setting `--fc-key: none; --fc-stroke: 1.1` with a serif
+font gives the original outline look.
+
+## Layout variants
+
+A layout can carry named, additive overrides under `variants`. Pass one or
+several: `renderChart(sax, notes, { variant: 'palm-leaf side-levers' })`.
+The saxophone ships `palm-bean`, `palm-taper`, `palm-leaf`, `side-levers`,
+`side-pills`, `high-fs-double`, `lh-table-domes`, `rh-table-domes`,
+`lh-table-spatulas` and `rh-table-spatulas`; the clarinet ships
+`throat-pills`.
 
 ## States
 

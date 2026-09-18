@@ -28,13 +28,20 @@ const html = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fingering chart components</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --fc-ink: #1f3340;
-    --fc-line: #1f3340;
-    --fc-paper: #fbfaf7;
-    --fc-font: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-    --rule: #cfc9bd;
+    --fc-ink: #141b22;
+    --fc-ink-2: #6f8193;
+    --fc-highlight: #e2553b;
+    --fc-line: #9aa6b2;
+    --fc-key: #eef1f4;
+    --fc-accent: #141b22;
+    --fc-text: #141b22;
+    --fc-paper: #ffffff;
+    --fc-font: Poppins, system-ui, sans-serif;
+    --rule: #e3e7eb;
   }
   * { box-sizing: border-box; }
   body {
@@ -73,7 +80,7 @@ const html = `<!doctype html>
   <div class="legend" id="states"></div>
 
   <h2>Saxophone, written range</h2>
-  <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>. Scroll sideways on a narrow screen.</p>
+  <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>, drawn with the <code>palm-leaf</code> layout variant. Scroll sideways on a narrow screen.</p>
   <div class="scroll" id="sax"></div>
 
   <h2>Empty layouts</h2>
@@ -102,9 +109,15 @@ const shapeDemos = [
   ['pill', 'pill', { w: 12, h: 24 }],
   ['bar', 'bar', { w: 26, h: 7 }],
   ['spatula', 'spatula', { w: 20, h: 17 }],
-  ['lever', 'lever', { w: 9, h: 18 }],
+  ['lever sm', 'lever', { size: 'sm', x: 34 }],
+  ['lever md', 'lever', { size: 'md', x: 34 }],
+  ['lever lg', 'lever', { size: 'lg', x: 35 }],
   ['roller', 'roller', {}],
   ['teardrop', 'teardrop', { w: 13, h: 24 }],
+  ['bean', 'bean', { w: 9, h: 26, bend: 3 }],
+  ['taper', 'taper', { w: 8, h: 28 }],
+  ['plate', 'plate', { w: 18, h: 16, radii: [8, 8, 2, 2] }],
+  ['leaf', 'leaf', { w: 9, h: 28 }],
 ];
 set('shapes', shapeDemos.map(([name, shape, geo]) =>
   \`<figure><svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ shape, x: 30, y: 20, state: 'closed', ...geo })}</svg><figcaption>\${name}</figcaption></figure>\`
@@ -114,7 +127,7 @@ set('states', STATES.map((state) =>
   \`<figure><svg viewBox="0 0 60 44" width="60" height="44">\${DEFS}\${drawKey({ shape: 'circle', x: 30, y: 24, r: 11, state, hideWhenNA: false })}</svg><figcaption>\${state}</figcaption></figure>\`
 ).join(''));
 
-set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240 }));
+set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240, variant: 'palm-leaf' }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 10, width: 1060 }));
 
 set('gallery', Object.values(INSTRUMENTS).map((inst) =>

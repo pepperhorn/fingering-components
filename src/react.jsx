@@ -9,7 +9,10 @@ import { resolveLayout } from './layout.js';
 
 const themeVars = (t = {}) => ({
   '--fc-ink': t.ink,
-  '--fc-line': t.line || t.ink,
+  '--fc-line': t.line,
+  '--fc-key': t.key,
+  '--fc-accent': t.accent,
+  '--fc-text': t.text,
   '--fc-paper': t.paper,
   '--fc-font': t.font,
 });
