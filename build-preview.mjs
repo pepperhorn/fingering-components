@@ -54,7 +54,8 @@ const html = `<!doctype html>
   .sub { margin: 0 0 26px; font-size: .92rem; opacity: .72; max-width: 60ch; }
   h2 { font-size: 1.05rem; font-weight: 600; margin: 34px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
   p.hint { font-size: .85rem; opacity: .7; margin: 0 0 14px; max-width: 62ch; }
-  .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 14px 10px; }
+  .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 14px 10px; }
+  #states { grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); }
   .legend figure { margin: 0; text-align: center; }
   .legend figcaption { font-size: .74rem; opacity: .75; margin-top: 4px; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 6px; }
@@ -102,25 +103,29 @@ const DATA = ${JSON.stringify(data)};
 
 const set = (id, html) => { document.getElementById(id).innerHTML = html; };
 
-/* shape legend */
+/* shape legend: every shape, open and pressed */
 const shapeDemos = [
-  ['circle', 'circle', { r: 11 }],
-  ['oval', 'oval', { rx: 12, ry: 7 }],
-  ['pill', 'pill', { w: 12, h: 24 }],
-  ['bar', 'bar', { w: 26, h: 7 }],
-  ['spatula', 'spatula', { w: 20, h: 17 }],
-  ['lever sm', 'lever', { size: 'sm', x: 34 }],
-  ['lever md', 'lever', { size: 'md', x: 34 }],
-  ['lever lg', 'lever', { size: 'lg', x: 35 }],
-  ['roller', 'roller', {}],
-  ['teardrop', 'teardrop', { w: 13, h: 24 }],
-  ['bean', 'bean', { w: 9, h: 26, bend: 3 }],
-  ['taper', 'taper', { w: 8, h: 28 }],
-  ['plate', 'plate', { w: 18, h: 16, radii: [8, 8, 2, 2] }],
-  ['leaf', 'leaf', { w: 9, h: 28 }],
+  ['circle', { shape: 'circle', r: 10 }],
+  ['circle · ringed', { shape: 'circle', r: 8.5, ringed: true }],
+  ['circle · hole', { shape: 'circle', r: 10, hole: true }],
+  ['oval', { shape: 'oval', rx: 11, ry: 6 }],
+  ['pill', { shape: 'pill', w: 10, h: 22 }],
+  ['bar', { shape: 'bar', w: 26, h: 7 }],
+  ['spatula', { shape: 'spatula', w: 20, h: 17 }],
+  ['plate', { shape: 'plate', w: 18, h: 16, radii: [8, 8, 2, 2] }],
+  ['dome', { shape: 'dome', w: 22, h: 11 }],
+  ['lever', { shape: 'lever', size: 'lg', x: 36 }],
+  ['roller', { shape: 'roller', rx: 9, ry: 4.5 }],
+  ['cylinder', { shape: 'cylinder', w: 5, h: 18, rot: 90 }],
+  ['teardrop', { shape: 'teardrop', w: 12, h: 24 }],
+  ['taper', { shape: 'taper', w: 9, h: 28 }],
+  ['leaf', { shape: 'leaf', w: 10, h: 28 }],
+  ['bean', { shape: 'bean', w: 9, h: 26, bend: 3 }],
+  ['pin', { shape: 'pin', w: 9, h: 18, y: 26 }],
+  ['hook', { shape: 'hook', w: 22, h: 9, stem: 10, y: 16 }],
 ];
-set('shapes', shapeDemos.map(([name, shape, geo]) =>
-  \`<figure><svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ shape, x: 30, y: 20, state: 'closed', ...geo })}</svg><figcaption>\${name}</figcaption></figure>\`
+set('shapes', shapeDemos.map(([name, geo]) =>
+  \`<figure>\${['open', 'closed'].map((state) => \`<svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ x: 30, y: 20, state, ...geo })}</svg>\`).join('')}<figcaption>\${name}</figcaption></figure>\`
 ).join(''));
 
 set('states', STATES.map((state) =>
