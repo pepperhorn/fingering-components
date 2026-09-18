@@ -18,8 +18,7 @@
     {
       "id": "throat",
       "label": "Throat keys",
-      "anchor": [25, 26],
-      "rotate": -6,
+      "anchor": [26, 30],
       "flow": { "axis": "y", "pitch": 12 },
       "defaults": { "shape": "pill", "w": 13, "h": 6, "rad": 3 }
     },
@@ -48,12 +47,22 @@
     }
   ],
 
+  "variants": {
+    "throat-pills": {
+      "clusters": { "throat": { "anchor": [25, 26], "rotate": -6 } },
+      "keys": {
+        "throat-a": { "shape": "pill", "w": 13, "h": 6, "bend": null, "taper": null, "dx": null, "dy": null },
+        "throat-gs": { "shape": "pill", "w": 13, "h": 6, "bend": null, "dx": null, "dy": null, "rot": null }
+      }
+    }
+  },
+
   "keys": [
     { "id": "thumb-hole", "label": "Thumb hole", "shape": "circle", "r": 9, "x": 19, "y": 22, "panel": "rear", "hand": "L", "digit": "thumb", "group": "rear" },
     { "id": "register", "label": "Register key", "shape": "pill", "w": 18, "h": 7, "relativeTo": "thumb-hole", "place": "below", "gap": 10, "panel": "rear", "hand": "L", "digit": "thumb", "group": "rear" },
 
-    { "id": "throat-a", "label": "Throat A", "cluster": "throat", "hand": "L", "digit": "1", "group": "throat" },
-    { "id": "throat-gs", "label": "Throat G\u266f", "cluster": "throat", "hand": "L", "digit": "1", "group": "throat" },
+    { "id": "throat-a", "label": "Throat A", "cluster": "throat", "shape": "bean", "w": 8, "h": 22, "bend": 0, "taper": 0.8, "dx": 0, "dy": 0, "hand": "L", "digit": "1", "group": "throat" },
+    { "id": "throat-gs", "label": "Throat G\u266f", "cluster": "throat", "shape": "bean", "w": 6.5, "h": 12, "bend": 1.5, "dx": 12, "dy": 12, "rot": 35, "hand": "L", "digit": "1", "group": "throat" },
 
     { "id": "lh1", "label": "Left 1 ring", "shape": "circle", "x": 48, "y": 54, "hand": "L", "digit": "1", "group": "lh-stack" },
     { "id": "lh2", "label": "Left 2 ring", "shape": "circle", "relativeTo": "lh1", "place": "below", "gap": 10, "hand": "L", "digit": "2", "group": "lh-stack" },

@@ -42,7 +42,7 @@
     { "note": "C#", "octave": 3, "down": ["octave"] },
     { "note": "D", "octave": 3, "down": ["octave", "palm-d"] },
     { "note": "Eb", "octave": 3, "down": ["octave", "palm-d", "palm-eb"] },
-    { "note": "E", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "palm-f"] },
+    { "note": "E", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "side-e"] },
     { "note": "F", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "palm-f", "side-e"] },
     { "note": "F#", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "palm-f", "side-e", "high-fs"], "alternates": [
       { "down": ["octave", "front-f", "lh2", "lh3"] }
