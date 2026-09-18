@@ -15,9 +15,9 @@
   "guides": [{"id": "hand-divider", "x1": 34, "y1": 121, "x2": 54, "y2": 121}],
 
   "clusters": [
-    {"id": "trill", "label": "Trill keys", "note": "Four lh-hooks stacked on the left, centred between LH2 and LH3; pressed by the side of the right first finger.", "anchor": [26, 69.5], "defaults": {"shape": "lh-hook", "w": 10.5, "h": 6, "stemW": 2.25}},
+    {"id": "trill", "label": "Trill keys", "note": "Four lh-hooks stacked on the left, centred between LH2 and LH3; pressed by the side of the right first finger.", "anchor": [26, 70.85], "defaults": {"shape": "lh-hook", "w": 9.45, "h": 5.4, "stemW": 2.03}},
     {"id": "lh-table", "label": "LH pinky keys", "note": "Right of the stack at the joint: F/C as an rh-hook (lobe right, rod left) on top, E/B and F\u266f/C\u266f as upside-down teardrops below. A\u266d/E\u266d (full Boehm only) is hidden by default.", "anchor": [61, 128]},
-    {"id": "rh-table", "label": "RH pinky keys", "note": "Two-by-two below-right of the right-hand stack, each key a lobe with its rod on the right. A\u266d/E\u266d and F\u266f/C\u266f on top (rods run down past the lower keys), F/C and E/B below. Confirm positions against your instrument.", "anchor": [58, 212], "defaults": {"shape": "lh-hook", "h": 8, "stemW": 3}}
+    {"id": "rh-table", "label": "RH pinky keys", "note": "Two-by-two below-right of the right-hand stack, each key a lobe with its rod on the right. A\u266d/E\u266d and F\u266f/C\u266f on top (rods run down past the lower keys), F/C and E/B below. Confirm positions against your instrument.", "anchor": [53, 212], "defaults": {"shape": "lh-hook", "h": 8, "stemW": 3}}
   ],
 
   "variants": {
@@ -26,8 +26,8 @@
   },
 
   "keys": [
-    {"id": "register", "label": "Register key (thumb)", "shape": "taper", "w": 8.62, "h": 22.08, "x": 12, "y": 30.96, "hand": "L", "digit": "thumb", "group": "rear", "bend": 0, "tip": 1.03, "curve": 1.5},
-    {"id": "thumb-hole", "label": "Thumb hole", "shape": "circle", "r": 7, "x": 12, "y": 54, "hand": "L", "digit": "thumb", "group": "rear", "hole": true},
+    {"id": "register", "label": "Register key (thumb)", "shape": "taper", "w": 8.62, "h": 22.08, "x": 17, "y": 28.96, "hand": "L", "digit": "thumb", "group": "rear", "bend": 0, "tip": 1.03, "curve": 1.5},
+    {"id": "thumb-hole", "label": "Thumb hole", "shape": "circle", "r": 7, "x": 17, "y": 52, "hand": "L", "digit": "thumb", "group": "rear", "hole": true},
     {"id": "throat-a", "label": "Throat A", "shape": "teardrop", "w": 8, "h": 17, "x": 44, "y": 22, "hand": "L", "digit": "1", "group": "throat"},
     {"id": "throat-gs", "label": "Throat G\u266f", "shape": "leaf", "w": 7, "h": 18, "x": 58, "y": 46, "hand": "L", "digit": "1", "group": "throat", "end": 0.45, "bend": 0.8},
     {"id": "lh1", "label": "Left 1", "shape": "circle", "x": 44, "y": 44, "hand": "L", "digit": "1", "group": "lh-stack", "hole": true},
@@ -35,10 +35,10 @@
     {"id": "lh3", "label": "Left 3", "shape": "circle", "x": 44, "y": 96, "hand": "L", "digit": "3", "group": "lh-stack", "hole": true},
     {"id": "lh1-eb", "label": "Chromatic D\u266f/A\u266f (side E\u266d/B\u266d)", "shape": "pill", "w": 13, "h": 4, "x": 49, "y": 83, "hand": "L", "digit": "1", "group": "lh-aux", "rad": 2},
     {"id": "lh-cs-gs", "label": "C\u266f/G\u266f key", "shape": "pin", "w": 7.8, "h": 16.8, "x": 61.28, "y": 112, "hand": "L", "digit": "3", "group": "lh-aux", "dir": "left", "knob": 2.88, "armLen": 6},
-    {"id": "trill-1", "label": "Trill 1 (A/B\u266d)", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 0, "stem": 28.5},
-    {"id": "trill-2", "label": "Trill 2", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 9, "stem": 19.5},
-    {"id": "trill-3", "label": "Trill 3", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 18, "stem": 10.5},
-    {"id": "trill-4", "label": "Trill 4", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 27, "stem": 1.5},
+    {"id": "trill-1", "label": "Trill 1 (A/B\u266d)", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 0.0, "stem": 25.65},
+    {"id": "trill-2", "label": "Trill 2", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 8.1, "stem": 17.55},
+    {"id": "trill-3", "label": "Trill 3", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 16.2, "stem": 9.45},
+    {"id": "trill-4", "label": "Trill 4", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 24.3, "stem": 1.35},
     {"id": "lh-f-c", "label": "LH F/C", "cluster": "lh-table", "shape": "rh-hook", "dx": 13.64, "dy": 0.0, "hand": "L", "digit": "4", "group": "lh-table", "w": 15.4, "h": 7.7, "stem": 28.6, "stemW": 3.08},
     {"id": "lh-e-b", "label": "LH E/B", "cluster": "lh-table", "shape": "teardrop", "w": 10.89, "h": 33.4, "dx": 2.85, "dy": 23.3, "hand": "L", "digit": "4", "group": "lh-table", "dir": "down"},
     {"id": "lh-fs-cs", "label": "LH F\u266f/C\u266f", "cluster": "lh-table", "shape": "teardrop", "w": 10.02, "h": 28.46, "dx": 12.55, "dy": 24.35, "hand": "L", "digit": "4", "group": "lh-table", "dir": "down"},
