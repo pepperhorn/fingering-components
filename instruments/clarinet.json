@@ -26,8 +26,8 @@
   },
 
   "keys": [
-    {"id": "register", "label": "Register key (thumb)", "shape": "taper", "w": 7.5, "h": 19.2, "x": 12, "y": 44.4, "hand": "L", "digit": "thumb", "group": "rear", "bend": 0, "tip": 0.9, "curve": 1.5},
-    {"id": "thumb-hole", "label": "Thumb hole", "shape": "circle", "r": 7, "x": 12, "y": 64, "hand": "L", "digit": "thumb", "group": "rear", "hole": true},
+    {"id": "register", "label": "Register key (thumb)", "shape": "taper", "w": 7.5, "h": 19.2, "x": 12, "y": 32.4, "hand": "L", "digit": "thumb", "group": "rear", "bend": 0, "tip": 0.9, "curve": 1.5},
+    {"id": "thumb-hole", "label": "Thumb hole", "shape": "circle", "r": 7, "x": 12, "y": 54, "hand": "L", "digit": "thumb", "group": "rear", "hole": true},
     {"id": "throat-a", "label": "Throat A", "shape": "teardrop", "w": 8, "h": 17, "x": 44, "y": 22, "hand": "L", "digit": "1", "group": "throat"},
     {"id": "throat-gs", "label": "Throat G\u266f", "shape": "leaf", "w": 7, "h": 18, "x": 58, "y": 46, "hand": "L", "digit": "1", "group": "throat", "end": 0.45, "bend": 0.8},
     {"id": "lh1", "label": "Left 1", "shape": "circle", "x": 44, "y": 44, "hand": "L", "digit": "1", "group": "lh-stack", "hole": true},
