@@ -17,7 +17,7 @@
   "clusters": [
     {"id": "trill", "label": "Trill keys", "note": "Stacked tabs on the left at the joint, pressed by the side of the right first finger.", "anchor": [26, 102], "flow": {"axis": "y", "pitch": 6.5}, "defaults": {"shape": "plate", "w": 9, "h": 5.8, "radii": [2.9, 1.2, 1.2, 2.9]}},
     {"id": "lh-table", "label": "LH pinky keys", "note": "Right of the stack at the joint: F/C as a flat oval on top, E/B and F\u266f/C\u266f as tall keys below. A\u266d/E\u266d (full Boehm only) is hidden by default.", "anchor": [61, 118]},
-    {"id": "rh-table", "label": "RH pinky keys", "note": "Two-by-two below-right of the right-hand stack: A\u266d/E\u266d and F\u266f/C\u266f on top, F/C and E/B below. Confirm positions against your instrument.", "anchor": [62, 212], "defaults": {"shape": "pill", "w": 11, "h": 6.5, "rad": 3.25}}
+    {"id": "rh-table", "label": "RH pinky keys", "note": "Two-by-two below-right of the right-hand stack, each key a lobe with its rod on the right. A\u266d/E\u266d and F\u266f/C\u266f on top (rods run down past the lower keys), F/C and E/B below. Confirm positions against your instrument.", "anchor": [63, 212], "defaults": {"shape": "hook", "h": 8, "stemW": 3}}
   ],
 
   "variants": {
@@ -47,9 +47,9 @@
     {"id": "rh2", "label": "Right 2", "shape": "circle", "x": 44, "y": 172, "hand": "R", "digit": "2", "group": "rh-stack"},
     {"id": "rh3", "label": "Right 3", "shape": "circle", "x": 44, "y": 198, "hand": "R", "digit": "3", "group": "rh-stack"},
     {"id": "rh-side-eb", "label": "Side E\u266d/B\u266d (sliver key)", "shape": "pill", "w": 12, "h": 4, "rad": 2, "rot": 8, "x": 30, "y": 185, "hand": "R", "digit": "1", "group": "rh-aux"},
-    {"id": "rh-ab-eb", "label": "RH A\u266d/E\u266d", "cluster": "rh-table", "dx": -6.2, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table"},
-    {"id": "rh-e-b", "label": "RH E/B", "cluster": "rh-table", "dx": 6.2, "dy": 9, "hand": "R", "digit": "4", "group": "rh-table"},
-    {"id": "rh-f-c", "label": "RH F/C", "cluster": "rh-table", "dx": -6.2, "dy": 9, "hand": "R", "digit": "4", "group": "rh-table"},
-    {"id": "rh-fs-cs", "label": "RH F\u266f/C\u266f", "cluster": "rh-table", "dx": 6.2, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table"}
+    {"id": "rh-ab-eb", "label": "RH A\u266d/E\u266d", "cluster": "rh-table", "dx": -8.5, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 12},
+    {"id": "rh-e-b", "label": "RH E/B", "cluster": "rh-table", "dx": 6.75, "dy": 11, "hand": "R", "digit": "4", "group": "rh-table", "w": 9.5, "stem": 1.5},
+    {"id": "rh-f-c", "label": "RH F/C", "cluster": "rh-table", "dx": -10.25, "dy": 11, "hand": "R", "digit": "4", "group": "rh-table", "w": 9.5, "stem": 1.5},
+    {"id": "rh-fs-cs", "label": "RH F\u266f/C\u266f", "cluster": "rh-table", "dx": 8.5, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 12}
   ]
 }
