@@ -44,9 +44,9 @@
     {
       "id": "rh-table",
       "label": "RH pinky keys",
-      "note": "The LH B | C\u266f pair turned 90\u00b0: D\u266f (low E\u266d) above low C, rollers between them at each end, below-right of the right-hand stack.",
-      "anchor": [52, 229],
-      "rotate": 82,
+      "note": "The LH B | C\u266f pair turned 90\u00b0: D\u266f (low E\u266d) above low C, rollers between them at each end, at seven o'clock of the right-hand stack.",
+      "anchor": [28, 229],
+      "rotate": 98,
       "defaults": { "shape": "plate", "w": 7.5, "h": 20, "radii": [3, 3, 3.5, 3.5] }
     }
   ],
