@@ -81,7 +81,7 @@ const html = `<!doctype html>
   <div class="legend" id="states"></div>
 
   <h2>Saxophone, written range</h2>
-  <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>, drawn with the <code>palm-leaf</code> layout variant. Scroll sideways on a narrow screen.</p>
+  <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>. Scroll sideways on a narrow screen.</p>
   <div class="scroll" id="sax"></div>
 
   <h2>Empty layouts</h2>
@@ -133,7 +133,7 @@ set('states', STATES.map((state) =>
   \`<figure><svg viewBox="0 0 60 44" width="60" height="44">\${DEFS}\${drawKey({ shape: 'circle', x: 30, y: 24, r: 11, state, hideWhenNA: false })}</svg><figcaption>\${state}</figcaption></figure>\`
 ).join(''));
 
-set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240, variant: 'palm-leaf' }));
+set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240, variant: '' }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 10, width: 1060 }));
 
 set('gallery', Object.values(INSTRUMENTS).map((inst) =>

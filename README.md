@@ -92,8 +92,8 @@ a ghosted instrument, piano-tiles style.
 ## Layout variants
 
 A layout can carry named, additive overrides under `variants`. Pass one or
-several: `renderChart(sax, notes, { variant: 'palm-leaf side-levers' })`.
-The saxophone ships `palm-bean`, `palm-taper`, `palm-leaf`, `side-levers`,
+several: `renderChart(sax, notes, { variant: 'palm-taper side-levers' })`.
+The saxophone defaults to leaf palm keys and ships `palm-teardrop`, `palm-bean`, `palm-taper`, `side-levers`,
 `side-pills`, `high-fs-single`, `rh-table-stacked`, `lh-table-domes`, `rh-table-domes`,
 `lh-table-spatulas` and `rh-table-spatulas`; the clarinet ships
 `throat-pills` and `ring-keys`.
