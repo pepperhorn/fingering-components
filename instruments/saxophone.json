@@ -46,7 +46,7 @@
       "label": "RH pinky keys",
       "note": "The LH B | C\u266f pair turned 90\u00b0: D\u266f (low E\u266d) above low C, rollers between them at each end, at seven o'clock of the right-hand stack.",
       "anchor": [21, 208],
-      "rotate": 98,
+      "rotate": 82,
       "defaults": { "shape": "plate", "w": 7.5, "h": 20, "radii": [3, 3, 3.5, 3.5] }
     }
   ],
@@ -85,7 +85,7 @@
       "clusters": { "side": { "anchor": [18, 113], "flow": { "axis": "y", "pitch": 12 }, "defaults": { "shape": "pill", "w": 15, "h": 6.5, "rad": 3.2, "bend": null, "taper": null } } }
     },
     "high-fs-single": {
-      "keys": { "high-fs": { "x": 22 }, "high-fs-2": { "default": "na" } }
+      "keys": { "high-fs": { "y": 180 }, "high-g": { "default": "na" } }
     },
     "rh-table-spatulas": {
       "clusters": { "rh-table": { "anchor": [34, 224], "rotate": 9, "flow": { "axis": "x", "pitch": 18 }, "defaults": { "shape": "spatula", "w": 16, "h": 14, "rad": 5, "radii": null } } },
@@ -137,8 +137,8 @@
     { "id": "side-bb", "label": "Side B\u266d (Ta)", "cluster": "side", "index": 2, "hand": "R", "digit": "1", "group": "side" },
     { "id": "side-c", "label": "Side C (Tc)", "cluster": "side", "index": 1, "hand": "R", "digit": "1", "group": "side" },
     { "id": "side-e", "label": "Side E (high E, C3)", "cluster": "side", "index": 0, "hand": "R", "digit": "1", "group": "side" },
-    { "id": "high-fs", "label": "High F\u266f (C5)", "shape": "bean", "w": 5.5, "h": 10, "bend": 0, "x": 18.75, "y": 176, "hand": "R", "digit": "1", "group": "side" },
-    { "id": "high-fs-2", "label": "High F\u266f, second touch (pro horns)", "shape": "bean", "w": 5.5, "h": 10, "bend": 0, "x": 25.25, "y": 176, "hand": "R", "digit": "1", "group": "side" },
+    { "id": "high-fs", "label": "High F\u266f (C5)", "shape": "bean", "w": 5.5, "h": 10, "bend": 0, "x": 22, "y": 175, "hand": "R", "digit": "1", "group": "side" },
+    { "id": "high-g", "label": "High G (pro horns)", "shape": "bean", "w": 5.5, "h": 10, "bend": 0, "x": 22, "y": 186.5, "hand": "R", "digit": "1", "group": "side" },
 
     { "id": "lh-gs", "label": "G\u266f", "cluster": "lh-table", "dx": 0, "dy": 0, "h": 9.5, "radii": [4.75, 4.75, 3, 3], "hand": "L", "digit": "4", "group": "lh-table" },
     { "id": "lh-cs", "label": "Low C\u266f", "cluster": "lh-table", "dx": 5.9, "dy": 12.8, "w": 8.2, "h": 12.6, "radii": [2, 2, 3.5, 3.5], "hand": "L", "digit": "4", "group": "lh-table" },
@@ -153,9 +153,9 @@
 
     { "id": "alt-fs", "label": "Alternate F\u266f", "shape": "oval", "x": 25, "y": 164, "hand": "R", "digit": "3", "group": "rh-aux" },
 
-    { "id": "rh-eb", "label": "Low E\u266d (D\u266f)", "cluster": "rh-table", "dx": -5.9, "dy": 0, "w": 8.2, "h": 12.6, "radii": [2, 2, 3.5, 3.5], "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-c", "label": "Low C", "cluster": "rh-table", "dx": 5.9, "dy": 0, "w": 8.2, "h": 12.6, "radii": [2, 2, 3.5, 3.5], "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-roller-top", "label": "RH roller (D\u266f | C, one end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": -4.9, "w": 3.4, "h": 7, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" },
-    { "id": "rh-roller-bottom", "label": "RH roller (D\u266f | C, other end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": 4.9, "w": 3.4, "h": 7, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" }
+    { "id": "rh-eb", "label": "Low E\u266d (D\u266f)", "cluster": "rh-table", "dx": -6.79, "dy": 0, "w": 9.43, "h": 14.49, "radii": [2.3, 2.3, 4.02, 4.02], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-c", "label": "Low C", "cluster": "rh-table", "dx": 6.79, "dy": 0, "w": 9.43, "h": 14.49, "radii": [2.3, 2.3, 4.02, 4.02], "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-roller-top", "label": "RH roller (D\u266f | C, one end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": -5.63, "w": 3.91, "h": 8.05, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" },
+    { "id": "rh-roller-bottom", "label": "RH roller (D\u266f | C, other end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": 5.63, "w": 3.91, "h": 8.05, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" }
   ]
 }
