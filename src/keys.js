@@ -180,6 +180,45 @@ export function dome(k) {
   return paint(k, [k.x - w / 2, k.y - h / 2, w, h], geom, k.fillFrom);
 }
 
+/**
+ * Pin — a key body hung from a pivot pearl: a small grey knob, a thin arm,
+ * and a teardrop body (bulb at the bottom). The clarinet register key and
+ * throat A. `w`/`h` size the body; `knob` is the pearl radius; `kdx` moves
+ * the pearl sideways so the arm runs across then down (clarinet G♯ lever).
+ */
+export function pin(k) {
+  const w = k.w ?? 8, h = k.h ?? 16, kr = k.knob ?? 2.6, kdx = k.kdx ?? 0, gap = k.armLen ?? 4;
+  const tipY = k.y - h / 2, ky = tipY - gap - kr;
+  const kx = k.x + kdx;
+  const arm = kdx
+    ? `M ${kx} ${ky} H ${k.x} V ${tipY + 1}`
+    : `M ${kx} ${ky + kr} V ${tipY + 1}`;
+  const deco = `<path d="${arm}" fill="none" stroke="${LINE}" stroke-width="${SW}" stroke-linecap="round" stroke-linejoin="round"/>`
+    + `<circle cx="${kx}" cy="${ky}" r="${kr}" fill="var(--fc-pearl, ${LINE})" stroke="${LINE}" stroke-width="${SW}"/>`;
+  return deco + teardrop({ ...k, w, h, tipRound: k.tipRound ?? 1.2 });
+}
+
+/**
+ * Hook — a pinky lobe that turns down into a stem: rounded outer end,
+ * straight top, and at the inner end a stem dropping `stem` below the lobe.
+ * Stack several for the clarinet RH pinky keys. Lobe points left by
+ * default; `flip: true` points it right.
+ */
+export function hook(k) {
+  const w = k.w ?? 16, h = k.h ?? 7, st = k.stem ?? 12, sw = k.stemW ?? 3;
+  const n = (v) => Math.round(v * 100) / 100;
+  const geom = (attr, s = 1) => {
+    const W = w * s, Hh = h * s, S = st * s, SW2 = sw * s, r = Hh / 2;
+    const x0 = k.x - W / 2, x1 = k.x + W / 2, top = k.y - Hh / 2, bot = k.y + Hh / 2;
+    const rr = Math.min(r, SW2);
+    const d = `M ${n(x0 + r)} ${n(top)} H ${n(x1 - rr)} A ${n(rr)} ${n(rr)} 0 0 1 ${n(x1)} ${n(top + rr)}`
+      + ` V ${n(bot + S)} H ${n(x1 - SW2)} V ${n(bot)} H ${n(x0 + r)} A ${n(r)} ${n(r)} 0 0 1 ${n(x0 + r)} ${n(top)} Z`;
+    const flip = k.flip ? ` transform="translate(${n(2 * k.x)} 0) scale(-1 1)"` : '';
+    return `<path d="${d}"${flip} stroke-linejoin="round" ${attr}/>`;
+  };
+  return paint(k, [k.x - w / 2, k.y - h / 2, w, h + st], geom, k.fillFrom ?? 'left');
+}
+
 /** Long thin bar. Clarinet lever bars, flute Bb bar, low-B footjoint. */
 export function bar(k) {
   return pill({ ...k, w: k.w ?? 20, h: k.h ?? 5 });
@@ -388,7 +427,7 @@ export function taper(k) {
   return paint(k, [k.x + x0, k.y - h / 2, x1 - x0, h], geom, k.fillFrom);
 }
 
-export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder };
+export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook };
 
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
@@ -402,6 +441,8 @@ export function bbox(k) {
     case 'teardrop': case 'drop': return [k.w ?? 11, k.h ?? 20];
     case 'taper': return [(k.w ?? 8) + Math.abs(k.bend ?? 1.2), k.h ?? 24];
     case 'leaf': return [(k.w ?? 8) + Math.abs(k.bend ?? 1), k.h ?? 22];
+    case 'pin': return [k.w ?? 8, (k.h ?? 16) + 2 * (k.knob ?? 2.6) + (k.armLen ?? 4)];
+    case 'hook': return [k.w ?? 16, (k.h ?? 7) + (k.stem ?? 12)];
     case 'cylinder': return [k.w ?? 3.2, k.h ?? 7];
     case 'dome': return [k.w ?? 16, k.h ?? 8];
     case 'plate': return [k.w ?? 16, k.h ?? 14];
