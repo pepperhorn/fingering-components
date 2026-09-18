@@ -47,9 +47,9 @@
     {"id": "rh2", "label": "Right 2", "shape": "circle", "x": 44, "y": 172, "hand": "R", "digit": "2", "group": "rh-stack"},
     {"id": "rh3", "label": "Right 3", "shape": "circle", "x": 44, "y": 198, "hand": "R", "digit": "3", "group": "rh-stack"},
     {"id": "rh-side-eb", "label": "Side E\u266d/B\u266d (sliver key)", "shape": "pill", "w": 12, "h": 4, "rad": 2, "rot": 8, "x": 30, "y": 185, "hand": "R", "digit": "1", "group": "rh-aux"},
-    {"id": "rh-ab-eb", "label": "RH A\u266d/E\u266d", "cluster": "rh-table", "dx": -8.5, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 12},
-    {"id": "rh-e-b", "label": "RH E/B", "cluster": "rh-table", "dx": 6.75, "dy": 11, "hand": "R", "digit": "4", "group": "rh-table", "w": 9.5, "stem": 1.5},
-    {"id": "rh-f-c", "label": "RH F/C", "cluster": "rh-table", "dx": -10.25, "dy": 11, "hand": "R", "digit": "4", "group": "rh-table", "w": 9.5, "stem": 1.5},
-    {"id": "rh-fs-cs", "label": "RH F\u266f/C\u266f", "cluster": "rh-table", "dx": 8.5, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 12}
+    {"id": "rh-ab-eb", "label": "RH A\u266d/E\u266d", "cluster": "rh-table", "dx": -6, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 12.5},
+    {"id": "rh-f-c", "label": "RH F/C", "cluster": "rh-table", "dx": -6, "dy": 11, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 1.5},
+    {"id": "rh-fs-cs", "label": "RH F\u266f/C\u266f", "cluster": "rh-table", "dx": 6, "dy": 0, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 12.5},
+    {"id": "rh-e-b", "label": "RH E/B", "cluster": "rh-table", "dx": 6, "dy": 11, "hand": "R", "digit": "4", "group": "rh-table", "w": 14, "stem": 1.5}
   ]
 }
