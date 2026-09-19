@@ -1,71 +1,39 @@
 {
-  "instrument": "recorder",
-  "pitch": "sounding-c-soprano",
-  "note": "Soprano recorder, baroque fingering, C5 to C7. Thumb in \"half\" is pinched (thumbnail in the hole) for the second octave from E6. Double holes: h6a/h7a are the large holes, h6b/h7b the small; covering only the large hole gives the semitone (C♯5, D♯5).",
+  "instrument": "tin-whistle",
+  "pitch": "concert",
+  "key": "E♭",
+  "note": "E♭ tin whistle, concert pitch, two octaves from the bottom note. Half-holed notes list the hole in \"half\". The second octave repeats the first-octave fingerings, overblown (\"overblow\": true). The natural seventh (C on a D whistle) is cross-fingered, h2 + h3.",
   "fingerings": [
     {
-      "note": "C",
+      "note": "Eb",
       "octave": 5,
       "down": [
-        "thumb",
         "h1",
         "h2",
         "h3",
         "h4",
         "h5",
-        "h6a",
-        "h6b",
-        "h7a",
-        "h7b"
-      ]
-    },
-    {
-      "note": "C#",
-      "octave": 5,
-      "down": [
-        "thumb",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6a",
-        "h6b",
-        "h7a"
-      ]
-    },
-    {
-      "note": "D",
-      "octave": 5,
-      "down": [
-        "thumb",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6a",
-        "h6b"
-      ]
-    },
-    {
-      "note": "D#",
-      "octave": 5,
-      "down": [
-        "thumb",
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6a"
+        "h6"
       ]
     },
     {
       "note": "E",
       "octave": 5,
       "down": [
-        "thumb",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5"
+      ],
+      "half": [
+        "h6"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "down": [
         "h1",
         "h2",
         "h3",
@@ -74,108 +42,88 @@
       ]
     },
     {
-      "note": "F",
+      "note": "Gb",
       "octave": 5,
       "down": [
-        "thumb",
         "h1",
         "h2",
         "h3",
-        "h4",
-        "h6a",
-        "h6b",
-        "h7a",
-        "h7b"
-      ]
-    },
-    {
-      "note": "F#",
-      "octave": 5,
-      "down": [
-        "thumb",
-        "h1",
-        "h2",
-        "h3",
-        "h5",
-        "h6a",
-        "h6b"
+        "h4"
+      ],
+      "half": [
+        "h5"
       ]
     },
     {
       "note": "G",
       "octave": 5,
       "down": [
-        "thumb",
+        "h1",
+        "h2",
+        "h3",
+        "h4"
+      ]
+    },
+    {
+      "note": "Ab",
+      "octave": 5,
+      "down": [
         "h1",
         "h2",
         "h3"
       ]
     },
     {
-      "note": "G#",
-      "octave": 5,
-      "down": [
-        "thumb",
-        "h1",
-        "h2",
-        "h4",
-        "h5",
-        "h6a",
-        "h6b"
-      ]
-    },
-    {
       "note": "A",
       "octave": 5,
       "down": [
-        "thumb",
         "h1",
         "h2"
+      ],
+      "half": [
+        "h3"
       ]
     },
     {
-      "note": "A#",
+      "note": "Bb",
       "octave": 5,
       "down": [
-        "thumb",
         "h1",
-        "h3",
-        "h4"
+        "h2"
       ]
     },
     {
       "note": "B",
       "octave": 5,
       "down": [
-        "thumb",
+        "h1"
+      ],
+      "half": [
+        "h2"
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 6,
+      "down": [
         "h1"
       ]
     },
     {
-      "note": "C",
+      "note": "Db",
       "octave": 6,
       "down": [
-        "thumb",
-        "h2"
-      ]
-    },
-    {
-      "note": "C#",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2"
+        "h2",
+        "h3"
       ]
     },
     {
       "note": "D",
       "octave": 6,
-      "down": [
-        "h2"
-      ]
+      "down": []
     },
     {
-      "note": "D#",
+      "note": "Eb",
       "octave": 6,
       "down": [
         "h1",
@@ -183,9 +131,9 @@
         "h3",
         "h4",
         "h5",
-        "h6a",
-        "h6b"
-      ]
+        "h6"
+      ],
+      "overblow": true
     },
     {
       "note": "E",
@@ -198,8 +146,9 @@
         "h5"
       ],
       "half": [
-        "thumb"
-      ]
+        "h6"
+      ],
+      "overblow": true
     },
     {
       "note": "F",
@@ -209,25 +158,23 @@
         "h2",
         "h3",
         "h4",
-        "h6a",
-        "h6b"
+        "h5"
       ],
-      "half": [
-        "thumb"
-      ]
+      "overblow": true
     },
     {
-      "note": "F#",
+      "note": "Gb",
       "octave": 6,
       "down": [
         "h1",
         "h2",
         "h3",
-        "h5"
+        "h4"
       ],
       "half": [
-        "thumb"
-      ]
+        "h5"
+      ],
+      "overblow": true
     },
     {
       "note": "G",
@@ -235,23 +182,20 @@
       "down": [
         "h1",
         "h2",
-        "h3"
+        "h3",
+        "h4"
       ],
-      "half": [
-        "thumb"
-      ]
+      "overblow": true
     },
     {
-      "note": "G#",
+      "note": "Ab",
       "octave": 6,
       "down": [
         "h1",
         "h2",
-        "h4"
+        "h3"
       ],
-      "half": [
-        "thumb"
-      ]
+      "overblow": true
     },
     {
       "note": "A",
@@ -261,48 +205,37 @@
         "h2"
       ],
       "half": [
-        "thumb"
-      ]
+        "h3"
+      ],
+      "overblow": true
     },
     {
-      "note": "A#",
+      "note": "Bb",
       "octave": 6,
       "down": [
         "h1",
-        "h2",
-        "h3",
-        "h5",
-        "h6a",
-        "h6b"
+        "h2"
       ],
-      "half": [
-        "thumb"
-      ]
+      "overblow": true
     },
     {
       "note": "B",
       "octave": 6,
       "down": [
-        "h1",
-        "h2",
-        "h4",
-        "h5"
+        "h1"
       ],
       "half": [
-        "thumb"
-      ]
+        "h2"
+      ],
+      "overblow": true
     },
     {
       "note": "C",
       "octave": 7,
       "down": [
-        "h1",
-        "h4",
-        "h5"
+        "h1"
       ],
-      "half": [
-        "thumb"
-      ]
+      "overblow": true
     }
   ]
 }

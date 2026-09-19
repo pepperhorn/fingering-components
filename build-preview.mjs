@@ -106,8 +106,13 @@ const html = `<!doctype html>
   <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
   <div class="gallery" id="gallery"></div>
 
-  <h2>Recorder, first octave</h2>
+  <h2>Soprano recorder, baroque fingering</h2>
+  <p class="hint">C5 to C7. A half-filled thumb is pinched.</p>
   <div class="scroll" id="recorder"></div>
+
+  <h2>Tin whistles</h2>
+  <p class="hint">One fingering pattern, named for each key: <code>fingerings/tin-whistle-*.json</code>. Half-filled holes are half-holed; the second row of each chart is overblown.</p>
+  <div id="whistles"></div>
 
   <h2>Writing a fingering</h2>
   <pre id="sample"></pre>
@@ -170,7 +175,11 @@ set('clarinet', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { co
 set('clarinet-h', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
 set('dood', renderChart(INSTRUMENTS['nuvo-dood'], DATA['nuvo-dood'].fingerings, { columns: 15, width: 1100 }));
 set('toot', renderChart(INSTRUMENTS['nuvo-toot'], DATA['nuvo-toot'].fingerings, { columns: 20, width: 1240 }));
-set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 10, width: 1060 }));
+set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 13, width: 1240 }));
+set('whistles', ['d', 'c', 'bb', 'f', 'eb'].map((k) => {
+  const d = DATA['tin-whistle-' + k];
+  return \`<h3 style="font-size:.95rem;margin:18px 0 6px">\${d.key} whistle</h3><div class="scroll">\${renderChart(INSTRUMENTS['tin-whistle'], d.fingerings, { columns: 12, width: 1100 })}</div>\`;
+}).join(''));
 
 set('gallery', Object.values(INSTRUMENTS).map((inst) =>
   \`<figure>\${renderFingering(inst, { label: '' }, { title: false, width: 130 })}<figcaption>\${inst.name}</figcaption></figure>\`
