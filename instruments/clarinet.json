@@ -3,6 +3,11 @@
   "name": "Clarinet (B\u266d Boehm, 17-key)",
   "family": "single-reed",
   "transpose": -2,
+  "ranges": {
+    "beginner":     { "low": "E3", "high": "C5" },
+    "intermediate": { "low": "E3", "high": "C6" },
+    "pro":          { "low": "E3", "high": "A6" }
+  },
   "note": "Front view, facing the instrument (same as the saxophone): left-hand pinky keys on the right at the joint, right-hand pinky keys 2x2 below-right of the stack, trill keys on the left. Thumb hole and register key sit in their own column on the far left.",
   "viewBox": [0, 0, 92, 240],
   "defaults": {

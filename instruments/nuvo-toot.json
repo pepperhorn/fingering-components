@@ -3,6 +3,11 @@
   "name": "Nuvo TooT",
   "family": "fipple",
   "transpose": 0,
+  "ranges": {
+    "beginner":     { "low": "C4", "high": "A4" },
+    "intermediate": { "low": "C4", "high": "D5" },
+    "pro":          { "low": "C4", "high": "G5" }
+  },
   "note": "Same pads and spacing as the Nuvo Dood: mouthpiece at the top, lowest note (C) at the bottom, the reverse of the maker's chart. Vent holes only on RH3, the RH pinky and the thumb; the other chromatics are cross-fingered. The thumb is a taller pill beside LH2. A pad listed without its \"-vent\" is half-open.",
   "viewBox": [0, 0, 70, 158],
   "panels": [{"id": "front"}],
