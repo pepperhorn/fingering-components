@@ -1,0 +1,15 @@
+{
+  "id": "trumpet",
+  "name": "Trumpet (B\u266d)",
+  "family": "brass",
+  "transposing": true,
+  "note": "Three piston valves, valve 1 (nearest the mouthpiece) at the top; orient: \"horizontal\" lays them in a row, valve 1 on the left. Each valve is a stacked cup: the piston cap over its casing.",
+  "viewBox": [0, 0, 60, 98],
+  "panels": [{"id": "front"}],
+
+  "keys": [
+    {"id": "v1", "label": "Valve 1", "shape": "stacked", "r": 9, "sdx": -2.2, "sdy": 2.2, "x": 30, "y": 22, "hand": "R", "digit": "1", "group": "valves"},
+    {"id": "v2", "label": "Valve 2", "shape": "stacked", "r": 9, "sdx": -2.2, "sdy": 2.2, "x": 30, "y": 48, "hand": "R", "digit": "2", "group": "valves"},
+    {"id": "v3", "label": "Valve 3", "shape": "stacked", "r": 9, "sdx": -2.2, "sdy": 2.2, "x": 30, "y": 74, "hand": "R", "digit": "3", "group": "valves"}
+  ]
+}

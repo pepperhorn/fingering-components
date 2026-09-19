@@ -102,6 +102,11 @@ const html = `<!doctype html>
   <p class="hint">Generated from <code>instruments/nuvo-toot.json</code> and <code>fingerings/nuvo-toot.json</code>: the Dood's pads and spacing, concert pitch.</p>
   <div class="scroll" id="toot"></div>
 
+  <h2>Trumpet</h2>
+  <p class="hint">Generated from <code>instruments/trumpet.json</code> and <code>fingerings/trumpet.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
+  <div class="scroll" id="trumpet"></div>
+  <div class="scroll" id="trumpet-h"></div>
+
   <h2>Empty layouts</h2>
   <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
   <div class="gallery" id="gallery"></div>
@@ -175,6 +180,8 @@ set('clarinet', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { co
 set('clarinet-h', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
 set('dood', renderChart(INSTRUMENTS['nuvo-dood'], DATA['nuvo-dood'].fingerings, { columns: 15, width: 1100 }));
 set('toot', renderChart(INSTRUMENTS['nuvo-toot'], DATA['nuvo-toot'].fingerings, { columns: 20, width: 1240 }));
+set('trumpet', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings, { columns: 16, width: 1100 }));
+set('trumpet-h', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings.slice(0, 12), { columns: 6, width: 900, orient: 'horizontal' }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 13, width: 1240 }));
 set('whistles', ['d', 'c', 'bb', 'f', 'eb'].map((k) => {
   const d = DATA['tin-whistle-' + k];
