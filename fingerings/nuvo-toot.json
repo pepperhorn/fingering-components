@@ -1,7 +1,7 @@
 {
-  "instrument": "nuvo-dood",
+  "instrument": "nuvo-toot",
   "pitch": "concert",
-  "note": "Full chart, C4 to D5, from the maker's fingering chart (concert pitch). A pad without its -vent is half-open: finger on the pad, vent hole uncovered.",
+  "note": "Full chart, C4 to G5, from the maker's fingering chart (concert pitch). From D5 up the thumb half-holes: thumb listed without thumb-vent.",
   "fingerings": [
     {
       "note": "C",
@@ -12,9 +12,7 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent",
         "r1",
-        "r1-vent",
         "r2",
         "r3",
         "r3-vent",
@@ -31,9 +29,7 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent",
         "r1",
-        "r1-vent",
         "r2",
         "r3",
         "r3-vent",
@@ -49,9 +45,7 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent",
         "r1",
-        "r1-vent",
         "r2",
         "r3",
         "r3-vent"
@@ -66,9 +60,7 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent",
         "r1",
-        "r1-vent",
         "r2",
         "r3"
       ]
@@ -82,10 +74,10 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent",
         "r1",
-        "r1-vent",
-        "r2"
+        "r2",
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -97,9 +89,9 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent",
         "r1",
-        "r1-vent"
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -111,8 +103,11 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent",
-        "r1"
+        "r2",
+        "r3",
+        "r3-vent",
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -124,7 +119,8 @@
         "l1",
         "l2",
         "l3",
-        "l3-vent"
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -135,7 +131,10 @@
         "thumb-vent",
         "l1",
         "l2",
-        "l3"
+        "r1",
+        "r2",
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -145,7 +144,9 @@
         "thumb",
         "thumb-vent",
         "l1",
-        "l2"
+        "l2",
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -156,9 +157,8 @@
         "thumb-vent",
         "l1",
         "l3",
-        "l3-vent",
-        "r1",
-        "r1-vent"
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -167,25 +167,26 @@
       "down": [
         "thumb",
         "thumb-vent",
-        "l1"
+        "l1",
+        "r4",
+        "r4-vent"
       ]
     },
     {
       "note": "C",
       "octave": 5,
       "down": [
-        "thumb",
-        "thumb-vent",
-        "l2"
+        "l1",
+        "r4",
+        "r4-vent"
       ]
     },
     {
       "note": "C#",
       "octave": 5,
       "down": [
-        "thumb",
-        "l1",
-        "l2"
+        "r4",
+        "r4-vent"
       ]
     },
     {
@@ -193,7 +194,70 @@
       "octave": 5,
       "down": [
         "thumb",
-        "l2"
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3",
+        "r3-vent"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r1"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r2"
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3"
       ]
     }
   ]
