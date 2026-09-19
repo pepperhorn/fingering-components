@@ -108,6 +108,10 @@
       "clusters": { "palm": { "flow": { "axis": "x", "pitch": 9.5, "stagger": -6 }, "defaults": { "shape": "bean", "w": 8.5, "h": 18, "bend": 1.3, "taper": 0.72, "tipRound": null } } },
       "keys": { "palm-f": { "dx": null, "dy": null, "rot": -8 }, "palm-eb": { "dx": null, "dy": null, "rot": 6 }, "palm-d": { "dx": null, "dy": null, "rot": 20 } }
     },
+    "plain-circles": {
+      "note": "Main stack and front F as plain circles instead of top-down saucers.",
+      "keys": { "lh1": { "shape": "circle", "size": null }, "lh2": { "shape": "circle", "size": null }, "lh3": { "shape": "circle", "size": null }, "rh1": { "shape": "circle", "size": null }, "rh2": { "shape": "circle", "size": null }, "rh3": { "shape": "circle", "size": null }, "front-f": { "shape": "circle", "size": null, "r": 5 } }
+    },
     "palm-taper": {
       "clusters": { "palm": { "anchor": [66, 30], "flow": { "axis": "x", "pitch": 9, "stagger": -7 }, "defaults": { "shape": "taper", "w": 7.5, "h": 24, "tip": 0.8, "bend": 1.4, "curve": 1.7, "tipRound": null } } },
       "keys": { "palm-f": { "dx": null, "dy": null, "rot": -10 }, "palm-eb": { "dx": null, "dy": null, "rot": 2 }, "palm-d": { "dx": null, "dy": null, "rot": 14 } }
@@ -118,11 +122,11 @@
     { "id": "thumb-rest", "label": "Left thumb rest", "shape": "circle", "r": 6.5, "x": 15, "y": 33, "hand": "L", "digit": "thumb", "group": "octave" },
     { "id": "octave", "label": "Octave key (thumb)", "shape": "bean", "w": 6, "h": 14, "bend": -0.6, "dir": "right", "x": 15, "y": 20.5, "hand": "L", "digit": "thumb", "group": "octave" },
 
-    { "id": "front-f", "label": "Front F", "shape": "circle", "r": 5, "relativeTo": "lh1", "place": "above", "gap": 8, "hand": "L", "digit": "1", "group": "lh-aux" },
+    { "id": "front-f", "label": "Front F", "shape": "saucer-top", "size": "sm", "relativeTo": "lh1", "place": "above", "gap": 8, "hand": "L", "digit": "1", "group": "lh-aux" },
 
-    { "id": "lh1", "label": "Left 1 (B)", "shape": "circle", "x": 41, "y": 44, "hand": "L", "digit": "1", "group": "lh-stack" },
-    { "id": "lh2", "label": "Left 2 (A)", "shape": "circle", "relativeTo": "lh1", "place": "below", "gap": 10, "hand": "L", "digit": "2", "group": "lh-stack" },
-    { "id": "lh3", "label": "Left 3 (G)", "shape": "circle", "relativeTo": "lh2", "place": "below", "gap": 10, "hand": "L", "digit": "3", "group": "lh-stack" },
+    { "id": "lh1", "label": "Left 1 (B)", "shape": "saucer-top", "size": "md", "x": 41, "y": 44, "hand": "L", "digit": "1", "group": "lh-stack" },
+    { "id": "lh2", "label": "Left 2 (A)", "shape": "saucer-top", "size": "md", "relativeTo": "lh1", "place": "below", "gap": 10, "hand": "L", "digit": "2", "group": "lh-stack" },
+    { "id": "lh3", "label": "Left 3 (G)", "shape": "saucer-top", "size": "md", "relativeTo": "lh2", "place": "below", "gap": 10, "hand": "L", "digit": "3", "group": "lh-stack" },
 
     { "id": "bis", "label": "Bis B\u266d", "shape": "oval", "relativeTo": "lh1", "place": "below", "gap": 0, "offset": [16, 0], "hand": "L", "digit": "1", "group": "lh-aux" },
 
@@ -143,9 +147,9 @@
     { "id": "lh-roller-bottom", "label": "LH roller (lower, B | C\u266f)", "cluster": "lh-table", "shape": "cylinder", "dx": 0, "dy": 17.7, "w": 3.4, "h": 7, "rot": 90, "radii": null, "hand": "L", "digit": "4", "group": "rollers" },
     { "id": "lh-bb", "label": "Low B\u266d", "cluster": "lh-table", "shape": "bean", "dx": 0, "dy": 26, "w": 8.5, "h": 23, "bend": 1.6, "dir": "right", "hand": "L", "digit": "4", "group": "lh-table" },
 
-    { "id": "rh1", "label": "Right 1 (F)", "shape": "circle", "x": 41, "y": 150, "hand": "R", "digit": "1", "group": "rh-stack" },
-    { "id": "rh2", "label": "Right 2 (E)", "shape": "circle", "relativeTo": "rh1", "place": "below", "gap": 10, "hand": "R", "digit": "2", "group": "rh-stack" },
-    { "id": "rh3", "label": "Right 3 (D)", "shape": "circle", "relativeTo": "rh2", "place": "below", "gap": 10, "hand": "R", "digit": "3", "group": "rh-stack" },
+    { "id": "rh1", "label": "Right 1 (F)", "shape": "saucer-top", "size": "md", "x": 41, "y": 150, "hand": "R", "digit": "1", "group": "rh-stack" },
+    { "id": "rh2", "label": "Right 2 (E)", "shape": "saucer-top", "size": "md", "relativeTo": "rh1", "place": "below", "gap": 10, "hand": "R", "digit": "2", "group": "rh-stack" },
+    { "id": "rh3", "label": "Right 3 (D)", "shape": "saucer-top", "size": "md", "relativeTo": "rh2", "place": "below", "gap": 10, "hand": "R", "digit": "3", "group": "rh-stack" },
 
     { "id": "alt-fs", "label": "Alternate F\u266f", "shape": "oval", "x": 25, "y": 164, "hand": "R", "digit": "3", "group": "rh-aux" },
 
