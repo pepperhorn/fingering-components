@@ -74,8 +74,9 @@ Any key takes `tag` (short text, e.g. a trombone slide position number) and
 `tagAt: [dx, dy]`; tags stay upright when the chart is turned horizontal.
 
 A key with `showWith: [ids]` is hidden unless one of those keys is in use
-(pressed, half, etc.) — for context marks such as the trombone positions
-before the current one.
+(pressed, half, etc.). A key with `hint: true` is a visual aid and only draws
+with the `hints: true` render option — e.g. the trombone's dotted marks at the
+positions before the current one: `renderChart(trombone, f, { hints: true })`.
 
 Guides take `dash: "dotted"` (or a dasharray) for paths of travel such as the trombone slide.
 

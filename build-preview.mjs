@@ -110,6 +110,8 @@ const html = `<!doctype html>
   <h2>Trombone, slide positions</h2>
   <p class="hint">Generated from <code>instruments/trombone.json</code> and <code>fingerings/trombone.json</code>, shown horizontal. Each fingering presses one of <code>pos1</code>–<code>pos7</code>; dotted rails show the slide's travel.</p>
   <div class="scroll" id="trombone"></div>
+  <p class="hint">With <code>hints: true</code>: light marks at the positions the slide has passed.</p>
+  <div class="scroll" id="trombone-hints"></div>
 
   <h2>Empty layouts</h2>
   <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
@@ -189,6 +191,7 @@ set('toot', renderChart(INSTRUMENTS['nuvo-toot'], DATA['nuvo-toot'].fingerings, 
 set('trumpet', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings, { columns: 16, width: 1100 }));
 set('trumpet-h', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings.slice(0, 12), { columns: 6, width: 900, orient: 'horizontal' }));
 set('trombone', renderChart(INSTRUMENTS.trombone, DATA.trombone.fingerings, { columns: 7, width: 1240, orient: 'horizontal' }));
+set('trombone-hints', renderChart(INSTRUMENTS.trombone, DATA.trombone.fingerings.slice(0, 7), { columns: 7, width: 1240, orient: 'horizontal', hints: true }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 13, width: 1240 }));
 set('whistles', ['d', 'c', 'bb', 'f', 'eb'].map((k) => {
   const d = DATA['tin-whistle-' + k];

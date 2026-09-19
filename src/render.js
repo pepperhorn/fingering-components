@@ -112,6 +112,8 @@ export function diagramBody(rawLayout, fingering, opts = {}) {
     const [ox, oy] = panel.origin || [0, 0];
     // each key carries its id and state so CSS (looks, apps) can target it
     const body = panel.keys
+      // `hint: true` keys (visual aids) only draw with the `hints` render option
+      .filter((k) => !k.hint || opts.hints)
       .map((k) => {
         const svg = drawKey({ ...k, state: states[k.id], tone: tone(k) });
         return svg && `<g class="fc-key" data-key="${k.id}" data-state="${states[k.id]}">${svg}${tagFor(k, opts.orient)}</g>`;
