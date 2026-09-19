@@ -679,9 +679,19 @@ export function slide(k) {
   });
 }
 
+/**
+ * Tick — a light dotted line across a point, `w` long; a marker, not a key
+ * (trombone positions already passed). Turn with `rot` / `dir`.
+ */
+export function tick(k) {
+  const w = k.w ?? 18;
+  return `<line x1="${rnd(k.x - w / 2)}" y1="${k.y}" x2="${rnd(k.x + w / 2)}" y2="${k.y}" stroke="${LINE}"`
+    + ` stroke-width="${k.t ?? 1.1}" stroke-dasharray=".01 2.4" stroke-linecap="round" stroke-opacity="${k.opacity ?? 0.8}"/>`;
+}
+
 export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook,
   'lh-hook': hook, 'rh-hook': (k) => hook({ ...k, flip: !k.flip }),
-  flag, crook, paddle, ell, note, saucer, 'saucer-top': saucerTop, stacked, club, twin, bell, slide };
+  flag, crook, paddle, ell, note, saucer, 'saucer-top': saucerTop, stacked, club, twin, bell, slide, tick };
 
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
@@ -708,6 +718,7 @@ export function bbox(k) {
     case 'saucer': if (k.view === 'top') return bbox({ ...k, shape: 'saucer-top' }); return [(k.rx ?? 8) * 2, (k.ry ?? 4) * 2 + (k.depth ?? 2)];
     case 'saucer-top': { const z = SAUCER_SIZES[k.size] || SAUCER_SIZES.md; const d = ((k.r ?? z.r) + (k.rim ?? z.rim)) * 2; return [d, d]; }
     case 'stacked': { const r = k.r ?? 9; return [r * 2 + Math.abs(k.sdx ?? -2.6), r * 2 + Math.abs(k.sdy ?? 2.6)]; }
+    case 'tick': return [k.w ?? 18, 1];
     case 'bell': return [k.w ?? 26, k.h ?? 34];
     case 'slide': return [(k.w ?? 10) + (k.t ?? 3), k.h ?? 64];
     case 'twin': return [(k.r ?? 10) * 2, (k.r ?? 10) * 2];

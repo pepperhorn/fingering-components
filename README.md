@@ -63,6 +63,7 @@ can open from the filesystem.
 | `twin` | recorder double hole: ring with a large (`part: "a"`, draws the ring) and small (`part: "b"`) hole; both keys share the ring centre |
 | `bell` | brass bell flare, throat to rim — trombone body |
 | `slide` | trombone outer slide: two tubes, U crook, hand brace — one key per position |
+| `tick` | light dotted marker line, not a key — trombone positions passed |
 | `club` | small head on a slim neck — flute RH trill keys |
 
 `circle` also takes `ringed: true` (a ring key's metal ring) and `hole: true`
@@ -71,6 +72,10 @@ can open from the filesystem.
 
 Any key takes `tag` (short text, e.g. a trombone slide position number) and
 `tagAt: [dx, dy]`; tags stay upright when the chart is turned horizontal.
+
+A key with `showWith: [ids]` is hidden unless one of those keys is in use
+(pressed, half, etc.) — for context marks such as the trombone positions
+before the current one.
 
 Guides take `dash: "dotted"` (or a dasharray) for paths of travel such as the trombone slide.
 

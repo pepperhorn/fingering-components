@@ -33,6 +33,13 @@ export function resolveStates(layout, fingering = {}) {
   put(fingering.highlight, 'highlight');
   // explicit per-key override always wins
   for (const [id, st] of Object.entries(fingering.states || {})) put(id, st);
+  // `showWith: [ids]` keys are guides that appear only while one of those keys
+  // is in use (e.g. marks for the trombone positions the slide has passed)
+  for (const k of layout.keys) {
+    if (!k.showWith) continue;
+    const on = k.showWith.some((id) => states[id] && states[id] !== 'open' && states[id] !== 'na');
+    states[k.id] = on ? 'open' : 'na';
+  }
   return states;
 }
 
