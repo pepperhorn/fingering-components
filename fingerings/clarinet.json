@@ -1,0 +1,106 @@
+{
+  "instrument": "clarinet",
+  "pitch": "written",
+  "note": "Sample set exercising the pinky, throat and register keys. Full chart still to be added.",
+  "fingerings": [
+    {
+      "note": "E",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-e-b"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-f-c"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-fs-cs"
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 4,
+      "down": []
+    },
+    {
+      "note": "G#",
+      "octave": 4,
+      "down": [
+        "throat-gs"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 4,
+      "down": [
+        "throat-a"
+      ]
+    },
+    {
+      "note": "Bb",
+      "octave": 4,
+      "down": [
+        "throat-a",
+        "register"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-ab-eb"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-cs-gs"
+      ]
+    }
+  ]
+}

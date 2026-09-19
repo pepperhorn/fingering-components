@@ -84,6 +84,16 @@ const html = `<!doctype html>
   <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>. Scroll sideways on a narrow screen.</p>
   <div class="scroll" id="sax"></div>
 
+  <h2>Flute, first octave</h2>
+  <p class="hint">Generated from <code>instruments/flute.json</code> and <code>fingerings/flute.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
+  <div class="scroll" id="flute"></div>
+  <div class="scroll" id="flute-h"></div>
+
+  <h2>Clarinet</h2>
+  <p class="hint">Generated from <code>instruments/clarinet.json</code> and <code>fingerings/clarinet.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
+  <div class="scroll" id="clarinet"></div>
+  <div class="scroll" id="clarinet-h"></div>
+
   <h2>Empty layouts</h2>
   <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
   <div class="gallery" id="gallery"></div>
@@ -145,6 +155,10 @@ set('states', STATES.map((state) =>
 ).join(''));
 
 set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240, variant: '' }));
+set('flute', renderChart(INSTRUMENTS.flute, DATA.flute.fingerings, { columns: 12, width: 1000 }));
+set('flute-h', renderChart(INSTRUMENTS.flute, DATA.flute.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
+set('clarinet', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 9, width: 1000 }));
+set('clarinet-h', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 10, width: 1060 }));
 
 set('gallery', Object.values(INSTRUMENTS).map((inst) =>

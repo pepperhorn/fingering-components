@@ -1,0 +1,151 @@
+{
+  "instrument": "flute",
+  "pitch": "concert",
+  "note": "Starter set: the first octave, C4 to B4, standard fingerings (B♭ with the thumb B♭ lever). Upper octaves still to be added.",
+  "fingerings": [
+    {
+      "note": "C",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "foot-c",
+        "foot-cs"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "foot-cs"
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "lh-gs",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "Bb",
+      "octave": 4,
+      "down": [
+        "thumb-bb",
+        "lh1",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 4,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "rh-eb"
+      ]
+    }
+  ]
+}

@@ -113,7 +113,8 @@ const inkFor = (k) => (k.tone === 2 ? INK2 : INK);
  * `ringed: true` adds the metal ring of a ring key (clarinet, open-hole flute):
  * a thin concentric outline `ringGap` outside the hole. `hole: true` marks an
  * open tone hole: its centre stays empty (`--fc-hole`, default none) until
- * covered, instead of taking the key-surface fill.
+ * covered, instead of taking the key-surface fill. `inner: 0.55` draws a
+ * concentric ring at that fraction of the radius (flute cups).
  */
 export function circle(k) {
   const r = k.r ?? 9;
@@ -121,7 +122,11 @@ export function circle(k) {
     `<circle cx="${k.x}" cy="${k.y}" r="${r * shrink}" ${attr}/>`;
   // open tone holes (clarinet, recorder) are empty until covered
   const g = k.hole ? (attr, shrink) => geom(attr.replace(`fill="${KEY}"`, 'fill="var(--fc-hole, none)"'), shrink) : geom;
-  const hole = paint(k, [k.x - r, k.y - r, r * 2, r * 2], g, k.fillFrom);
+  let hole = paint(k, [k.x - r, k.y - r, r * 2, r * 2], g, k.fillFrom);
+  if (k.inner && k.state !== 'na') {
+    // the chimney rim inside a flute cup, drawn as a concentric ring
+    hole += `<circle cx="${k.x}" cy="${k.y}" r="${Math.round(r * k.inner * 100) / 100}" fill="none" stroke="${LINE}" stroke-width="${SW}"/>`;
+  }
   if (!k.ringed || k.state === 'na') return hole;
   const pressed = k.state === 'closed' || k.state === 'highlight';
   const ring = `<circle cx="${k.x}" cy="${k.y}" r="${r + (k.ringGap ?? 2.4)}" fill="none"`
@@ -473,7 +478,7 @@ export function flag(k) {
 }
 
 /**
- * Crook — the flute B♮ thumb key: a long arm along the top whose left end
+ * Crook — the flute B♭ thumb lever: a long arm along the top whose left end
  * bends down round a heel and runs back as a short tail. `w` overall length,
  * `h` heel height, `t` arm thickness, `tail` how far the lower tail returns.
  */
@@ -491,7 +496,7 @@ export function crook(k) {
 }
 
 /**
- * Paddle — the flute B♭ thumb lever: a slim bar with a rounded head at the
+ * Paddle — the flute B♮ thumb key: a slim bar with a rounded head at the
  * left end whose underside swells into a belly. `w` overall length, `h`
  * depth at the belly, `t` bar thickness.
  */
@@ -509,7 +514,7 @@ export function paddle(k) {
 }
 
 /**
- * Ell — the flute D♯ (E♭) foot key: a rounded boat along the bottom with an
+ * Ell — the flute foot C♯ and C levers (nest two): a rounded boat along the bottom with an
  * arm standing up from its right end. `w`/`h` overall size, `t` arm
  * thickness, `base` the boat depth. `flip: true` puts the arm on the left.
  */
@@ -528,7 +533,7 @@ export function ell(k) {
 
 /**
  * Note — a round head with a stem rising from its right edge, like a
- * crotchet. The flute C♯ foot key. `w` is the head diameter, `h` overall
+ * crotchet. The flute D♯ key. `w` is the head diameter, `h` overall
  * height, `t` stem thickness. `flip: true` puts the stem on the left.
  */
 export function note(k) {
