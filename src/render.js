@@ -64,6 +64,8 @@ export function withVariant(layout, name) {
     ...layout,
     clusters: merge(layout.clusters, v.clusters),
     keys: merge(layout.keys, v.keys),
+    // a variant may add guide lines (e.g. an instrument body outline)
+    ...(v.guides ? { guides: [...(layout.guides || []), ...v.guides] } : {}),
   });
 }
 

@@ -2,7 +2,7 @@
   "id": "flute",
   "name": "Flute (Boehm, C foot)",
   "family": "flute",
-  "note": "Front view, head joint at the top (turn with orient: \"horizontal\" for the usual sideways chart, head joint left). Thumb keys hang left of the stack, the G♯ key stands right of LH3, trill keys sit between the RH cups, and the foot joint carries the D♯ key and the nested C♯ / C levers. Cups in group \"mech\" are moved by the mechanism, not a finger; mark them closed in a fingering when they shut.",
+  "note": "Front view, head joint at the top (turn with orient: \"horizontal\" for the usual sideways chart, head joint left). Thumb keys hang left of the stack, the G♯ key stands right of LH3, trill keys sit between the RH cups, and the foot joint carries the D♯ key and the nested C♯ / C levers. Cups in group \"mech\" are moved by the mechanism, not a finger: they draw as faint tone holes (state na) unless a fingering sets them. Variants: \"body\" adds the tube and rod outline, \"mech-cups\" draws the mechanism cups as full keys.",
   "viewBox": [
     0,
     0,
@@ -14,50 +14,120 @@
       "id": "front"
     }
   ],
-  "guides": [
-    {
-      "id": "tube-top",
-      "x1": 38.19,
-      "y1": -21,
-      "x2": 38.19,
-      "y2": 302.08,
-      "width": 1.2
+  "variants": {
+    "body": {
+      "note": "Draws the tube and key rods behind the keys.",
+      "guides": [
+        {
+          "id": "tube-top",
+          "x1": 38.19,
+          "y1": -21,
+          "x2": 38.19,
+          "y2": 302.08,
+          "width": 1.2
+        },
+        {
+          "id": "tube-bottom",
+          "x1": 23.38,
+          "y1": -21,
+          "x2": 23.38,
+          "y2": 302.08,
+          "width": 1.2
+        },
+        {
+          "id": "rod",
+          "x1": 16.65,
+          "y1": 32.85,
+          "x2": 16.65,
+          "y2": 200.15,
+          "width": 1
+        },
+        {
+          "id": "foot-rod",
+          "x1": 29.15,
+          "y1": 208.81,
+          "x2": 29.15,
+          "y2": 280.92,
+          "width": 1
+        }
+      ]
     },
-    {
-      "id": "tube-bottom",
-      "x1": 23.38,
-      "y1": -21,
-      "x2": 23.38,
-      "y2": 302.08,
-      "width": 1.2
-    },
-    {
-      "id": "rod",
-      "x1": 16.65,
-      "y1": 32.85,
-      "x2": 16.65,
-      "y2": 200.15,
-      "width": 1
-    },
-    {
-      "id": "foot-rod",
-      "x1": 29.15,
-      "y1": 208.81,
-      "x2": 29.15,
-      "y2": 280.92,
-      "width": 1
+    "mech-cups": {
+      "note": "Mechanism cups drawn as keys (inner-ring cups, stacked G cup, foot saucers) instead of faint tone holes.",
+      "keys": {
+        "cup-cs": {
+          "shape": "circle",
+          "r": 5.38,
+          "inner": 0.5,
+          "default": "open",
+          "hole": false
+        },
+        "cup-bb": {
+          "shape": "circle",
+          "r": 7.69,
+          "inner": 0.5,
+          "default": "open",
+          "hole": false
+        },
+        "cup-gs": {
+          "shape": "circle",
+          "r": 7.69,
+          "inner": 0.5,
+          "default": "open",
+          "hole": false
+        },
+        "cup-g": {
+          "shape": "stacked",
+          "r": 7.69,
+          "inner": 0.5,
+          "sdx": -2.2,
+          "sdy": 2.2,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        },
+        "cup-eb": {
+          "shape": "saucer",
+          "rx": 7.69,
+          "ry": 3.65,
+          "depth": 1.6,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        },
+        "cup-cs-foot": {
+          "shape": "saucer",
+          "rx": 8.08,
+          "ry": 3.65,
+          "depth": 1.6,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        },
+        "cup-c-foot": {
+          "shape": "saucer",
+          "rx": 8.08,
+          "ry": 3.65,
+          "depth": 1.6,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        }
+      }
     }
-  ],
+  },
   "keys": [
     {
       "id": "cup-cs",
       "label": "C♯ key cup (mechanism)",
-      "shape": "circle",
-      "r": 5.38,
-      "inner": 0.5,
       "group": "mech",
       "x": 30.12,
-      "y": 20.35
+      "y": 20.35,
+      "shape": "circle",
+      "r": 5.38,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false
     },
     {
       "id": "thumb-bb",
@@ -102,12 +172,14 @@
     {
       "id": "cup-bb",
       "label": "B♭ cup (mechanism)",
-      "shape": "circle",
-      "r": 7.69,
-      "inner": 0.5,
       "group": "mech",
       "x": 30.69,
-      "y": 59.77
+      "y": 59.77,
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false
     },
     {
       "id": "lh2",
@@ -131,7 +203,7 @@
       "hand": "L",
       "digit": "4",
       "group": "lh-lever",
-      "x": 39.15,
+      "x": 41.15,
       "y": 96.69,
       "rot": 90
     },
@@ -150,25 +222,26 @@
     {
       "id": "cup-gs",
       "label": "G♯ cup (mechanism)",
-      "shape": "circle",
-      "r": 7.69,
-      "inner": 0.5,
       "group": "mech",
       "x": 34.92,
-      "y": 112.65
+      "y": 112.65,
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false
     },
     {
       "id": "cup-g",
       "label": "G cup (mechanism)",
-      "shape": "stacked",
-      "r": 7.69,
-      "inner": 0.5,
-      "sdx": -2.2,
-      "sdy": 2.2,
       "group": "mech",
       "x": 30.5,
       "y": 131.31,
-      "rot": 90
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false
     },
     {
       "id": "rh1",
@@ -237,14 +310,14 @@
     {
       "id": "cup-eb",
       "label": "D♯ cup (mechanism)",
-      "shape": "saucer",
-      "rx": 7.69,
-      "ry": 3.65,
-      "depth": 1.6,
       "group": "mech",
       "x": 40.31,
       "y": 220.35,
-      "rot": 90
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false
     },
     {
       "id": "rh-eb",
@@ -293,26 +366,26 @@
     {
       "id": "cup-cs-foot",
       "label": "Foot C♯ cup (mechanism)",
-      "shape": "saucer",
-      "rx": 8.08,
-      "ry": 3.65,
-      "depth": 1.6,
       "group": "mech",
       "x": 19.54,
       "y": 246.31,
-      "rot": 90
+      "shape": "circle",
+      "r": 8.08,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false
     },
     {
       "id": "cup-c-foot",
       "label": "Foot C cup (mechanism)",
-      "shape": "saucer",
-      "rx": 8.08,
-      "ry": 3.65,
-      "depth": 1.6,
       "group": "mech",
       "x": 19.54,
       "y": 272.27,
-      "rot": 90
+      "shape": "circle",
+      "r": 8.08,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false
     }
   ]
 }
