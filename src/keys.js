@@ -500,12 +500,13 @@ export function crook(k) {
 /**
  * Paddle — the flute B♮ thumb key: a slim bar with a rounded head at the
  * left end whose underside swells into a belly. `w` overall length, `h`
- * depth at the belly, `t` bar thickness.
+ * depth at the belly, `t` bar thickness. `flip: true` swells the belly to
+ * the other side (above the bar), for mirrored pairs.
  */
 export function paddle(k) {
   const w = k.w ?? 26, h = k.h ?? 7, t = k.t ?? 3;
   const L = -w / 2, T = -h / 2, rh = Math.min(t, h / 2);
-  return outline(k, w, h, (P, s) => {
+  const out = outline(k, w, h, (P, s) => {
     const r = (v) => rnd(v * s);
     return `M ${P(L + rh, T)} L ${P(w / 2 - t / 2, T)}`
       + ` A ${r(t / 2)} ${r(t / 2)} 0 0 1 ${P(w / 2 - t / 2, T + t)} L ${P(L + w * 0.5, T + t)}`
@@ -513,6 +514,7 @@ export function paddle(k) {
       + ` C ${P(L + w * 0.04, h / 2)} ${P(L, h / 2 - h * 0.3)} ${P(L, T + rh)}`
       + ` A ${r(rh)} ${r(rh)} 0 0 1 ${P(L + rh, T)} Z`;
   });
+  return k.flip ? `<g transform="translate(0 ${rnd(2 * k.y)}) scale(1 -1)">${out}</g>` : out;
 }
 
 /**
