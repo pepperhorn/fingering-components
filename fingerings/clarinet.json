@@ -1,0 +1,719 @@
+{
+  "instrument": "clarinet",
+  "pitch": "written",
+  "note": "B♭ clarinet (17-key Boehm), written E3 to A6, read off a standard maker's chart: chalumeau, throat, clarion and altissimo up to A6, with the chart's alternates. Key names follow the layout ids by function (RH pinky: F/C front, E/B, F♯/C♯, A♭/E♭). The throat trill keys use trill-3/trill-4 (lowest two). No key on the chart went unmapped.",
+  "fingerings": [
+    {
+      "note": "E",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-e-b",
+        "rh-f-c"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "rh-e-b"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-f-c"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "lh-f-c"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-fs-cs",
+        "rh-f-c"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "rh-fs-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-ab-eb"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2"
+      ]
+    },
+    {
+      "note": "A#",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1"
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 3,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh2"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh-side-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 4,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 4,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "lh-cs-gs"
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 4,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 4,
+      "down": [
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "trill-4"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh1-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 4,
+      "down": [
+        "thumb-hole",
+        "lh1"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 4,
+      "down": [
+        "thumb-hole"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 4,
+      "down": [
+        "lh1"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-hole",
+            "trill-3",
+            "trill-4"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 4,
+      "down": []
+    },
+    {
+      "note": "G#",
+      "octave": 4,
+      "down": [
+        "throat-gs"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 4,
+      "down": [
+        "throat-a"
+      ]
+    },
+    {
+      "note": "A#",
+      "octave": 4,
+      "down": [
+        "throat-a",
+        "register"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "throat-a",
+            "trill-4"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 4,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-e-b",
+        "rh-f-c"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "rh-e-b"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-f-c"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "lh-f-c"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "lh-fs-cs",
+        "rh-f-c"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "rh-fs-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-ab-eb"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh2"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh-side-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "lh3",
+        "lh-cs-gs"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2"
+      ]
+    },
+    {
+      "note": "A#",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1",
+        "lh2",
+        "trill-4"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh1-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 5,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh1"
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "trill-3",
+            "trill-4"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh-ab-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "trill-4"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh-side-eb",
+        "rh-ab-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh2",
+            "lh3",
+            "rh2",
+            "rh-ab-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "lh3",
+        "rh-ab-eb"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "lh3",
+        "lh-cs-gs",
+        "rh-ab-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "lh-cs-gs",
+            "rh1",
+            "rh2",
+            "rh3"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "rh-ab-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "rh-ab-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "rh1",
+        "rh2",
+        "rh-ab-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh-ab-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh-side-eb",
+        "rh-ab-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "register",
+            "thumb-hole",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "lh-fs-cs",
+            "rh-f-c"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 6,
+      "down": [
+        "register",
+        "thumb-hole",
+        "lh2",
+        "lh3",
+        "lh-fs-cs",
+        "rh-ab-eb"
+      ]
+    }
+  ]
+}

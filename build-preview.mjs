@@ -81,15 +81,49 @@ const html = `<!doctype html>
   <div class="legend" id="states"></div>
 
   <h2>Saxophone, written range</h2>
-  <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>, drawn with the <code>palm-leaf</code> layout variant. Scroll sideways on a narrow screen.</p>
+  <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>. Scroll sideways on a narrow screen.</p>
   <div class="scroll" id="sax"></div>
+
+  <h2>Flute, C4 to C7</h2>
+  <p class="hint">Generated from <code>instruments/flute.json</code> and <code>fingerings/flute.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
+  <div class="scroll" id="flute"></div>
+  <div class="scroll" id="flute-h"></div>
+
+  <h2>Clarinet</h2>
+  <p class="hint">Generated from <code>instruments/clarinet.json</code> and <code>fingerings/clarinet.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
+  <div class="scroll" id="clarinet"></div>
+  <div class="scroll" id="clarinet-h"></div>
+
+  <h2>Nuvo Dood</h2>
+  <p class="hint">Generated from <code>instruments/nuvo-dood.json</code> and <code>fingerings/nuvo-dood.json</code>. A pad with a light dot is half-open: finger on the pad, vent hole uncovered.</p>
+  <div class="scroll" id="dood"></div>
+
+  <h2>Nuvo TooT</h2>
+  <p class="hint">Generated from <code>instruments/nuvo-toot.json</code> and <code>fingerings/nuvo-toot.json</code>: the Dood's pads and spacing, concert pitch.</p>
+  <div class="scroll" id="toot"></div>
+
+  <h2>Trumpet</h2>
+  <p class="hint">Generated from <code>instruments/trumpet.json</code> and <code>fingerings/trumpet.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
+  <div class="scroll" id="trumpet"></div>
+  <div class="scroll" id="trumpet-h"></div>
+
+  <h2>Trombone, slide positions</h2>
+  <p class="hint">Generated from <code>instruments/trombone.json</code> and <code>fingerings/trombone.json</code>, shown horizontal. Each fingering presses one of <code>pos1</code>–<code>pos7</code>; dotted rails show the slide's travel.</p>
+  <div class="scroll" id="trombone"></div>
+  <p class="hint">With <code>hints: true</code>: light marks at the positions the slide has passed.</p>
+  <div class="scroll" id="trombone-hints"></div>
 
   <h2>Empty layouts</h2>
   <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
   <div class="gallery" id="gallery"></div>
 
-  <h2>Recorder, first octave</h2>
+  <h2>Soprano recorder, baroque fingering</h2>
+  <p class="hint">C5 to C7. A half-filled thumb is pinched.</p>
   <div class="scroll" id="recorder"></div>
+
+  <h2>Tin whistles</h2>
+  <p class="hint">One fingering pattern, named for each key: <code>fingerings/tin-whistle-*.json</code>. Half-filled holes are half-holed; the second row of each chart is overblown.</p>
+  <div id="whistles"></div>
 
   <h2>Writing a fingering</h2>
   <pre id="sample"></pre>
@@ -124,6 +158,20 @@ const shapeDemos = [
   ['pin', { shape: 'pin', w: 9, h: 18, y: 26 }],
   ['lh-hook', { shape: 'lh-hook', w: 22, h: 9, stem: 10, y: 16 }],
   ['rh-hook', { shape: 'rh-hook', w: 22, h: 9, stem: 10, y: 16 }],
+  ['flag', { shape: 'flag', w: 12, h: 32 }],
+  ['crook', { shape: 'crook', w: 34, h: 12 }],
+  ['paddle', { shape: 'paddle', w: 34, h: 9 }],
+  ['ell', { shape: 'ell', w: 20, h: 18 }],
+  ['note', { shape: 'note', w: 12, h: 24 }],
+  ['saucer', { shape: 'saucer', rx: 12, ry: 6, depth: 3 }],
+  ['saucer-top · sm', { shape: 'saucer-top', size: 'sm' }],
+  ['saucer-top · md', { shape: 'saucer-top', size: 'md' }],
+  ['saucer-top · lg', { shape: 'saucer-top', size: 'lg' }],
+  ['stacked', { shape: 'stacked', r: 11 }],
+  ['club', { shape: 'club', w: 8, h: 26 }],
+  ['twin · part a', { shape: 'twin', r: 13 }],
+  ['bell', { shape: 'bell', w: 24, h: 30 }],
+  ['slide', { shape: 'slide', w: 8, h: 32, t: 2.6, rot: -90 }],
 ];
 set('shapes', shapeDemos.map(([name, geo]) =>
   \`<figure>\${['open', 'closed'].map((state) => \`<svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ x: 30, y: 20, state, ...geo })}</svg>\`).join('')}<figcaption>\${name}</figcaption></figure>\`
@@ -133,8 +181,22 @@ set('states', STATES.map((state) =>
   \`<figure><svg viewBox="0 0 60 44" width="60" height="44">\${DEFS}\${drawKey({ shape: 'circle', x: 30, y: 24, r: 11, state, hideWhenNA: false })}</svg><figcaption>\${state}</figcaption></figure>\`
 ).join(''));
 
-set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240, variant: 'palm-leaf' }));
-set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 10, width: 1060 }));
+set('sax', renderChart(INSTRUMENTS.saxophone, DATA.saxophone.fingerings, { columns: 9, width: 1240, variant: '' }));
+set('flute', renderChart(INSTRUMENTS.flute, DATA.flute.fingerings, { columns: 12, width: 1000 }));
+set('flute-h', renderChart(INSTRUMENTS.flute, DATA.flute.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
+set('clarinet', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 9, width: 1000 }));
+set('clarinet-h', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
+set('dood', renderChart(INSTRUMENTS['nuvo-dood'], DATA['nuvo-dood'].fingerings, { columns: 15, width: 1100 }));
+set('toot', renderChart(INSTRUMENTS['nuvo-toot'], DATA['nuvo-toot'].fingerings, { columns: 20, width: 1240 }));
+set('trumpet', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings, { columns: 16, width: 1100 }));
+set('trumpet-h', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings.slice(0, 12), { columns: 6, width: 900, orient: 'horizontal' }));
+set('trombone', renderChart(INSTRUMENTS.trombone, DATA.trombone.fingerings, { columns: 7, width: 1240, orient: 'horizontal' }));
+set('trombone-hints', renderChart(INSTRUMENTS.trombone, DATA.trombone.fingerings.slice(0, 7), { columns: 7, width: 1240, orient: 'horizontal', hints: true }));
+set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 13, width: 1240 }));
+set('whistles', ['d', 'c', 'bb', 'f', 'eb'].map((k) => {
+  const d = DATA['tin-whistle-' + k];
+  return \`<h3 style="font-size:.95rem;margin:18px 0 6px">\${d.key} whistle</h3><div class="scroll">\${renderChart(INSTRUMENTS['tin-whistle'], d.fingerings, { columns: 12, width: 1100 })}</div>\`;
+}).join(''));
 
 set('gallery', Object.values(INSTRUMENTS).map((inst) =>
   \`<figure>\${renderFingering(inst, { label: '' }, { title: false, width: 130 })}<figcaption>\${inst.name}</figcaption></figure>\`

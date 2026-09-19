@@ -1,0 +1,18 @@
+{
+  "instrument": "saxophone",
+  "pitch": "written",
+  "note": "Altissimo, written G6 to F7 (same octave numbering as saxophone.json: 3 = G6\u2013B6, 4 = C7 up), from a published chart. Altissimo fingerings vary by horn, mouthpiece and player \u2014 treat these as starting points. The chart gives C7 and F7 the same main fingering; voicing decides the note.",
+  "fingerings": [
+    { "note": "G", "octave": 3, "down": ["octave", "front-f", "side-bb"], "alternates": [{ "down": ["octave", "lh1", "lh3", "rh3"] }] },
+    { "note": "G#", "octave": 3, "down": ["octave", "lh1", "lh3", "side-c", "rh1", "rh3"], "alternates": [{ "down": ["octave", "lh2", "lh3", "rh1"] }] },
+    { "note": "A", "octave": 3, "down": ["octave", "lh2", "lh3", "rh1", "rh2", "rh3"] },
+    { "note": "A#", "octave": 3, "down": ["octave", "lh3", "side-c", "rh1", "rh2", "rh3"] },
+    { "note": "B", "octave": 3, "down": ["octave", "palm-d", "lh3", "rh1", "rh2"] },
+    { "note": "C", "octave": 4, "down": ["octave", "lh1", "lh3", "rh1", "rh3"], "alternates": [{ "down": ["octave", "palm-d", "palm-eb"] }] },
+    { "note": "C#", "octave": 4, "down": ["octave", "front-f", "lh2", "side-e", "rh1"] },
+    { "note": "D", "octave": 4, "down": ["octave", "front-f"] },
+    { "note": "D#", "octave": 4, "down": ["octave", "front-f", "side-c"] },
+    { "note": "E", "octave": 4, "down": ["octave", "lh1", "lh3"] },
+    { "note": "F", "octave": 4, "down": ["octave", "lh1", "lh3", "rh1", "rh3"] }
+  ]
+}

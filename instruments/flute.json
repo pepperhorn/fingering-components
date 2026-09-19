@@ -1,38 +1,398 @@
 {
   "id": "flute",
-  "name": "Flute (Boehm)",
+  "name": "Flute (Boehm, C foot)",
   "family": "flute",
-  "viewBox": [0, 0, 132, 272],
-  "defaults": {
-    "circle": { "r": 9 },
-    "pill": { "w": 8, "h": 14 },
-    "spatula": { "w": 15, "h": 12 }
-  },
-  "panels": [
-    { "id": "front" },
-    { "id": "rear", "label": "back", "origin": [92, 26], "box": [0, 0, 36, 66] }
+  "note": "Front view, head joint at the top (turn with orient: \"horizontal\" for the usual sideways chart, head joint left). Thumb keys hang left of the stack, the G♯ key stands right of LH3, trill keys sit between the RH cups, and the foot joint carries the D♯ key and the nested C♯ / C levers. Cups in group \"mech\" are moved by the mechanism, not a finger: they draw as faint tone holes (state na) unless a fingering sets them. Variants: \"body\" adds the tube and rod outline, \"mech-cups\" draws the mechanism cups as full keys.",
+  "viewBox": [
+    0,
+    0,
+    62,
+    309.92
   ],
+  "panels": [
+    {
+      "id": "front"
+    }
+  ],
+  "variants": {
+    "body": {
+      "note": "Draws the tube and key rods behind the keys.",
+      "guides": [
+        {
+          "id": "tube-top",
+          "x1": 38.19,
+          "y1": -21,
+          "x2": 38.19,
+          "y2": 302.08,
+          "width": 1.2
+        },
+        {
+          "id": "tube-bottom",
+          "x1": 23.38,
+          "y1": -21,
+          "x2": 23.38,
+          "y2": 302.08,
+          "width": 1.2
+        },
+        {
+          "id": "rod",
+          "x1": 16.65,
+          "y1": 32.85,
+          "x2": 16.65,
+          "y2": 200.15,
+          "width": 1
+        },
+        {
+          "id": "foot-rod",
+          "x1": 29.15,
+          "y1": 208.81,
+          "x2": 29.15,
+          "y2": 280.92,
+          "width": 1
+        }
+      ]
+    },
+    "mech-cups": {
+      "note": "Mechanism cups drawn as keys (inner-ring cups, stacked G cup, foot saucers) instead of faint tone holes.",
+      "keys": {
+        "cup-cs": {
+          "shape": "circle",
+          "r": 5.38,
+          "inner": 0.5,
+          "default": "open",
+          "hole": false
+        },
+        "cup-bb": {
+          "shape": "circle",
+          "r": 7.69,
+          "inner": 0.5,
+          "default": "open",
+          "hole": false
+        },
+        "cup-gs": {
+          "shape": "circle",
+          "r": 7.69,
+          "inner": 0.5,
+          "default": "open",
+          "hole": false
+        },
+        "cup-g": {
+          "shape": "stacked",
+          "r": 7.69,
+          "inner": 0.5,
+          "sdx": -2.2,
+          "sdy": 2.2,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        },
+        "cup-eb": {
+          "shape": "saucer",
+          "rx": 7.69,
+          "ry": 3.65,
+          "depth": 1.6,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        },
+        "cup-cs-foot": {
+          "shape": "saucer",
+          "rx": 8.08,
+          "ry": 3.65,
+          "depth": 1.6,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        },
+        "cup-c-foot": {
+          "shape": "saucer",
+          "rx": 8.08,
+          "ry": 3.65,
+          "depth": 1.6,
+          "rot": 90,
+          "default": "open",
+          "hole": false
+        }
+      }
+    }
+  },
   "keys": [
-    { "id": "thumb-b", "label": "Thumb B\u266e", "shape": "circle", "r": 8, "x": 18, "y": 20, "panel": "rear", "hand": "L", "digit": "thumb", "group": "rear" },
-    { "id": "thumb-bb", "label": "Thumb B\u266d lever", "shape": "pill", "w": 19, "h": 7, "x": 18, "y": 46, "panel": "rear", "hand": "L", "digit": "thumb", "group": "rear" },
-
-    { "id": "lh1", "label": "Left 1", "shape": "circle", "x": 44, "y": 50, "hand": "L", "digit": "1", "group": "lh-stack" },
-    { "id": "lh2", "label": "Left 2", "shape": "circle", "x": 44, "y": 78, "hand": "L", "digit": "2", "group": "lh-stack" },
-    { "id": "lh3", "label": "Left 3", "shape": "circle", "x": 44, "y": 106, "hand": "L", "digit": "3", "group": "lh-stack" },
-    { "id": "lh-gs", "label": "G\u266f lever", "shape": "spatula", "w": 13, "h": 11, "x": 21, "y": 118, "hand": "L", "digit": "4", "group": "lh-lever" },
-
-    { "id": "trill-d", "label": "D trill", "shape": "pill", "w": 7, "h": 13, "x": 66, "y": 142, "hand": "R", "digit": "1", "group": "trill" },
-    { "id": "trill-ds", "label": "D\u266f trill", "shape": "pill", "w": 7, "h": 13, "x": 78, "y": 150, "hand": "R", "digit": "1", "group": "trill" },
-
-    { "id": "rh1", "label": "Right 1", "shape": "circle", "x": 44, "y": 156, "hand": "R", "digit": "1", "group": "rh-stack" },
-    { "id": "rh2", "label": "Right 2", "shape": "circle", "x": 44, "y": 184, "hand": "R", "digit": "2", "group": "rh-stack" },
-    { "id": "rh3", "label": "Right 3", "shape": "circle", "x": 44, "y": 212, "hand": "R", "digit": "3", "group": "rh-stack" },
-
-    { "id": "rh-eb", "label": "E\u266d / D\u266f key", "shape": "spatula", "w": 13, "h": 11, "x": 66, "y": 226, "default": "closed", "hand": "R", "digit": "4", "group": "rh-lever" },
-
-    { "id": "foot-c", "label": "Foot C", "shape": "spatula", "x": 34, "y": 250, "hand": "R", "digit": "4", "group": "foot" },
-    { "id": "foot-cs", "label": "Foot C\u266f", "shape": "spatula", "x": 52, "y": 250, "hand": "R", "digit": "4", "group": "foot" },
-    { "id": "foot-b", "label": "Foot B (B-foot only)", "shape": "spatula", "x": 16, "y": 250, "hand": "R", "digit": "4", "group": "foot" },
-    { "id": "gizmo", "label": "Gizmo (B-foot only)", "shape": "pill", "w": 7, "h": 11, "x": 70, "y": 250, "hand": "R", "digit": "4", "group": "foot" }
+    {
+      "id": "cup-cs",
+      "label": "C♯ key cup (mechanism)",
+      "group": "mech",
+      "x": 30.12,
+      "y": 20.35,
+      "shape": "circle",
+      "r": 5.38,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false,
+      "naStyle": "dotted"
+    },
+    {
+      "id": "thumb-bb",
+      "label": "Thumb B♭ lever",
+      "shape": "crook",
+      "w": 28.85,
+      "h": 10,
+      "t": 2.4,
+      "hand": "L",
+      "digit": "thumb",
+      "group": "thumb",
+      "x": 6.65,
+      "y": 44.38,
+      "rot": 90
+    },
+    {
+      "id": "thumb-b",
+      "label": "Thumb B♮ key",
+      "shape": "paddle",
+      "w": 36.54,
+      "h": 5.77,
+      "t": 2.6,
+      "hand": "L",
+      "digit": "thumb",
+      "group": "thumb",
+      "x": 5.69,
+      "y": 59.38,
+      "rot": 90
+    },
+    {
+      "id": "lh1",
+      "label": "Left 1",
+      "shape": "circle",
+      "r": 6.15,
+      "inner": 0.5,
+      "hand": "L",
+      "digit": "1",
+      "group": "lh-stack",
+      "x": 30.69,
+      "y": 44.38
+    },
+    {
+      "id": "cup-bb",
+      "label": "B♭ cup (mechanism)",
+      "group": "mech",
+      "x": 30.69,
+      "y": 59.77,
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false,
+      "naStyle": "dotted"
+    },
+    {
+      "id": "lh2",
+      "label": "Left 2",
+      "shape": "circle",
+      "r": 7.69,
+      "inner": 0.5,
+      "hand": "L",
+      "digit": "2",
+      "group": "lh-stack",
+      "x": 30.69,
+      "y": 76.12
+    },
+    {
+      "id": "lh-gs",
+      "label": "G♯ key",
+      "shape": "flag",
+      "w": 9.81,
+      "h": 21.64,
+      "t": 1.88,
+      "hand": "L",
+      "digit": "4",
+      "group": "lh-lever",
+      "x": 44.54,
+      "y": 98.69,
+      "rot": 90
+    },
+    {
+      "id": "lh3",
+      "label": "Left 3",
+      "shape": "circle",
+      "r": 8.08,
+      "inner": 0.5,
+      "hand": "L",
+      "digit": "3",
+      "group": "lh-stack",
+      "x": 34.54,
+      "y": 93.42
+    },
+    {
+      "id": "cup-gs",
+      "label": "G♯ cup (mechanism)",
+      "group": "mech",
+      "x": 34.92,
+      "y": 112.65,
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false,
+      "naStyle": "dotted"
+    },
+    {
+      "id": "cup-g",
+      "label": "G cup (mechanism)",
+      "group": "mech",
+      "x": 30.5,
+      "y": 131.31,
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false,
+      "naStyle": "dotted"
+    },
+    {
+      "id": "rh1",
+      "label": "Right 1",
+      "shape": "circle",
+      "r": 7.69,
+      "inner": 0.5,
+      "hand": "R",
+      "digit": "1",
+      "group": "rh-stack",
+      "x": 30.69,
+      "y": 152.08
+    },
+    {
+      "id": "trill-d",
+      "label": "D trill",
+      "shape": "club",
+      "w": 4.62,
+      "h": 13.85,
+      "t": 2.2,
+      "hand": "R",
+      "digit": "1",
+      "group": "trill",
+      "x": 23.77,
+      "y": 162.65,
+      "rot": 90
+    },
+    {
+      "id": "rh2",
+      "label": "Right 2",
+      "shape": "circle",
+      "r": 7.69,
+      "inner": 0.5,
+      "hand": "R",
+      "digit": "2",
+      "group": "rh-stack",
+      "x": 30.69,
+      "y": 173.23
+    },
+    {
+      "id": "trill-ds",
+      "label": "D♯ trill",
+      "shape": "club",
+      "w": 4.62,
+      "h": 13.85,
+      "t": 2.2,
+      "hand": "R",
+      "digit": "1",
+      "group": "trill",
+      "x": 23.77,
+      "y": 184.77,
+      "rot": 90
+    },
+    {
+      "id": "rh3",
+      "label": "Right 3",
+      "shape": "circle",
+      "r": 7.69,
+      "inner": 0.5,
+      "hand": "R",
+      "digit": "3",
+      "group": "rh-stack",
+      "x": 30.69,
+      "y": 196.31
+    },
+    {
+      "id": "cup-eb",
+      "label": "D♯ cup (mechanism)",
+      "group": "mech",
+      "x": 40.31,
+      "y": 220.35,
+      "shape": "circle",
+      "r": 7.69,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false,
+      "naStyle": "dotted"
+    },
+    {
+      "id": "rh-eb",
+      "label": "D♯ (E♭) key",
+      "shape": "note",
+      "w": 9.23,
+      "h": 16.92,
+      "t": 2.3,
+      "hand": "R",
+      "digit": "4",
+      "group": "foot",
+      "x": 23,
+      "y": 210.92,
+      "rot": 90
+    },
+    {
+      "id": "foot-cs",
+      "label": "Foot C♯",
+      "shape": "ell",
+      "w": 20.19,
+      "h": 17.31,
+      "t": 2.8,
+      "base": 5.77,
+      "hand": "R",
+      "digit": "4",
+      "group": "foot",
+      "x": 23.38,
+      "y": 225.54,
+      "rot": 90
+    },
+    {
+      "id": "foot-c",
+      "label": "Foot C",
+      "shape": "ell",
+      "w": 15.38,
+      "h": 10.77,
+      "t": 2.2,
+      "base": 2.2,
+      "hand": "R",
+      "digit": "4",
+      "group": "foot",
+      "x": 28,
+      "y": 223.23,
+      "rot": 90
+    },
+    {
+      "id": "cup-cs-foot",
+      "label": "Foot C♯ cup (mechanism)",
+      "group": "mech",
+      "x": 19.54,
+      "y": 246.31,
+      "shape": "circle",
+      "r": 8.08,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false,
+      "naStyle": "dotted"
+    },
+    {
+      "id": "cup-c-foot",
+      "label": "Foot C cup (mechanism)",
+      "group": "mech",
+      "x": 19.54,
+      "y": 272.27,
+      "shape": "circle",
+      "r": 8.08,
+      "hole": true,
+      "default": "na",
+      "hideWhenNA": false,
+      "naStyle": "dotted"
+    }
   ]
 }

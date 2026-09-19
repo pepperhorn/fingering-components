@@ -1,0 +1,200 @@
+{
+  "instrument": "nuvo-dood",
+  "pitch": "concert",
+  "note": "Full chart, C4 to D5, from the maker's fingering chart (concert pitch). A pad without its -vent is half-open: finger on the pad, vent hole uncovered.",
+  "fingerings": [
+    {
+      "note": "C",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent",
+        "r1",
+        "r1-vent",
+        "r2",
+        "r3",
+        "r3-vent",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent",
+        "r1",
+        "r1-vent",
+        "r2",
+        "r3",
+        "r3-vent",
+        "r4"
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent",
+        "r1",
+        "r1-vent",
+        "r2",
+        "r3",
+        "r3-vent"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent",
+        "r1",
+        "r1-vent",
+        "r2",
+        "r3"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent",
+        "r1",
+        "r1-vent",
+        "r2"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent",
+        "r1",
+        "r1-vent"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent",
+        "r1"
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "l3-vent"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2"
+      ]
+    },
+    {
+      "note": "A#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l3",
+        "l3-vent",
+        "r1",
+        "r1-vent"
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1"
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l2"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2"
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l2"
+      ]
+    }
+  ]
+}

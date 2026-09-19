@@ -52,10 +52,36 @@ can open from the filesystem.
 | `pin` | teardrop hung from a pivot pearl on an arm |
 | `lh-hook` (alias `hook`) | lobe pointing left, rod down its right side — clarinet RH pinky and trill keys |
 | `rh-hook` | mirrored hook, rod on the left — clarinet LH pinky F/C |
+| `flag` | stem with a loop curled over the top — flute G♯ key |
+| `crook` | long arm bent down round a heel — flute B♭ thumb lever |
+| `paddle` | slim bar with a bellied head — flute B♮ thumb key |
+| `ell` | boat with an upright arm — flute foot C♯ and C levers (nested) |
+| `note` | round head with a stem — flute D♯ key |
+| `saucer` | cup seen low down, rim and pad — flute foot C/B and D♯ cups |
+| `saucer-top` | the saucer from straight above: rim, face, pad ring; `size` sm/md/lg (or `saucer` with `view: "top"`) |
+| `stacked` | cup overlapping a cup behind it — flute G / linked RH cups |
+| `twin` | recorder double hole: ring with a large (`part: "a"`, draws the ring) and small (`part: "b"`) hole; both keys share the ring centre |
+| `bell` | brass bell flare, throat to rim — trombone body |
+| `slide` | trombone outer slide: two tubes, U crook, hand brace — one key per position |
+| `tick` | light dotted marker line, not a key — trombone positions passed |
+| `club` | small head on a slim neck — flute RH trill keys |
 
 `circle` also takes `ringed: true` (a ring key's metal ring) and `hole: true`
 (an open tone hole whose centre stays empty until covered; themable with
-`--fc-hole`).
+`--fc-hole`) and `inner: 0.55` (a concentric ring inside the cup, as on flute keys).
+
+Any key takes `tag` (short text, e.g. a trombone slide position number) and
+`tagAt: [dx, dy]`; tags stay upright when the chart is turned horizontal.
+
+A key with `showWith: [ids]` is hidden unless one of those keys is in use
+(pressed, half, etc.). A key with `hint: true` is a visual aid and only draws
+with the `hints: true` render option — e.g. the trombone's dotted marks at the
+positions before the current one: `renderChart(trombone, f, { hints: true })`.
+
+Guides take `dash: "dotted"` (or a dasharray) for paths of travel such as the trombone slide.
+
+Any key takes `naStyle: "dotted"`: in the `na` state it draws as a dotted
+outline instead of a faint one (flute mechanism cups).
 
 Geometry is per-key and optional: `r`, `rx`/`ry`, `w`/`h`, `rad`, `rot`.
 Family defaults live in the layout's `defaults` block, keyed by shape name.
@@ -92,8 +118,8 @@ a ghosted instrument, piano-tiles style.
 ## Layout variants
 
 A layout can carry named, additive overrides under `variants`. Pass one or
-several: `renderChart(sax, notes, { variant: 'palm-leaf side-levers' })`.
-The saxophone ships `palm-bean`, `palm-taper`, `palm-leaf`, `side-levers`,
+several: `renderChart(sax, notes, { variant: 'palm-taper side-levers' })`.
+The saxophone defaults to leaf palm keys and ships `palm-teardrop`, `palm-bean`, `palm-taper`, `side-levers`,
 `side-pills`, `high-fs-single`, `rh-table-stacked`, `lh-table-domes`, `rh-table-domes`,
 `lh-table-spatulas` and `rh-table-spatulas`; the clarinet ships
 `throat-pills` and `ring-keys`.

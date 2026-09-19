@@ -1,51 +1,49 @@
 {
   "instrument": "saxophone",
   "pitch": "written",
-  "note": "Normal range, written B\u266d3 to F\u266f6. Altissimo is deliberately not included \u2014 those fingerings vary by horn, mouthpiece and player, so they belong in a per-instrument overlay file rather than the shared chart.",
+  "note": "Normal range, written B\u266d3 to F\u266f6 (octave 1 = B\u266d3\u2013B4, 2 = C5\u2013B5, 3 = C6 up), checked against a published chart. The lowest B\u266d, B and C\u266f show the RH low C key as optional: the chart holds it down, most horns close it automatically. Altissimo lives in saxophone-altissimo.json.",
   "fingerings": [
-    { "note": "Bb", "note_text": "lowest note", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "lh-bb"] },
-    { "note": "B", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "lh-b"] },
+    { "note": "Bb", "note_text": "lowest note", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "lh-bb"], "optional": ["rh-c"] },
+    { "note": "B", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "lh-b"], "optional": ["rh-c"] },
     { "note": "C", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "rh-c"] },
-    { "note": "C#", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "lh-cs"] },
+    { "note": "C#", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "lh-cs"], "optional": ["rh-c"] },
     { "note": "D", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3"] },
     { "note": "Eb", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "rh-eb"] },
     { "note": "E", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1", "rh2"] },
     { "note": "F", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh1"] },
-    { "note": "F#", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh2"] },
-
+    { "note": "F#", "octave": 1, "down": ["lh1", "lh2", "lh3", "rh2"], "alternates": [{ "down": ["lh1", "lh2", "lh3", "rh1", "alt-fs"] }] },
     { "note": "G", "octave": 1, "down": ["lh1", "lh2", "lh3"] },
     { "note": "G#", "octave": 1, "down": ["lh1", "lh2", "lh3", "lh-gs"] },
     { "note": "A", "octave": 1, "down": ["lh1", "lh2"] },
     { "note": "Bb", "note_text": "alternate B\u266d fingerings", "octave": 1, "down": ["lh1", "bis"], "alternates": [
-      { "down": ["lh1", "side-bb"] },
-      { "down": ["lh1", "lh2", "lh3", "rh2", "rh3"] }
+      { "down": ["lh1", "lh2", "side-bb"] },
+      { "down": ["lh1", "rh2"] }
     ] },
     { "note": "B", "octave": 1, "down": ["lh1"] },
     { "note": "C", "octave": 2, "down": ["lh2"], "alternates": [{ "down": ["lh1", "side-c"] }] },
     { "note": "C#", "octave": 2, "down": [] },
     { "note": "D", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3", "rh1", "rh2", "rh3"] },
     { "note": "Eb", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3", "rh1", "rh2", "rh3", "rh-eb"] },
-
     { "note": "E", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3", "rh1", "rh2"] },
     { "note": "F", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3", "rh1"] },
-    { "note": "F#", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3", "rh2"] },
+    { "note": "F#", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3", "rh2"], "alternates": [{ "down": ["octave", "lh1", "lh2", "lh3", "rh1", "alt-fs"] }] },
     { "note": "G", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3"] },
     { "note": "G#", "octave": 2, "down": ["octave", "lh1", "lh2", "lh3", "lh-gs"] },
     { "note": "A", "octave": 2, "down": ["octave", "lh1", "lh2"] },
     { "note": "Bb", "note_text": "alternate B\u266d fingerings", "octave": 2, "down": ["octave", "lh1", "bis"], "alternates": [
-      { "down": ["octave", "lh1", "side-bb"] },
-      { "down": ["octave", "lh1", "lh2", "lh3", "rh2", "rh3"] }
+      { "down": ["octave", "lh1", "lh2", "side-bb"] },
+      { "down": ["octave", "lh1", "rh2"] }
     ] },
     { "note": "B", "octave": 2, "down": ["octave", "lh1"] },
     { "note": "C", "octave": 3, "down": ["octave", "lh2"], "alternates": [{ "down": ["octave", "lh1", "side-c"] }] },
-
     { "note": "C#", "octave": 3, "down": ["octave"] },
     { "note": "D", "octave": 3, "down": ["octave", "palm-d"] },
     { "note": "Eb", "octave": 3, "down": ["octave", "palm-d", "palm-eb"] },
-    { "note": "E", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "side-e"] },
-    { "note": "F", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "palm-f", "side-e"] },
+    { "note": "E", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "side-e"], "alternates": [{ "down": ["octave", "front-f", "lh2", "lh3"] }] },
+    { "note": "F", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "palm-f", "side-e"], "alternates": [{ "down": ["octave", "front-f", "lh2"] }] },
     { "note": "F#", "octave": 3, "down": ["octave", "palm-d", "palm-eb", "palm-f", "side-e", "high-fs"], "alternates": [
-      { "down": ["octave", "front-f", "lh2", "lh3"] }
+      { "down": ["octave", "front-f", "lh2", "side-bb"] },
+      { "down": ["octave", "front-f", "lh2", "high-fs"] }
     ] }
   ]
 }

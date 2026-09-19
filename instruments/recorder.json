@@ -2,12 +2,12 @@
   "id": "recorder",
   "name": "Recorder (baroque fingering)",
   "family": "recorder",
-  "note": "Thumb takes half/quarter states for pinching. Holes 6 and 7 are double on most baroque instruments; treat h6a/h6b and h7a/h7b as one hole on a German-fingering or single-hole instrument.",
+  "note": "Thumb takes half/quarter states for pinching. Holes 6 and 7 are double on most baroque instruments, drawn as a twin: one ring with a large (a) and a small (b) hole; treat h6a/h6b and h7a/h7b as one hole on a German-fingering or single-hole instrument.",
   "viewBox": [
     0,
     0,
-    118,
-    240
+    64,
+    208
   ],
   "defaults": {
     "circle": {
@@ -21,22 +21,35 @@
   "panels": [
     {
       "id": "front"
-    },
-    {
-      "id": "rear",
-      "label": "back",
-      "origin": [
-        78,
-        34
-      ],
-      "box": [
-        0,
-        0,
-        34,
-        40
-      ]
     }
   ],
+  "variants": {
+    "split-holes": {
+      "note": "Double holes drawn as two separate circles side by side.",
+      "keys": {
+        "h6a": {
+          "shape": "circle",
+          "r": 6,
+          "x": 31
+        },
+        "h6b": {
+          "shape": "circle",
+          "r": 6,
+          "x": 49
+        },
+        "h7a": {
+          "shape": "circle",
+          "r": 6,
+          "x": 31
+        },
+        "h7b": {
+          "shape": "circle",
+          "r": 6,
+          "x": 49
+        }
+      }
+    }
+  },
   "keys": [
     {
       "id": "thumb",
@@ -44,8 +57,7 @@
       "shape": "circle",
       "r": 8,
       "x": 17,
-      "y": 20,
-      "panel": "rear",
+      "y": 43.5,
       "hand": "L",
       "digit": "thumb",
       "group": "rear"
@@ -56,7 +68,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 44,
+      "y": 30,
       "hand": "L",
       "digit": "1",
       "group": "h1"
@@ -67,7 +79,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 71,
+      "y": 57,
       "hand": "L",
       "digit": "2",
       "group": "h2"
@@ -78,7 +90,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 98,
+      "y": 84,
       "hand": "L",
       "digit": "3",
       "group": "h3"
@@ -89,7 +101,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 125,
+      "y": 111,
       "hand": "R",
       "digit": "1",
       "group": "h4"
@@ -100,54 +112,58 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 152,
+      "y": 138,
       "hand": "R",
       "digit": "2",
       "group": "h5"
     },
     {
       "id": "h6a",
-      "label": "Hole 6 (upper)",
-      "shape": "circle",
-      "r": 6,
-      "x": 31,
-      "y": 179,
+      "label": "Hole 6 (large)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
+      "y": 165,
       "hand": "R",
       "digit": "3",
-      "group": "h6"
+      "group": "h6",
+      "part": "a"
     },
     {
       "id": "h6b",
-      "label": "Hole 6 (lower)",
-      "shape": "circle",
-      "r": 6,
-      "x": 49,
-      "y": 179,
+      "label": "Hole 6 (small)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
+      "y": 165,
       "hand": "R",
       "digit": "3",
-      "group": "h6"
+      "group": "h6",
+      "part": "b"
     },
     {
       "id": "h7a",
-      "label": "Hole 7 (upper)",
-      "shape": "circle",
-      "r": 6,
-      "x": 31,
-      "y": 206,
+      "label": "Hole 7 (large)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
+      "y": 192,
       "hand": "R",
       "digit": "1",
-      "group": "h7"
+      "group": "h7",
+      "part": "a"
     },
     {
       "id": "h7b",
-      "label": "Hole 7 (lower)",
-      "shape": "circle",
-      "r": 6,
-      "x": 49,
-      "y": 206,
+      "label": "Hole 7 (small)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
+      "y": 192,
       "hand": "R",
       "digit": "1",
-      "group": "h7"
+      "group": "h7",
+      "part": "b"
     }
   ]
 }

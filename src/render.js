@@ -33,6 +33,13 @@ export function resolveStates(layout, fingering = {}) {
   put(fingering.highlight, 'highlight');
   // explicit per-key override always wins
   for (const [id, st] of Object.entries(fingering.states || {})) put(id, st);
+  // `showWith: [ids]` keys are guides that appear only while one of those keys
+  // is in use (e.g. marks for the trombone positions the slide has passed)
+  for (const k of layout.keys) {
+    if (!k.showWith) continue;
+    const on = k.showWith.some((id) => states[id] && states[id] !== 'open' && states[id] !== 'na');
+    states[k.id] = on ? 'open' : 'na';
+  }
   return states;
 }
 
@@ -64,6 +71,8 @@ export function withVariant(layout, name) {
     ...layout,
     clusters: merge(layout.clusters, v.clusters),
     keys: merge(layout.keys, v.keys),
+    // a variant may add guide lines (e.g. an instrument body outline)
+    ...(v.guides ? { guides: [...(layout.guides || []), ...v.guides] } : {}),
   });
 }
 
@@ -74,6 +83,20 @@ function byPanel(layout) {
     ...p,
     keys: layout.keys.filter((k) => (k.panel || 'front') === p.id),
   }));
+}
+
+/*
+ * Key tag — a short label drawn with a key (e.g. a trombone slide position
+ * number). `tag` is the text, `tagAt: [dx, dy]` its offset from the key
+ * centre. Tags stay upright when the diagram is turned horizontal.
+ */
+function tagFor(k, o) {
+  if (k.tag == null) return '';
+  const [dx, dy] = k.tagAt || [0, 0];
+  const x = k.x + dx, y = k.y + dy;
+  const turn = o === 'horizontal' ? ` transform="rotate(90 ${x} ${y})"` : '';
+  return `<text class="fc-tag" x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="${k.tagSize ?? 9}"`
+    + ` font-weight="600" font-family="${FONT}" fill="${TEXT}"${turn}>${k.tag}</text>`;
 }
 
 /**
@@ -89,9 +112,11 @@ export function diagramBody(rawLayout, fingering, opts = {}) {
     const [ox, oy] = panel.origin || [0, 0];
     // each key carries its id and state so CSS (looks, apps) can target it
     const body = panel.keys
+      // `hint: true` keys (visual aids) only draw with the `hints` render option
+      .filter((k) => !k.hint || opts.hints)
       .map((k) => {
         const svg = drawKey({ ...k, state: states[k.id], tone: tone(k) });
-        return svg && `<g class="fc-key" data-key="${k.id}" data-state="${states[k.id]}">${svg}</g>`;
+        return svg && `<g class="fc-key" data-key="${k.id}" data-state="${states[k.id]}">${svg}${tagFor(k, opts.orient)}</g>`;
       })
       .join('');
     let frame = '';
@@ -106,7 +131,9 @@ export function diagramBody(rawLayout, fingering, opts = {}) {
     }
     const guides = (panel.id === 'front' ? layout.guides || [] : [])
       .map((g) => `<line class="fc-guide" x1="${g.x1}" y1="${g.y1}" x2="${g.x2}" y2="${g.y2}" stroke="${LINE}"`
-        + ` stroke-width="${g.width ?? 1.2}" stroke-linecap="round"/>`).join('');
+        + ` stroke-width="${g.width ?? 1.2}" stroke-linecap="round"`
+        // `dash: "dotted"` (or a dasharray) for paths of travel, e.g. a trombone slide
+        + (g.dash ? ` stroke-dasharray="${g.dash === 'dotted' ? '.01 2.6' : g.dash}"` : '') + `/>`).join('');
     parts.push(`<g transform="translate(${ox} ${oy})">${frame}${guides}${body}</g>`);
   }
   const out = parts.join('');

@@ -1,0 +1,264 @@
+{
+  "instrument": "nuvo-toot",
+  "pitch": "concert",
+  "note": "Full chart, C4 to G5, from the maker's fingering chart (concert pitch). From D5 up the thumb half-holes: thumb listed without thumb-vent.",
+  "fingerings": [
+    {
+      "note": "C",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3",
+        "r3-vent",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3",
+        "r3-vent",
+        "r4"
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3",
+        "r3-vent"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r2",
+        "r3",
+        "r3-vent",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "l3",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "r1",
+        "r2",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l2",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "A#",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "l3",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 4,
+      "down": [
+        "thumb",
+        "thumb-vent",
+        "l1",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 5,
+      "down": [
+        "l1",
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 5,
+      "down": [
+        "r4",
+        "r4-vent"
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3",
+        "r3-vent"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r1",
+        "r2"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r1"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3",
+        "r2"
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "down": [
+        "thumb",
+        "l1",
+        "l2",
+        "l3"
+      ]
+    }
+  ]
+}
