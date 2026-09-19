@@ -108,7 +108,9 @@ export function diagramBody(rawLayout, fingering, opts = {}) {
     }
     const guides = (panel.id === 'front' ? layout.guides || [] : [])
       .map((g) => `<line class="fc-guide" x1="${g.x1}" y1="${g.y1}" x2="${g.x2}" y2="${g.y2}" stroke="${LINE}"`
-        + ` stroke-width="${g.width ?? 1.2}" stroke-linecap="round"/>`).join('');
+        + ` stroke-width="${g.width ?? 1.2}" stroke-linecap="round"`
+        // `dash: "dotted"` (or a dasharray) for paths of travel, e.g. a trombone slide
+        + (g.dash ? ` stroke-dasharray="${g.dash === 'dotted' ? '.01 2.6' : g.dash}"` : '') + `/>`).join('');
     parts.push(`<g transform="translate(${ox} ${oy})">${frame}${guides}${body}</g>`);
   }
   const out = parts.join('');

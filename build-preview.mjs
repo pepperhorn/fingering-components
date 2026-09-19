@@ -107,6 +107,10 @@ const html = `<!doctype html>
   <div class="scroll" id="trumpet"></div>
   <div class="scroll" id="trumpet-h"></div>
 
+  <h2>Trombone, slide positions</h2>
+  <p class="hint">Generated from <code>instruments/trombone.json</code> and <code>fingerings/trombone.json</code>, shown horizontal. Each fingering presses one of <code>pos1</code>–<code>pos7</code>; dotted rails show the slide's travel.</p>
+  <div class="scroll" id="trombone"></div>
+
   <h2>Empty layouts</h2>
   <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
   <div class="gallery" id="gallery"></div>
@@ -164,6 +168,8 @@ const shapeDemos = [
   ['stacked', { shape: 'stacked', r: 11 }],
   ['club', { shape: 'club', w: 8, h: 26 }],
   ['twin · part a', { shape: 'twin', r: 13 }],
+  ['bell', { shape: 'bell', w: 24, h: 30 }],
+  ['slide', { shape: 'slide', w: 8, h: 32, t: 2.6, rot: -90 }],
 ];
 set('shapes', shapeDemos.map(([name, geo]) =>
   \`<figure>\${['open', 'closed'].map((state) => \`<svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ x: 30, y: 20, state, ...geo })}</svg>\`).join('')}<figcaption>\${name}</figcaption></figure>\`
@@ -182,6 +188,7 @@ set('dood', renderChart(INSTRUMENTS['nuvo-dood'], DATA['nuvo-dood'].fingerings, 
 set('toot', renderChart(INSTRUMENTS['nuvo-toot'], DATA['nuvo-toot'].fingerings, { columns: 20, width: 1240 }));
 set('trumpet', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings, { columns: 16, width: 1100 }));
 set('trumpet-h', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings.slice(0, 12), { columns: 6, width: 900, orient: 'horizontal' }));
+set('trombone', renderChart(INSTRUMENTS.trombone, DATA.trombone.fingerings, { columns: 7, width: 1240, orient: 'horizontal' }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 13, width: 1240 }));
 set('whistles', ['d', 'c', 'bb', 'f', 'eb'].map((k) => {
   const d = DATA['tin-whistle-' + k];

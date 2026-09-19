@@ -61,11 +61,15 @@ can open from the filesystem.
 | `saucer-top` | the saucer from straight above: rim, face, pad ring; `size` sm/md/lg (or `saucer` with `view: "top"`) |
 | `stacked` | cup overlapping a cup behind it — flute G / linked RH cups |
 | `twin` | recorder double hole: ring with a large (`part: "a"`, draws the ring) and small (`part: "b"`) hole; both keys share the ring centre |
+| `bell` | brass bell flare, throat to rim — trombone body |
+| `slide` | trombone outer slide: two tubes, U crook, hand brace — one key per position |
 | `club` | small head on a slim neck — flute RH trill keys |
 
 `circle` also takes `ringed: true` (a ring key's metal ring) and `hole: true`
 (an open tone hole whose centre stays empty until covered; themable with
 `--fc-hole`) and `inner: 0.55` (a concentric ring inside the cup, as on flute keys).
+
+Guides take `dash: "dotted"` (or a dasharray) for paths of travel such as the trombone slide.
 
 Any key takes `naStyle: "dotted"`: in the `na` state it draws as a dotted
 outline instead of a faint one (flute mechanism cups).

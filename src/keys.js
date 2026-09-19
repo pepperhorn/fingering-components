@@ -638,9 +638,50 @@ export function twin(k) {
   return ring + hole;
 }
 
+/**
+ * Bell — a brass bell flare: a narrow throat easing out to a wide rim.
+ * Opens downward by default (aim with `dir` / `rot`). `w` rim width, `h`
+ * flare length, `t` throat width, `flare` how late it widens (higher =
+ * straighter tube, then a sharper flare).
+ */
+export function bell(k) {
+  const w = k.w ?? 26, h = k.h ?? 34, t = k.t ?? 3, fl = k.flare ?? 3;
+  return outline(k, w, h, (P) => {
+    const N = 18, pts = [];
+    for (let i = 0; i <= N; i++) {
+      const u = i / N;
+      pts.push([t / 2 + (w / 2 - t / 2) * Math.pow(u, fl), -h / 2 + h * u]);
+    }
+    const right = pts.map(([x, y]) => P(x, y));
+    const left = pts.slice().reverse().map(([x, y]) => P(-x, y));
+    return 'M ' + [...right, ...left].join(' L ') + ' Z';
+  });
+}
+
+/**
+ * Slide — a trombone outer slide: two tubes joined by a U crook at the far
+ * end, with a hand brace near the top. `x, y` is the centre as usual; `w` is
+ * the rail spacing (centre to centre), `h` the length from the top of the
+ * tubes to the outside of the crook, `t` the tube width, `brace` how far down
+ * the hand brace sits. Crook points down; aim with `dir` / `rot`.
+ */
+export function slide(k) {
+  const w = k.w ?? 10, h = k.h ?? 64, t = k.t ?? 3, br = k.brace ?? 10;
+  const Ro = w / 2 + t / 2, Ri = w / 2 - t / 2;
+  return outline(k, w + t, h, (P, s) => {
+    const r = (v) => rnd(v * s);
+    const top = -h / 2, bot = h / 2 - Ro;                 // crook centre
+    const tube = `M ${P(-Ro, top)} L ${P(-Ro, bot)} A ${r(Ro)} ${r(Ro)} 0 0 0 ${P(Ro, bot)} L ${P(Ro, top)}`
+      + ` L ${P(Ri, top)} L ${P(Ri, bot)} A ${r(Ri)} ${r(Ri)} 0 0 1 ${P(-Ri, bot)} L ${P(-Ri, top)} Z`;
+    const by = top + br;
+    const brace = ` M ${P(-Ri, by - 1.2)} L ${P(Ri, by - 1.2)} L ${P(Ri, by + 1.2)} L ${P(-Ri, by + 1.2)} Z`;
+    return tube + brace;
+  });
+}
+
 export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook,
   'lh-hook': hook, 'rh-hook': (k) => hook({ ...k, flip: !k.flip }),
-  flag, crook, paddle, ell, note, saucer, 'saucer-top': saucerTop, stacked, club, twin };
+  flag, crook, paddle, ell, note, saucer, 'saucer-top': saucerTop, stacked, club, twin, bell, slide };
 
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
@@ -667,6 +708,8 @@ export function bbox(k) {
     case 'saucer': if (k.view === 'top') return bbox({ ...k, shape: 'saucer-top' }); return [(k.rx ?? 8) * 2, (k.ry ?? 4) * 2 + (k.depth ?? 2)];
     case 'saucer-top': { const z = SAUCER_SIZES[k.size] || SAUCER_SIZES.md; const d = ((k.r ?? z.r) + (k.rim ?? z.rim)) * 2; return [d, d]; }
     case 'stacked': { const r = k.r ?? 9; return [r * 2 + Math.abs(k.sdx ?? -2.6), r * 2 + Math.abs(k.sdy ?? 2.6)]; }
+    case 'bell': return [k.w ?? 26, k.h ?? 34];
+    case 'slide': return [(k.w ?? 10) + (k.t ?? 3), k.h ?? 64];
     case 'twin': return [(k.r ?? 10) * 2, (k.r ?? 10) * 2];
     case 'club': return [k.w ?? 6, k.h ?? 18];
     default: return [k.w ?? 8, k.h ?? 16];
