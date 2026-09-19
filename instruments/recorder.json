@@ -2,7 +2,7 @@
   "id": "recorder",
   "name": "Recorder (baroque fingering)",
   "family": "recorder",
-  "note": "Thumb takes half/quarter states for pinching. Holes 6 and 7 are double on most baroque instruments; treat h6a/h6b and h7a/h7b as one hole on a German-fingering or single-hole instrument.",
+  "note": "Thumb takes half/quarter states for pinching. Holes 6 and 7 are double on most baroque instruments, drawn as a twin: one ring with a large (a) and a small (b) hole; treat h6a/h6b and h7a/h7b as one hole on a German-fingering or single-hole instrument.",
   "viewBox": [
     0,
     0,
@@ -37,6 +37,33 @@
       ]
     }
   ],
+  "variants": {
+    "split-holes": {
+      "note": "Double holes drawn as two separate circles side by side.",
+      "keys": {
+        "h6a": {
+          "shape": "circle",
+          "r": 6,
+          "x": 31
+        },
+        "h6b": {
+          "shape": "circle",
+          "r": 6,
+          "x": 49
+        },
+        "h7a": {
+          "shape": "circle",
+          "r": 6,
+          "x": 31
+        },
+        "h7b": {
+          "shape": "circle",
+          "r": 6,
+          "x": 49
+        }
+      }
+    }
+  },
   "keys": [
     {
       "id": "thumb",
@@ -107,47 +134,51 @@
     },
     {
       "id": "h6a",
-      "label": "Hole 6 (upper)",
-      "shape": "circle",
-      "r": 6,
-      "x": 31,
+      "label": "Hole 6 (large)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
       "y": 179,
       "hand": "R",
       "digit": "3",
-      "group": "h6"
+      "group": "h6",
+      "part": "a"
     },
     {
       "id": "h6b",
-      "label": "Hole 6 (lower)",
-      "shape": "circle",
-      "r": 6,
-      "x": 49,
+      "label": "Hole 6 (small)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
       "y": 179,
       "hand": "R",
       "digit": "3",
-      "group": "h6"
+      "group": "h6",
+      "part": "b"
     },
     {
       "id": "h7a",
-      "label": "Hole 7 (upper)",
-      "shape": "circle",
-      "r": 6,
-      "x": 31,
+      "label": "Hole 7 (large)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
       "y": 206,
       "hand": "R",
       "digit": "1",
-      "group": "h7"
+      "group": "h7",
+      "part": "a"
     },
     {
       "id": "h7b",
-      "label": "Hole 7 (lower)",
-      "shape": "circle",
-      "r": 6,
-      "x": 49,
+      "label": "Hole 7 (small)",
+      "shape": "twin",
+      "r": 11,
+      "x": 40,
       "y": 206,
       "hand": "R",
       "digit": "1",
-      "group": "h7"
+      "group": "h7",
+      "part": "b"
     }
   ]
 }

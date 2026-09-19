@@ -153,6 +153,7 @@ const shapeDemos = [
   ['saucer-top · lg', { shape: 'saucer-top', size: 'lg' }],
   ['stacked', { shape: 'stacked', r: 11 }],
   ['club', { shape: 'club', w: 8, h: 26 }],
+  ['twin · part a', { shape: 'twin', r: 13 }],
 ];
 set('shapes', shapeDemos.map(([name, geo]) =>
   \`<figure>\${['open', 'closed'].map((state) => \`<svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ x: 30, y: 20, state, ...geo })}</svg>\`).join('')}<figcaption>\${name}</figcaption></figure>\`

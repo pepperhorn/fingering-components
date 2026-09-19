@@ -621,9 +621,26 @@ export function club(k) {
   return paint(k, [k.x - R, k.y - h / 2, w, h], geom, k.fillFrom);
 }
 
+/**
+ * Twin — a recorder double hole: one ring holding a large and a small tone
+ * hole side by side. Two keys share the same x, y (the ring centre): `part:
+ * "a"` is the large hole and also draws the ring, `part: "b"` the small one.
+ * `r` is the ring radius; `flip: true` puts the small hole on the left.
+ */
+export function twin(k) {
+  const R = k.r ?? 10, s = k.flip ? -1 : 1;
+  const big = k.part !== 'b';
+  const hr = big ? R * 0.47 : R * 0.26;
+  const hx = k.x + s * (big ? -0.42 : 0.51) * R, hy = k.y + (big ? -0.14 : 0.09) * R;
+  const hole = circle({ ...k, x: rnd(hx), y: rnd(hy), r: rnd(hr), hole: true, ringed: false, inner: 0 });
+  if (!big) return hole;
+  const ring = `<circle cx="${k.x}" cy="${k.y}" r="${R}" fill="var(--fc-twin, none)" stroke="${LINE}" stroke-width="${SW}"/>`;
+  return ring + hole;
+}
+
 export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook,
   'lh-hook': hook, 'rh-hook': (k) => hook({ ...k, flip: !k.flip }),
-  flag, crook, paddle, ell, note, saucer, 'saucer-top': saucerTop, stacked, club };
+  flag, crook, paddle, ell, note, saucer, 'saucer-top': saucerTop, stacked, club, twin };
 
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
@@ -650,6 +667,7 @@ export function bbox(k) {
     case 'saucer': if (k.view === 'top') return bbox({ ...k, shape: 'saucer-top' }); return [(k.rx ?? 8) * 2, (k.ry ?? 4) * 2 + (k.depth ?? 2)];
     case 'saucer-top': { const z = SAUCER_SIZES[k.size] || SAUCER_SIZES.md; const d = ((k.r ?? z.r) + (k.rim ?? z.rim)) * 2; return [d, d]; }
     case 'stacked': { const r = k.r ?? 9; return [r * 2 + Math.abs(k.sdx ?? -2.6), r * 2 + Math.abs(k.sdy ?? 2.6)]; }
+    case 'twin': return [(k.r ?? 10) * 2, (k.r ?? 10) * 2];
     case 'club': return [k.w ?? 6, k.h ?? 18];
     default: return [k.w ?? 8, k.h ?? 16];
   }
