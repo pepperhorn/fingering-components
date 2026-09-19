@@ -3,6 +3,11 @@
   "name": "Trumpet (B\u266d)",
   "family": "brass",
   "transpose": -2,
+  "ranges": {
+    "beginner":     { "low": "C4",  "high": "C5" },
+    "intermediate": { "low": "F#3", "high": "G5" },
+    "pro":          { "low": "F#3", "high": "C6" }
+  },
   "note": "Three piston valves, valve 1 (nearest the mouthpiece) at the top; orient: \"horizontal\" lays them in a row, valve 1 on the left. Each valve is a stacked cup: the piston cap over its casing.",
   "viewBox": [0, 0, 60, 98],
   "panels": [{"id": "front"}],

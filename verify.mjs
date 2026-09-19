@@ -26,3 +26,47 @@ for (const f of readdirSync('fingerings')) {
   const svg = renderChart(inst, d.fingerings, {columns:9});
   console.log(d.instrument.padEnd(14), d.fingerings.length, 'fingerings ok,', svg.length, 'chars');
 }
+
+// --- skill-level ranges -------------------------------------------------
+const PC = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+const midi = (s) => {
+  const m = /^([A-G])(#|b)?(-?\d)$/.exec(s);
+  if (!m) throw new Error(`bad pitch "${s}"`);
+  return (Number(m[3]) + 1) * 12 + PC[m[1]] + (m[2] === '#' ? 1 : m[2] === 'b' ? -1 : 0);
+};
+const fmidi = (fg) => midi(`${fg.note}${fg.octave}`);
+// which fingering sheets belong to an instrument (+ horn)
+const sheetsFor = (id, horn) => readdirSync('fingerings')
+  .map((f) => J(`fingerings/${f}`))
+  .filter((d) => d.instrument === id && (!d.horn || !horn || d.horn === horn));
+// chromatic notes an instrument genuinely cannot finger (reported, not fatal)
+const RANGE_GAPS_OK = {};
+const LEVELS = ['beginner', 'intermediate', 'pro'];
+for (const f of readdirSync('instruments')) {
+  const inst = J(`instruments/${f}`);
+  const hornIds = inst.horns ? Object.keys(inst.horns) : [undefined];
+  for (const horn of hornIds) {
+    const r = (horn && inst.horns[horn].ranges) || inst.ranges;
+    if (!r) throw new Error(`${inst.id}${horn ? `/${horn}` : ''}: "ranges" is required`);
+    const span = LEVELS.map((l) => {
+      if (!r[l]) throw new Error(`${inst.id}: ranges.${l} missing`);
+      const lo = midi(r[l].low), hi = midi(r[l].high);
+      if (lo > hi) throw new Error(`${inst.id}: ranges.${l} low > high`);
+      return [lo, hi];
+    });
+    for (let i = 1; i < span.length; i++) {
+      if (span[i][0] > span[i - 1][0] || span[i][1] < span[i - 1][1])
+        throw new Error(`${inst.id}${horn ? `/${horn}` : ''}: ranges.${LEVELS[i - 1]} must sit inside ranges.${LEVELS[i]}`);
+    }
+    const sheets = sheetsFor(inst.id, horn);
+    if (!sheets.length) continue;          // layout without fingering data yet
+    const have = new Set(sheets.flatMap((d) => d.fingerings.filter((fg) => fg.note).map(fmidi)));
+    const [lo, hi] = span[2];
+    const gaps = [];
+    for (let m = lo; m <= hi; m++) if (!have.has(m)) gaps.push(m);
+    const allowed = new Set(RANGE_GAPS_OK[`${inst.id}${horn ? `/${horn}` : ''}`] || []);
+    const bad = gaps.filter((m) => !allowed.has(m));
+    if (bad.length) throw new Error(`${inst.id}${horn ? `/${horn}` : ''}: pro range has no fingering for midi ${bad.join(', ')}`);
+    console.log(`${(inst.id + (horn ? `/${horn}` : '')).padEnd(22)} ranges ok`);
+  }
+}
