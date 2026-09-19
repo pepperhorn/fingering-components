@@ -6,7 +6,7 @@
   "viewBox": [
     0,
     0,
-    58,
+    62,
     309.92
   ],
   "panels": [
@@ -127,7 +127,8 @@
       "r": 5.38,
       "hole": true,
       "default": "na",
-      "hideWhenNA": false
+      "hideWhenNA": false,
+      "naStyle": "dotted"
     },
     {
       "id": "thumb-bb",
@@ -179,7 +180,8 @@
       "r": 7.69,
       "hole": true,
       "default": "na",
-      "hideWhenNA": false
+      "hideWhenNA": false,
+      "naStyle": "dotted"
     },
     {
       "id": "lh2",
@@ -203,7 +205,7 @@
       "hand": "L",
       "digit": "4",
       "group": "lh-lever",
-      "x": 41.15,
+      "x": 46.15,
       "y": 96.69,
       "rot": 90
     },
@@ -229,7 +231,8 @@
       "r": 7.69,
       "hole": true,
       "default": "na",
-      "hideWhenNA": false
+      "hideWhenNA": false,
+      "naStyle": "dotted"
     },
     {
       "id": "cup-g",
@@ -241,7 +244,8 @@
       "r": 7.69,
       "hole": true,
       "default": "na",
-      "hideWhenNA": false
+      "hideWhenNA": false,
+      "naStyle": "dotted"
     },
     {
       "id": "rh1",
@@ -317,7 +321,8 @@
       "r": 7.69,
       "hole": true,
       "default": "na",
-      "hideWhenNA": false
+      "hideWhenNA": false,
+      "naStyle": "dotted"
     },
     {
       "id": "rh-eb",
@@ -373,7 +378,8 @@
       "r": 8.08,
       "hole": true,
       "default": "na",
-      "hideWhenNA": false
+      "hideWhenNA": false,
+      "naStyle": "dotted"
     },
     {
       "id": "cup-c-foot",
@@ -385,7 +391,8 @@
       "r": 8.08,
       "hole": true,
       "default": "na",
-      "hideWhenNA": false
+      "hideWhenNA": false,
+      "naStyle": "dotted"
     }
   ]
 }

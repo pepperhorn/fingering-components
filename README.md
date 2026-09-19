@@ -66,6 +66,9 @@ can open from the filesystem.
 (an open tone hole whose centre stays empty until covered; themable with
 `--fc-hole`) and `inner: 0.55` (a concentric ring inside the cup, as on flute keys).
 
+Any key takes `naStyle: "dotted"`: in the `na` state it draws as a dotted
+outline instead of a faint one (flute mechanism cups).
+
 Geometry is per-key and optional: `r`, `rx`/`ry`, `w`/`h`, `rad`, `rot`.
 Family defaults live in the layout's `defaults` block, keyed by shape name.
 

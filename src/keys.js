@@ -45,7 +45,9 @@ export const STATES = [
 
 const FILL_FRACTION = { half: 0.5, quarter: 0.25, 'three-q': 0.75 };
 
-function strokeFor(state, INK) {
+function strokeFor(state, INK, k = {}) {
+  // `naStyle: "dotted"` draws an na key as a dotted outline at full strength
+  if (state === 'na' && k.naStyle === 'dotted') return `stroke="${LINE}" stroke-width="1.2" stroke-dasharray=".01 2.4" stroke-linecap="round"`;
   if (state === 'highlight') return `stroke="${HIGHLIGHT}" stroke-width="${SW}" stroke-linejoin="round"`;
   if (state === 'optional') return `stroke="${INK}" stroke-width="${SW}" stroke-dasharray="2.2 1.8" stroke-linecap="round"`;
   if (state === 'na') return `stroke="${LINE}" stroke-width="0.8" stroke-opacity="0.3"`;
@@ -83,7 +85,7 @@ function fillFor(state, INK) {
 function paint(k, box, geom, fillDir) {
   const state = k.state;
   const INK = inkFor(k);
-  const stroke = strokeFor(state, INK);
+  const stroke = strokeFor(state, INK, k);
   if (state === 'na') return geom(`fill="none" ${stroke}`);
   if (state === 'ring') {
     // touched but open: solid annulus, open centre
