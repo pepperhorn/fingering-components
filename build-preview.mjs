@@ -84,7 +84,7 @@ const html = `<!doctype html>
   <p class="hint">Generated from <code>instruments/saxophone.json</code> and <code>fingerings/saxophone.json</code>. Scroll sideways on a narrow screen.</p>
   <div class="scroll" id="sax"></div>
 
-  <h2>Flute, first octave</h2>
+  <h2>Flute, C4 to C7</h2>
   <p class="hint">Generated from <code>instruments/flute.json</code> and <code>fingerings/flute.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
   <div class="scroll" id="flute"></div>
   <div class="scroll" id="flute-h"></div>

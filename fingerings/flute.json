@@ -1,7 +1,7 @@
 {
   "instrument": "flute",
   "pitch": "concert",
-  "note": "Starter set: the first octave, C4 to B4, standard fingerings (B♭ with the thumb B♭ lever). Upper octaves still to be added.",
+  "note": "Full chart, C4 to C7, standard Boehm fingerings with the chart alternates (B♭ with the thumb B♭ lever as an alternate; trill keys for B♭6, B6 and C7). Mechanism cups are not listed.",
   "fingerings": [
     {
       "note": "C",
@@ -94,6 +94,18 @@
         "lh3",
         "rh3",
         "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-b",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh2",
+            "rh-eb"
+          ]
+        }
       ]
     },
     {
@@ -127,15 +139,38 @@
         "lh1",
         "lh2",
         "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-b",
+            "lh1",
+            "lh2",
+            "lh-gs",
+            "rh1",
+            "rh3",
+            "rh-eb"
+          ]
+        }
       ]
     },
     {
-      "note": "Bb",
+      "note": "A#",
       "octave": 4,
       "down": [
-        "thumb-bb",
+        "thumb-b",
         "lh1",
+        "rh1",
         "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-bb",
+            "lh1",
+            "rh-eb"
+          ]
+        }
       ]
     },
     {
@@ -145,6 +180,425 @@
         "thumb-b",
         "lh1",
         "rh-eb"
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 5,
+      "down": [
+        "lh1",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "foot-c",
+            "foot-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 5,
+      "down": [
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "foot-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh2",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh1",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh3",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-b",
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh2",
+            "rh-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "lh-gs",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-b",
+            "lh1",
+            "lh2",
+            "lh-gs",
+            "rh1",
+            "rh3",
+            "rh-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "A#",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "rh1",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-bb",
+            "lh1",
+            "rh-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 5,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 6,
+      "down": [
+        "lh1",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "lh1",
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "foot-c",
+            "foot-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "C#",
+      "octave": 6,
+      "down": [
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "lh2",
+            "lh3",
+            "rh1",
+            "rh2",
+            "rh3",
+            "foot-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "D",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "lh2",
+        "lh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "D#",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "lh3",
+        "lh-gs",
+        "rh1",
+        "rh2",
+        "rh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "E",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh2",
+        "rh1",
+        "rh2",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "F",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh3",
+        "rh1",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "F#",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh3",
+        "rh3",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-b",
+            "lh1",
+            "lh3",
+            "rh3",
+            "foot-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "G",
+      "octave": 6,
+      "down": [
+        "lh1",
+        "lh2",
+        "lh3",
+        "rh-eb"
+      ]
+    },
+    {
+      "note": "G#",
+      "octave": 6,
+      "down": [
+        "lh2",
+        "lh3",
+        "lh-gs",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "lh2",
+            "lh3",
+            "lh-gs",
+            "rh2",
+            "rh3",
+            "rh-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "A",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "lh2",
+        "rh1",
+        "rh-eb"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-b",
+            "lh2",
+            "rh1",
+            "foot-cs"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "A#",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "rh1",
+        "trill-d"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-bb",
+            "lh1",
+            "lh3",
+            "trill-d",
+            "rh3"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "B",
+      "octave": 6,
+      "down": [
+        "thumb-b",
+        "lh1",
+        "lh3",
+        "trill-ds"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "thumb-b",
+            "lh1",
+            "lh3",
+            "trill-d",
+            "trill-ds",
+            "rh3",
+            "rh-eb"
+          ]
+        }
+      ]
+    },
+    {
+      "note": "C",
+      "octave": 7,
+      "down": [
+        "lh1",
+        "lh2",
+        "lh3",
+        "lh-gs",
+        "rh1"
+      ],
+      "alternates": [
+        {
+          "down": [
+            "lh1",
+            "lh2",
+            "lh3",
+            "lh-gs",
+            "rh1",
+            "rh2",
+            "trill-ds"
+          ]
+        }
       ]
     }
   ]
