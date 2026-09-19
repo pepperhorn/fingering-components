@@ -130,6 +130,7 @@ const shapeDemos = [
   ['ell', { shape: 'ell', w: 20, h: 18 }],
   ['note', { shape: 'note', w: 12, h: 24 }],
   ['saucer', { shape: 'saucer', rx: 12, ry: 6, depth: 3 }],
+  ['saucer-top', { shape: 'saucer-top', r: 11 }],
   ['stacked', { shape: 'stacked', r: 11 }],
   ['club', { shape: 'club', w: 8, h: 26 }],
 ];

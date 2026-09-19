@@ -548,6 +548,7 @@ export function note(k) {
  * D♯ cups. `rx`/`ry` size the top face, `depth` the rim.
  */
 export function saucer(k) {
+  if (k.view === 'top') return saucerTop(k);
   const rx = k.rx ?? 8, ry = k.ry ?? 4, d = k.depth ?? 2;
   const top = { ...k, y: k.y - d / 2 };
   const rim = `<ellipse cx="${k.x}" cy="${rnd(k.y + d / 2)}" rx="${rx}" ry="${ry}" fill="${LINE}" stroke="${LINE}" stroke-width="${SW}"/>`;
@@ -555,6 +556,20 @@ export function saucer(k) {
   if (k.state === 'na') return rim + face;
   const pad = `<ellipse cx="${k.x}" cy="${rnd(top.y)}" rx="${rnd(rx * 0.55)}" ry="${rnd(ry * 0.55)}" fill="none" stroke="${LINE}" stroke-width="${SW}"/>`;
   return rim + face + pad;
+}
+
+/**
+ * Top-down saucer — the same cup seen from straight above: a round face
+ * inside a thin rim, the pad showing as a concentric ring. `r` is the face
+ * radius, `rim` the rim width. Also reachable as `saucer` with `view: "top"`.
+ */
+export function saucerTop(k) {
+  const r = k.r ?? 8, rim = k.rim ?? 1.6;
+  const edge = `<circle cx="${k.x}" cy="${k.y}" r="${rnd(r + rim)}" fill="${LINE}" stroke="${LINE}" stroke-width="${SW}"/>`;
+  const face = circle({ ...k, r, ringed: false });
+  if (k.state === 'na') return edge + face;
+  const pad = `<circle cx="${k.x}" cy="${k.y}" r="${rnd(r * 0.55)}" fill="none" stroke="${LINE}" stroke-width="${SW}"/>`;
+  return edge + face + pad;
 }
 
 /**
@@ -589,7 +604,7 @@ export function club(k) {
 
 export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook,
   'lh-hook': hook, 'rh-hook': (k) => hook({ ...k, flip: !k.flip }),
-  flag, crook, paddle, ell, note, saucer, stacked, club };
+  flag, crook, paddle, ell, note, saucer, 'saucer-top': saucerTop, stacked, club };
 
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
@@ -613,7 +628,8 @@ export function bbox(k) {
     case 'crook': case 'paddle': return [k.w ?? 26, k.h ?? (k.shape === 'crook' ? 9 : 7)];
     case 'ell': return [k.w ?? 16, k.h ?? 14];
     case 'note': return [k.w ?? 9, k.h ?? 18];
-    case 'saucer': return [(k.rx ?? 8) * 2, (k.ry ?? 4) * 2 + (k.depth ?? 2)];
+    case 'saucer': if (k.view === 'top') return bbox({ ...k, shape: 'saucer-top' }); return [(k.rx ?? 8) * 2, (k.ry ?? 4) * 2 + (k.depth ?? 2)];
+    case 'saucer-top': { const d = ((k.r ?? 8) + (k.rim ?? 1.6)) * 2; return [d, d]; }
     case 'stacked': { const r = k.r ?? 9; return [r * 2 + Math.abs(k.sdx ?? -2.6), r * 2 + Math.abs(k.sdy ?? 2.6)]; }
     case 'club': return [k.w ?? 6, k.h ?? 18];
     default: return [k.w ?? 8, k.h ?? 16];
