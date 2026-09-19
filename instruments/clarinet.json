@@ -40,7 +40,7 @@
     {"id": "trill-2", "label": "Trill 2", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 8.1, "stem": 17.55},
     {"id": "trill-3", "label": "Trill 3", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 16.2, "stem": 9.45},
     {"id": "trill-4", "label": "Trill 4", "cluster": "trill", "hand": "R", "digit": "1", "group": "trill", "dx": 0, "dy": 24.3, "stem": 1.35},
-    {"id": "lh-f-c", "label": "LH F/C", "cluster": "lh-table", "shape": "rh-hook", "dx": 13.64, "dy": 0, "hand": "L", "digit": "4", "group": "lh-table", "w": 15.4, "h": 7.7, "stem": 28.6, "stemW": 3.08, "rot": -12},
+    {"id": "lh-f-c", "label": "LH F/C", "cluster": "lh-table", "shape": "rh-hook", "dx": 13.64, "dy": 0, "hand": "L", "digit": "4", "group": "lh-table", "w": 15.4, "h": 7.7, "stem": 28.6, "stemW": 3.08},
     {"id": "lh-e-b", "label": "LH E/B", "cluster": "lh-table", "shape": "paddle", "dx": 3.7, "dy": 21, "hand": "L", "digit": "4", "group": "lh-table", "w": 30, "h": 9, "t": 3.6, "rot": 90},
     {"id": "lh-fs-cs", "label": "LH F\u266f/C\u266f", "cluster": "lh-table", "shape": "paddle", "dx": 13.7, "dy": 24.5, "hand": "L", "digit": "4", "group": "lh-table", "w": 30, "h": 9, "t": 3.6, "rot": 90, "flip": true},
     {"id": "lh-ab-eb", "label": "LH A\u266d/E\u266d (full Boehm)", "cluster": "lh-table", "shape": "plate", "w": 5.5, "h": 11, "radii": [2.5, 2.5, 1, 1], "dx": 11, "dy": 15.4, "default": "na", "hand": "L", "digit": "4", "group": "lh-table"},
