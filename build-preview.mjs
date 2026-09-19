@@ -94,6 +94,10 @@ const html = `<!doctype html>
   <div class="scroll" id="clarinet"></div>
   <div class="scroll" id="clarinet-h"></div>
 
+  <h2>Nuvo Dood</h2>
+  <p class="hint">Generated from <code>instruments/nuvo-dood.json</code> and <code>fingerings/nuvo-dood.json</code>. A pad with a light dot is half-open: finger on the pad, vent hole uncovered.</p>
+  <div class="scroll" id="dood"></div>
+
   <h2>Empty layouts</h2>
   <p class="hint">Every key in each instrument, all open — the sheet you fill in.</p>
   <div class="gallery" id="gallery"></div>
@@ -159,6 +163,7 @@ set('flute', renderChart(INSTRUMENTS.flute, DATA.flute.fingerings, { columns: 12
 set('flute-h', renderChart(INSTRUMENTS.flute, DATA.flute.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
 set('clarinet', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 9, width: 1000 }));
 set('clarinet-h', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { columns: 3, width: 1240, orient: 'horizontal' }));
+set('dood', renderChart(INSTRUMENTS['nuvo-dood'], DATA['nuvo-dood'].fingerings, { columns: 15, width: 1100 }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 10, width: 1060 }));
 
 set('gallery', Object.values(INSTRUMENTS).map((inst) =>
