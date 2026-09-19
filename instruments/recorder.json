@@ -6,8 +6,8 @@
   "viewBox": [
     0,
     0,
-    118,
-    240
+    64,
+    208
   ],
   "defaults": {
     "circle": {
@@ -21,20 +21,6 @@
   "panels": [
     {
       "id": "front"
-    },
-    {
-      "id": "rear",
-      "label": "back",
-      "origin": [
-        78,
-        34
-      ],
-      "box": [
-        0,
-        0,
-        34,
-        40
-      ]
     }
   ],
   "variants": {
@@ -71,8 +57,7 @@
       "shape": "circle",
       "r": 8,
       "x": 17,
-      "y": 20,
-      "panel": "rear",
+      "y": 43.5,
       "hand": "L",
       "digit": "thumb",
       "group": "rear"
@@ -83,7 +68,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 44,
+      "y": 30,
       "hand": "L",
       "digit": "1",
       "group": "h1"
@@ -94,7 +79,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 71,
+      "y": 57,
       "hand": "L",
       "digit": "2",
       "group": "h2"
@@ -105,7 +90,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 98,
+      "y": 84,
       "hand": "L",
       "digit": "3",
       "group": "h3"
@@ -116,7 +101,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 125,
+      "y": 111,
       "hand": "R",
       "digit": "1",
       "group": "h4"
@@ -127,7 +112,7 @@
       "shape": "circle",
       "r": 9,
       "x": 40,
-      "y": 152,
+      "y": 138,
       "hand": "R",
       "digit": "2",
       "group": "h5"
@@ -138,7 +123,7 @@
       "shape": "twin",
       "r": 11,
       "x": 40,
-      "y": 179,
+      "y": 165,
       "hand": "R",
       "digit": "3",
       "group": "h6",
@@ -150,7 +135,7 @@
       "shape": "twin",
       "r": 11,
       "x": 40,
-      "y": 179,
+      "y": 165,
       "hand": "R",
       "digit": "3",
       "group": "h6",
@@ -162,7 +147,7 @@
       "shape": "twin",
       "r": 11,
       "x": 40,
-      "y": 206,
+      "y": 192,
       "hand": "R",
       "digit": "1",
       "group": "h7",
@@ -174,7 +159,7 @@
       "shape": "twin",
       "r": 11,
       "x": 40,
-      "y": 206,
+      "y": 192,
       "hand": "R",
       "digit": "1",
       "group": "h7",
