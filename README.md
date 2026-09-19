@@ -69,6 +69,9 @@ can open from the filesystem.
 (an open tone hole whose centre stays empty until covered; themable with
 `--fc-hole`) and `inner: 0.55` (a concentric ring inside the cup, as on flute keys).
 
+Any key takes `tag` (short text, e.g. a trombone slide position number) and
+`tagAt: [dx, dy]`; tags stay upright when the chart is turned horizontal.
+
 Guides take `dash: "dotted"` (or a dasharray) for paths of travel such as the trombone slide.
 
 Any key takes `naStyle: "dotted"`: in the `na` state it draws as a dotted

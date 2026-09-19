@@ -2,20 +2,20 @@
   "id": "trombone",
   "name": "Trombone (tenor)",
   "family": "brass",
-  "note": "Mouthpiece at the top, slide travelling down (orient: \"horizontal\" gives the usual side view, slide to the right). The body (mouthpiece, bell section and bell) is always drawn; dotted rails mark where the slide travels. Seven slide keys, pos1 to pos7, are hidden until a fingering presses one: a fingering lists exactly one position.",
-  "viewBox": [0, 0, 66, 136],
+  "note": "Mouthpiece at the top, slide travelling down (orient: \"horizontal\" gives the usual side view, slide to the right). The body (mouthpiece, bell section and bell) is always drawn; dotted rails mark where the slide travels. Spacing follows the real instrument: the slide hand is level with the bell rim at 3rd position. Seven slide keys, pos1 to pos7, are hidden until a fingering presses one: a fingering lists exactly one position. Each position carries its number as a tag.",
+  "viewBox": [0, 0, 64, 154],
   "panels": [{"id": "front"}],
-  "guides": [{"id": "inner-left", "x1": 22, "y1": 16, "x2": 22, "y2": 78, "width": 1.4}, {"id": "inner-right", "x1": 32, "y1": 16, "x2": 32, "y2": 78, "width": 1.4}, {"id": "travel-left", "x1": 22, "y1": 78, "x2": 22, "y2": 130, "width": 1.2, "dash": "dotted"}, {"id": "travel-right", "x1": 32, "y1": 78, "x2": 32, "y2": 130, "width": 1.2, "dash": "dotted"}, {"id": "bell-crook-up", "x1": 32, "y1": 16, "x2": 32, "y2": 8, "width": 2.4}, {"id": "bell-crook", "x1": 32, "y1": 8, "x2": 48, "y2": 8, "width": 2.4}, {"id": "bell-tube", "x1": 48, "y1": 8, "x2": 48, "y2": 40, "width": 2.4}],
+  "guides": [{"id": "inner-left", "x1": 22, "y1": 14, "x2": 22, "y2": 94, "width": 1.4}, {"id": "inner-right", "x1": 32, "y1": 14, "x2": 32, "y2": 94, "width": 1.4}, {"id": "inner-brace", "x1": 22, "y1": 22, "x2": 32, "y2": 22, "width": 1.4}, {"id": "travel-left", "x1": 22, "y1": 94, "x2": 22, "y2": 148, "width": 1.2, "dash": "dotted"}, {"id": "travel-right", "x1": 32, "y1": 94, "x2": 32, "y2": 148, "width": 1.2, "dash": "dotted"}, {"id": "bell-crook-up", "x1": 32, "y1": 14, "x2": 32, "y2": 3, "width": 2.4}, {"id": "bell-crook", "x1": 32, "y1": 3, "x2": 46, "y2": 3, "width": 2.4}, {"id": "bell-tube", "x1": 46, "y1": 3, "x2": 46, "y2": 25, "width": 2.4}],
 
   "keys": [
-    {"id": "mouthpiece", "label": "Mouthpiece", "shape": "teardrop", "w": 6, "h": 10, "x": 22, "y": 10, "dir": "down", "group": "body"},
-    {"id": "bell", "label": "Bell", "shape": "bell", "w": 26, "h": 34, "t": 3, "x": 48, "y": 57, "group": "body"},
-    {"id": "pos1", "label": "Slide position 1", "shape": "slide", "w": 10, "h": 64, "t": 3, "x": 27, "y": 50, "default": "na", "hand": "R", "digit": "slide", "group": "slide"},
-    {"id": "pos2", "label": "Slide position 2", "shape": "slide", "w": 10, "h": 64, "t": 3, "x": 27, "y": 58, "default": "na", "hand": "R", "digit": "slide", "group": "slide"},
-    {"id": "pos3", "label": "Slide position 3", "shape": "slide", "w": 10, "h": 64, "t": 3, "x": 27, "y": 66, "default": "na", "hand": "R", "digit": "slide", "group": "slide"},
-    {"id": "pos4", "label": "Slide position 4", "shape": "slide", "w": 10, "h": 64, "t": 3, "x": 27, "y": 74, "default": "na", "hand": "R", "digit": "slide", "group": "slide"},
-    {"id": "pos5", "label": "Slide position 5", "shape": "slide", "w": 10, "h": 64, "t": 3, "x": 27, "y": 82, "default": "na", "hand": "R", "digit": "slide", "group": "slide"},
-    {"id": "pos6", "label": "Slide position 6", "shape": "slide", "w": 10, "h": 64, "t": 3, "x": 27, "y": 90, "default": "na", "hand": "R", "digit": "slide", "group": "slide"},
-    {"id": "pos7", "label": "Slide position 7", "shape": "slide", "w": 10, "h": 64, "t": 3, "x": 27, "y": 98, "default": "na", "hand": "R", "digit": "slide", "group": "slide"}
+    {"id": "mouthpiece", "label": "Mouthpiece", "shape": "teardrop", "w": 6, "h": 10, "x": 22, "y": 8, "dir": "down", "group": "body"},
+    {"id": "bell", "label": "Bell", "shape": "bell", "w": 22, "h": 34, "t": 3, "x": 46, "y": 42, "group": "body"},
+    {"id": "pos1", "label": "Slide position 1", "shape": "slide", "w": 10, "h": 61, "t": 3, "x": 27, "y": 69.5, "default": "na", "hand": "R", "digit": "slide", "group": "slide", "brace": 4, "tag": "1", "tagAt": [-9.5, 25.5]},
+    {"id": "pos2", "label": "Slide position 2", "shape": "slide", "w": 10, "h": 61, "t": 3, "x": 27, "y": 77.5, "default": "na", "hand": "R", "digit": "slide", "group": "slide", "brace": 4, "tag": "2", "tagAt": [-9.5, 25.5]},
+    {"id": "pos3", "label": "Slide position 3", "shape": "slide", "w": 10, "h": 61, "t": 3, "x": 27, "y": 85.5, "default": "na", "hand": "R", "digit": "slide", "group": "slide", "brace": 4, "tag": "3", "tagAt": [-9.5, 25.5]},
+    {"id": "pos4", "label": "Slide position 4", "shape": "slide", "w": 10, "h": 61, "t": 3, "x": 27, "y": 93.5, "default": "na", "hand": "R", "digit": "slide", "group": "slide", "brace": 4, "tag": "4", "tagAt": [-9.5, 25.5]},
+    {"id": "pos5", "label": "Slide position 5", "shape": "slide", "w": 10, "h": 61, "t": 3, "x": 27, "y": 101.5, "default": "na", "hand": "R", "digit": "slide", "group": "slide", "brace": 4, "tag": "5", "tagAt": [-9.5, 25.5]},
+    {"id": "pos6", "label": "Slide position 6", "shape": "slide", "w": 10, "h": 61, "t": 3, "x": 27, "y": 109.5, "default": "na", "hand": "R", "digit": "slide", "group": "slide", "brace": 4, "tag": "6", "tagAt": [-9.5, 25.5]},
+    {"id": "pos7", "label": "Slide position 7", "shape": "slide", "w": 10, "h": 61, "t": 3, "x": 27, "y": 117.5, "default": "na", "hand": "R", "digit": "slide", "group": "slide", "brace": 4, "tag": "7", "tagAt": [-9.5, 25.5]}
   ]
 }

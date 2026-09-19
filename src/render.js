@@ -78,6 +78,20 @@ function byPanel(layout) {
   }));
 }
 
+/*
+ * Key tag — a short label drawn with a key (e.g. a trombone slide position
+ * number). `tag` is the text, `tagAt: [dx, dy]` its offset from the key
+ * centre. Tags stay upright when the diagram is turned horizontal.
+ */
+function tagFor(k, o) {
+  if (k.tag == null) return '';
+  const [dx, dy] = k.tagAt || [0, 0];
+  const x = k.x + dx, y = k.y + dy;
+  const turn = o === 'horizontal' ? ` transform="rotate(90 ${x} ${y})"` : '';
+  return `<text class="fc-tag" x="${x}" y="${y}" text-anchor="middle" dominant-baseline="central" font-size="${k.tagSize ?? 9}"`
+    + ` font-weight="600" font-family="${FONT}" fill="${TEXT}"${turn}>${k.tag}</text>`;
+}
+
 /**
  * One fingering diagram (no title). Returns an SVG <g> fragment plus size.
  */
@@ -93,7 +107,7 @@ export function diagramBody(rawLayout, fingering, opts = {}) {
     const body = panel.keys
       .map((k) => {
         const svg = drawKey({ ...k, state: states[k.id], tone: tone(k) });
-        return svg && `<g class="fc-key" data-key="${k.id}" data-state="${states[k.id]}">${svg}</g>`;
+        return svg && `<g class="fc-key" data-key="${k.id}" data-state="${states[k.id]}">${svg}${tagFor(k, opts.orient)}</g>`;
       })
       .join('');
     let frame = '';
