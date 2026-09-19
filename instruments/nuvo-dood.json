@@ -3,12 +3,12 @@
   "name": "Nuvo Dood",
   "family": "single-reed",
   "note": "Mouthpiece at the top, lowest note (C) at the bottom: the reverse of the maker's chart. Seven D-shaped plate pads (LH 3 flat side right, RH 3 and the offset RH pinky flat side left, each group on a key bar) and a thumb pill on the back. Pads marked with a vent hole half-hole for chromatics: a fingering lists the pad alone for half-open (finger on the pad, hole uncovered) or the pad plus its \"-vent\" for fully closed.",
-  "viewBox": [0, 0, 70, 154],
+  "viewBox": [0, 0, 70, 158],
   "panels": [{"id": "front"}],
-  "guides": [{"id": "hand-divider", "x1": 30, "y1": 75, "x2": 58, "y2": 75, "width": 0.9}],
+  "guides": [{"id": "hand-divider", "x1": 30, "y1": 77, "x2": 58, "y2": 77, "width": 0.9}],
 
   "variants": {
-    "bars": {"note": "Draws the key bars along each pad group.", "guides": [{"id": "lh-bar", "x1": 55, "y1": 23.5, "x2": 55, "y2": 72.5, "width": 1.2}, {"id": "rh-bar", "x1": 33, "y1": 77.5, "x2": 33, "y2": 126.5, "width": 1.2}, {"id": "pinky-bar", "x1": 38, "y1": 131.5, "x2": 38, "y2": 144.5, "width": 1.2}]}
+    "bars": {"note": "Draws the key bars along each pad group.", "guides": [{"id": "lh-bar", "x1": 55, "y1": 23.5, "x2": 55, "y2": 72.5, "width": 1.2}, {"id": "rh-bar", "x1": 33, "y1": 81.5, "x2": 33, "y2": 130.5, "width": 1.2}, {"id": "pinky-bar", "x1": 38, "y1": 135.5, "x2": 38, "y2": 148.5, "width": 1.2}]}
   },
 
   "keys": [
@@ -18,12 +18,12 @@
     {"id": "l2", "label": "Left 2", "shape": "plate", "w": 17, "h": 13, "radii": [6.5, 1.5, 1.5, 6.5], "x": 44, "y": 48, "hand": "L", "digit": "2", "group": "lh"},
     {"id": "l3", "label": "Left 3", "shape": "plate", "w": 17, "h": 13, "radii": [6.5, 1.5, 1.5, 6.5], "x": 44, "y": 66, "hand": "L", "digit": "3", "group": "lh"},
     {"id": "l3-vent", "label": "Left 3 vent hole (half-hole for G\u266f)", "shape": "circle", "r": 2.2, "x": 45.8, "y": 66, "hand": "L", "digit": "3", "group": "lh"},
-    {"id": "r1", "label": "Right 1", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 44, "y": 84, "hand": "R", "digit": "1", "group": "rh"},
-    {"id": "r1-vent", "label": "Right 1 vent hole (half-hole for F\u266f)", "shape": "circle", "r": 2.2, "x": 42.2, "y": 84, "hand": "R", "digit": "1", "group": "rh"},
-    {"id": "r2", "label": "Right 2", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 44, "y": 102, "hand": "R", "digit": "2", "group": "rh"},
-    {"id": "r3", "label": "Right 3", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 44, "y": 120, "hand": "R", "digit": "3", "group": "rh"},
-    {"id": "r3-vent", "label": "Right 3 vent hole (half-hole for D\u266f)", "shape": "circle", "r": 2.2, "x": 42.2, "y": 120, "hand": "R", "digit": "3", "group": "rh"},
-    {"id": "r4", "label": "Right 4 (pinky)", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 49, "y": 138, "hand": "R", "digit": "4", "group": "rh-pinky"},
-    {"id": "r4-vent", "label": "Right 4 vent hole (half-hole for C\u266f)", "shape": "circle", "r": 2.2, "x": 47.2, "y": 138, "hand": "R", "digit": "4", "group": "rh-pinky"}
+    {"id": "r1", "label": "Right 1", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 44, "y": 88, "hand": "R", "digit": "1", "group": "rh"},
+    {"id": "r1-vent", "label": "Right 1 vent hole (half-hole for F\u266f)", "shape": "circle", "r": 2.2, "x": 42.2, "y": 88, "hand": "R", "digit": "1", "group": "rh"},
+    {"id": "r2", "label": "Right 2", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 44, "y": 106, "hand": "R", "digit": "2", "group": "rh"},
+    {"id": "r3", "label": "Right 3", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 44, "y": 124, "hand": "R", "digit": "3", "group": "rh"},
+    {"id": "r3-vent", "label": "Right 3 vent hole (half-hole for D\u266f)", "shape": "circle", "r": 2.2, "x": 42.2, "y": 124, "hand": "R", "digit": "3", "group": "rh"},
+    {"id": "r4", "label": "Right 4 (pinky)", "shape": "plate", "w": 17, "h": 13, "radii": [1.5, 6.5, 6.5, 1.5], "x": 49, "y": 142, "hand": "R", "digit": "4", "group": "rh-pinky"},
+    {"id": "r4-vent", "label": "Right 4 vent hole (half-hole for C\u266f)", "shape": "circle", "r": 2.2, "x": 47.2, "y": 142, "hand": "R", "digit": "4", "group": "rh-pinky"}
   ]
 }
