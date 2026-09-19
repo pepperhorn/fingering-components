@@ -1,290 +1,40 @@
 {
   "instrument": "trombone",
-  "pitch": "concert",
-  "note": "Tenor trombone, E2 to C5, slide positions 1–7 (concert pitch, bass clef). Alternates are the other usable positions; note_text flags positions played slightly in or out.",
+  "pitch": "written",
+  "note": "Tenor trombone, E2 to C5, slide positions 1\u20137 (concert pitch, bass clef). Alternates are the other usable positions; note_text flags positions played slightly in or out.",
   "fingerings": [
-    {
-      "note": "E",
-      "octave": 2,
-      "down": [
-        "pos7"
-      ]
-    },
-    {
-      "note": "F",
-      "octave": 2,
-      "down": [
-        "pos6"
-      ]
-    },
-    {
-      "note": "F#",
-      "octave": 2,
-      "down": [
-        "pos5"
-      ]
-    },
-    {
-      "note": "G",
-      "octave": 2,
-      "down": [
-        "pos4"
-      ]
-    },
-    {
-      "note": "G#",
-      "octave": 2,
-      "down": [
-        "pos3"
-      ]
-    },
-    {
-      "note": "A",
-      "octave": 2,
-      "down": [
-        "pos2"
-      ]
-    },
-    {
-      "note": "A#",
-      "octave": 2,
-      "down": [
-        "pos1"
-      ]
-    },
-    {
-      "note": "B",
-      "octave": 2,
-      "down": [
-        "pos7"
-      ]
-    },
-    {
-      "note": "C",
-      "octave": 3,
-      "down": [
-        "pos6"
-      ]
-    },
-    {
-      "note": "C#",
-      "octave": 3,
-      "down": [
-        "pos5"
-      ]
-    },
-    {
-      "note": "D",
-      "octave": 3,
-      "down": [
-        "pos4"
-      ]
-    },
-    {
-      "note": "D#",
-      "octave": 3,
-      "down": [
-        "pos3"
-      ]
-    },
-    {
-      "note": "E",
-      "octave": 3,
-      "down": [
-        "pos2"
-      ]
-    },
-    {
-      "note": "F",
-      "octave": 3,
-      "down": [
-        "pos1"
-      ],
-      "alternates": [
-        {
-          "down": [
-            "pos6"
-          ]
-        }
-      ]
-    },
-    {
-      "note": "F#",
-      "octave": 3,
-      "down": [
-        "pos5"
-      ]
-    },
-    {
-      "note": "G",
-      "octave": 3,
-      "down": [
-        "pos4"
-      ]
-    },
-    {
-      "note": "G#",
-      "octave": 3,
-      "down": [
-        "pos3"
-      ]
-    },
-    {
-      "note": "A",
-      "octave": 3,
-      "down": [
-        "pos2"
-      ],
-      "alternates": [
-        {
-          "down": [
-            "pos6"
-          ]
-        }
-      ]
-    },
-    {
-      "note": "A#",
-      "octave": 3,
-      "down": [
-        "pos1"
-      ],
-      "alternates": [
-        {
-          "down": [
-            "pos5"
-          ]
-        }
-      ]
-    },
-    {
-      "note": "B",
-      "octave": 3,
-      "down": [
-        "pos4"
-      ]
-    },
-    {
-      "note": "C",
-      "octave": 4,
-      "down": [
-        "pos3"
-      ]
-    },
-    {
-      "note": "C#",
-      "octave": 4,
-      "down": [
-        "pos2"
-      ]
-    },
-    {
-      "note": "D",
-      "octave": 4,
-      "down": [
-        "pos1"
-      ],
-      "alternates": [
-        {
-          "down": [
-            "pos4"
-          ]
-        }
-      ],
-      "note_text": "alt 4 slightly lowered"
-    },
-    {
-      "note": "D#",
-      "octave": 4,
-      "down": [
-        "pos3"
-      ]
-    },
-    {
-      "note": "E",
-      "octave": 4,
-      "down": [
-        "pos2"
-      ]
-    },
-    {
-      "note": "F",
-      "octave": 4,
-      "down": [
-        "pos1"
-      ]
-    },
-    {
-      "note": "F#",
-      "octave": 4,
-      "down": [
-        "pos3"
-      ],
-      "note_text": "3 raised (slide in)"
-    },
-    {
-      "note": "G",
-      "octave": 4,
-      "down": [
-        "pos2"
-      ],
-      "note_text": "2 raised (slide in)"
-    },
-    {
-      "note": "G#",
-      "octave": 4,
-      "down": [
-        "pos3"
-      ]
-    },
-    {
-      "note": "A",
-      "octave": 4,
-      "down": [
-        "pos2"
-      ]
-    },
-    {
-      "note": "A#",
-      "octave": 4,
-      "down": [
-        "pos1"
-      ],
-      "alternates": [
-        {
-          "down": [
-            "pos3"
-          ]
-        }
-      ]
-    },
-    {
-      "note": "B",
-      "octave": 4,
-      "down": [
-        "pos2"
-      ],
-      "alternates": [
-        {
-          "down": [
-            "pos4"
-          ]
-        }
-      ]
-    },
-    {
-      "note": "C",
-      "octave": 5,
-      "down": [
-        "pos1"
-      ],
-      "alternates": [
-        {
-          "down": [
-            "pos3"
-          ]
-        }
-      ]
-    }
+    { "note": "E", "octave": 2, "down": ["pos7"] },
+    { "note": "F", "octave": 2, "down": ["pos6"] },
+    { "note": "F#", "octave": 2, "down": ["pos5"] },
+    { "note": "G", "octave": 2, "down": ["pos4"] },
+    { "note": "G#", "octave": 2, "down": ["pos3"] },
+    { "note": "A", "octave": 2, "down": ["pos2"] },
+    { "note": "A#", "octave": 2, "down": ["pos1"] },
+    { "note": "B", "octave": 2, "down": ["pos7"] },
+    { "note": "C", "octave": 3, "down": ["pos6"] },
+    { "note": "C#", "octave": 3, "down": ["pos5"] },
+    { "note": "D", "octave": 3, "down": ["pos4"] },
+    { "note": "D#", "octave": 3, "down": ["pos3"] },
+    { "note": "E", "octave": 3, "down": ["pos2"] },
+    { "note": "F", "octave": 3, "down": ["pos1"], "alternates": [{ "down": ["pos6"] }] },
+    { "note": "F#", "octave": 3, "down": ["pos5"] },
+    { "note": "G", "octave": 3, "down": ["pos4"] },
+    { "note": "G#", "octave": 3, "down": ["pos3"] },
+    { "note": "A", "octave": 3, "down": ["pos2"], "alternates": [{ "down": ["pos6"] }] },
+    { "note": "A#", "octave": 3, "down": ["pos1"], "alternates": [{ "down": ["pos5"] }] },
+    { "note": "B", "octave": 3, "down": ["pos4"] },
+    { "note": "C", "octave": 4, "down": ["pos3"] },
+    { "note": "C#", "octave": 4, "down": ["pos2"] },
+    { "note": "D", "octave": 4, "down": ["pos1"], "alternates": [{ "down": ["pos4"] }], "note_text": "alt 4 slightly lowered" },
+    { "note": "D#", "octave": 4, "down": ["pos3"] },
+    { "note": "E", "octave": 4, "down": ["pos2"] },
+    { "note": "F", "octave": 4, "down": ["pos1"] },
+    { "note": "F#", "octave": 4, "down": ["pos3"], "note_text": "3 raised (slide in)" },
+    { "note": "G", "octave": 4, "down": ["pos2"], "note_text": "2 raised (slide in)" },
+    { "note": "G#", "octave": 4, "down": ["pos3"] },
+    { "note": "A", "octave": 4, "down": ["pos2"] },
+    { "note": "A#", "octave": 4, "down": ["pos1"], "alternates": [{ "down": ["pos3"] }] },
+    { "note": "B", "octave": 4, "down": ["pos2"], "alternates": [{ "down": ["pos4"] }] },
+    { "note": "C", "octave": 5, "down": ["pos1"], "alternates": [{ "down": ["pos3"] }] }
   ]
 }

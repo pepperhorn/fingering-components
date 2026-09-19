@@ -172,14 +172,43 @@ export function renderFingering(layout, fingering, opts = {}) {
     + DEFS + (opts.look ? LOOK_CSS : '')
     + (titleH
         ? `<text x="${w / 2}" y="17" text-anchor="middle" font-size="16" font-weight="600"`
-        + ` font-family="${FONT}" fill="${TEXT}">${label(fingering)}</text>`
+        + ` font-family="${FONT}" fill="${TEXT}">${label(fingering, layout, opts)}</text>`
         : '')
     + `<g transform="translate(0 ${titleH})">${body}</g>`
     + `</svg>`;
 }
 
-function label(f) {
-  return (f.label ?? f.note ?? '').replace(/b\b/g, '\u266d').replace(/#/g, '\u266f');
+/*
+ * Pitch. Fingerings are always written pitch. A layout's `transpose` is the
+ * semitones from written to sounding (B♭ trumpet -2, soprano recorder +12);
+ * `horns` names versions of a shared layout with their own transpose, and
+ * `horn` is the default one (e.g. saxophone: soprano/alto/tenor/baritone).
+ */
+const SHARPS = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+const FLATS = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+const LETTER = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
+
+export function transposeFor(layout, horn) {
+  const h = layout.horns?.[horn ?? layout.horn];
+  return h ? h.transpose : (layout.transpose ?? 0);
+}
+
+/** Sounding note of a written fingering: { note, octave } (octave null if the fingering has none). */
+export function sounding(layout, f, opts = {}) {
+  const semis = transposeFor(layout, opts.horn);
+  if (!f.note || !semis) return { note: f.note, octave: f.octave ?? null };
+  const acc = f.note.slice(1);
+  const pc = LETTER[f.note[0]] + (acc === '#' ? 1 : acc === 'b' ? -1 : 0);
+  const abs = (f.octave ?? 4) * 12 + pc + semis;
+  // flat-key horns (B♭, E♭, F) and flat-spelled notes read in flats
+  const names = acc === 'b' || [3, 5, 10].includes(((semis % 12) + 12) % 12) ? FLATS : SHARPS;
+  return { note: names[((abs % 12) + 12) % 12], octave: f.octave == null ? null : Math.floor(abs / 12) };
+}
+
+/* Title: an explicit label wins; otherwise the note, sounding if opts.pitch is "concert". */
+function label(f, layout, opts = {}) {
+  const note = f.label ?? (opts.pitch === 'concert' && layout ? sounding(layout, f, opts).note : f.note) ?? '';
+  return note.replace(/b\b/g, '\u266d').replace(/#/g, '\u266f');
 }
 
 /**
@@ -207,7 +236,7 @@ export function renderChart(layout, fingerings, opts = {}) {
       : '';
     return `<g transform="translate(${cx} ${cy})">${note}`
       + `<text x="${cw / 2}" y="19" text-anchor="middle" font-size="17" font-weight="600"`
-      + ` font-family="${FONT}" fill="${TEXT}">${label(f)}</text>`
+      + ` font-family="${FONT}" fill="${TEXT}">${label(f, layout, opts)}</text>`
       + `<g transform="translate(0 ${titleH})">${orient(diagramBody(layout, f, opts), vw, vh, opts.orient)[0]}</g></g>`;
   }).join('');
 
@@ -217,4 +246,4 @@ export function renderChart(layout, fingerings, opts = {}) {
 
 export { resolveLayout, contentBounds } from './layout.js';
 
-export default { renderFingering, renderChart, resolveStates, diagramBody };
+export default { renderFingering, renderChart, resolveStates, diagramBody, sounding, transposeFor };

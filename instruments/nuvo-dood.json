@@ -2,6 +2,7 @@
   "id": "nuvo-dood",
   "name": "Nuvo Dood",
   "family": "single-reed",
+  "transpose": 0,
   "note": "Mouthpiece at the top, lowest note (C) at the bottom: the reverse of the maker's chart. Seven D-shaped plate pads (LH 3 flat side right, RH 3 and the offset RH pinky flat side left, each group on a key bar) and a thumb pill on the back. Pads marked with a vent hole half-hole for chromatics: a fingering lists the pad alone for half-open (finger on the pad, hole uncovered) or the pad plus its \"-vent\" for fully closed.",
   "viewBox": [0, 0, 70, 158],
   "panels": [{"id": "front"}],

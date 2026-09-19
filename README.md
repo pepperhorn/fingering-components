@@ -16,7 +16,7 @@ makes the note-by-note data terse enough to hand-write, diff in git, or
 generate from a spreadsheet.
 
 ```
-{ "note": "Bb", "octave": 1, "down": ["lh1","lh2","lh3","rh1","rh2","rh3","lh-bb"] }
+{ "note": "Bb", "octave": 3, "down": ["lh1","lh2","lh3","rh1","rh2","rh3","lh-bb"] }
 ```
 
 ## Try it
@@ -240,6 +240,14 @@ resolveLayout(saxophone).byId['lh-b'] // final absolute x, y, rot
   "id": "saxophone",
   "name": "Saxophone",
   "family": "single-reed",
+  "transpose": -9,              // semitones, written → sounding (required; 0 = concert)
+  "horn": "alto",               // default horn, when the layout is shared
+  "horns": {                    // optional: versions of the instrument, each with its transpose
+    "soprano": { "name": "B♭ soprano", "transpose": -2 },
+    "alto": { "name": "E♭ alto", "transpose": -9 },
+    "tenor": { "name": "B♭ tenor", "transpose": -14 },
+    "baritone": { "name": "E♭ baritone", "transpose": -21 }
+  },
   "viewBox": [0, 0, 108, 286],
   "defaults": { "circle": { "r": 9 }, "pill": { "w": 8, "h": 15 } },
   "panels": [
@@ -266,12 +274,25 @@ resolveLayout(saxophone).byId['lh-b'] // final absolute x, y, rot
 
 ## Fingering schema
 
-Everything not named is `open` (or the key's `default`).
+Every file in `fingerings/` has the same shape, and every note is at
+**written** pitch — the renderer transposes with the layout's `transpose`.
+
+```jsonc
+{
+  "instrument": "tin-whistle",   // layout id
+  "horn": "C",                   // optional: which of the layout's horns
+  "pitch": "written",            // always written
+  "note": "…",                   // what the sheet covers
+  "fingerings": [ … ]
+}
+```
+
+Each fingering; everything not named is `open` (or the key's `default`).
 
 ```jsonc
 {
   "note": "Bb",
-  "octave": 1,
+  "octave": 3,                             // written octave, C4 = middle C
   "note_text": "alternate B♭ fingerings",  // small annotation under the label
   "down": ["lh1", "bis"],
   "half": ["thumb"],
@@ -286,13 +307,31 @@ Everything not named is `open` (or the key's `default`).
 ## Rendering
 
 ```js
-import { renderFingering, renderChart } from './src/render.js';
+import { renderFingering, renderChart, sounding } from './src/render.js';
 import sax from './instruments/saxophone.json' with { type: 'json' };
 import data from './fingerings/saxophone.json' with { type: 'json' };
 
 renderChart(sax, data.fingerings, { columns: 9 });   // full sheet, SVG string
 renderFingering(sax, data.fingerings[0]);            // single diagram
+
+// labels at sounding pitch, for a given horn
+renderChart(sax, data.fingerings, { pitch: 'concert', horn: 'tenor' });
+sounding(sax, { note: 'C', octave: 5 });             // { note: 'Eb', octave: 4 } on alto
 ```
+
+## Pitch
+
+| Instrument | `transpose` | Horns |
+| --- | --- | --- |
+| flute, trombone, Nuvo Dood, Nuvo TooT | 0 | |
+| clarinet, trumpet (B♭) | −2 | |
+| soprano recorder | +12 (written an octave below sounding) | |
+| saxophone | −9 (alto) | soprano −2, alto −9, tenor −14, baritone −21 |
+| tin whistle | 0 | D, C, B♭, F, E♭ — one sheet per horn |
+
+`verify.mjs` enforces the schema: every layout has an integer `transpose`
+(matching its default horn), every fingering file is `"pitch": "written"`,
+names a real horn if it names one, and gives every note a written octave.
 
 React wrappers are in `src/react.jsx` — `<Fingering>`, `<Chart>`, and
 `<FingeringEditor>` (click a key to cycle its state, so charts get authored by
@@ -303,26 +342,18 @@ Theme through CSS custom properties: `--fc-ink`, `--fc-line`, `--fc-paper`,
 
 ## Instruments
 
-| File | Status |
+| Layout | Fingerings |
 | --- | --- |
-| `saxophone.json` | complete — 23 keys, teardrop palm keys, written range B♭ to F♯ in `fingerings/` |
-| `flute.json` | complete — includes both rear thumb keys, trill keys, B-foot |
-| `clarinet.json` | complete — 17-key Boehm, rear thumb hole + register, both pinky clusters |
-| `recorder.json` | complete — thumb plus 7 holes, 6 and 7 doubled |
-| `tin-whistle.json` | complete — six holes, no thumb |
-| `nuvo-toot.json` | **provisional** — hole and key count needs checking against the instrument |
-| `nuvo-dood.json` | **provisional** — hole count needs checking against the instrument |
+| `saxophone.json` | written B♭3–F♯6, altissimo G6–F7 in `saxophone-altissimo.json` |
+| `flute.json` | C4–C7 with alternates |
+| `clarinet.json` | written E3–A6 with alternates |
+| `recorder.json` (soprano, baroque) | written C4–C6 |
+| `tin-whistle.json` | one sheet per horn: D, C, B♭, F, E♭ |
+| `nuvo-dood.json`, `nuvo-toot.json` | full charts from the maker |
+| `trumpet.json` | written F♯3–C6 |
+| `trombone.json` (tenor) | E2–C5, slide positions 1–7 |
 
-Fingering data exists for saxophone (full normal range) and recorder (first
-octave naturals). Sax altissimo is deliberately excluded: it varies by horn,
-mouthpiece and player, so it belongs in a per-player overlay rather than the
-shared chart.
-
-## Extending to brass
-
-The same layer split works — replace the layout with three or four `circle`
-valves (or `pill` trombone positions), keep `open` / `closed` / `half`, and
-nothing in the renderer changes.
+Sax altissimo sits in its own file: it varies by horn, mouthpiece and player.
 
 ## Files
 

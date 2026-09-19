@@ -2,6 +2,9 @@
   "id": "tin-whistle",
   "name": "Tin whistle",
   "family": "fipple",
+  "transpose": 0,
+  "horn": "D",
+  "horns": { "D": { "name": "D whistle", "transpose": 0 }, "C": { "name": "C whistle", "transpose": 0 }, "Bb": { "name": "B\u266d whistle", "transpose": 0 }, "F": { "name": "F whistle", "transpose": 0 }, "Eb": { "name": "E\u266d whistle", "transpose": 0 } },
   "note": "Six holes, no thumb hole. Second octave is produced by overblowing, not by a key, so octave is carried in the fingering metadata rather than as a key state.",
   "viewBox": [
     0,
