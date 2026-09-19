@@ -558,17 +558,27 @@ export function saucer(k) {
   return rim + face + pad;
 }
 
+/* Top-down saucer sizes: face radius and rim width. */
+export const SAUCER_SIZES = {
+  sm: { r: 5.5, rim: 1.2 },
+  md: { r: 8, rim: 1.6 },
+  lg: { r: 11, rim: 2 },
+};
+
 /**
  * Top-down saucer — the same cup seen from straight above: a round face
  * inside a thin rim, the pad showing as a concentric ring. `r` is the face
- * radius, `rim` the rim width. Also reachable as `saucer` with `view: "top"`.
+ * radius, `rim` the rim width; `size` picks sm / md / lg (explicit r, rim
+ * still win). Also reachable as `saucer` with `view: "top"`.
  */
 export function saucerTop(k) {
-  const r = k.r ?? 8, rim = k.rim ?? 1.6;
+  const z = SAUCER_SIZES[k.size] || SAUCER_SIZES.md;
+  const r = k.r ?? z.r, rim = k.rim ?? z.rim;
   const edge = `<circle cx="${k.x}" cy="${k.y}" r="${rnd(r + rim)}" fill="${LINE}" stroke="${LINE}" stroke-width="${SW}"/>`;
   const face = circle({ ...k, r, ringed: false });
   if (k.state === 'na') return edge + face;
-  const pad = `<circle cx="${k.x}" cy="${k.y}" r="${rnd(r * 0.55)}" fill="none" stroke="${LINE}" stroke-width="${SW}"/>`;
+  // a hairline pad on small cups so the face still reads
+  const pad = `<circle cx="${k.x}" cy="${k.y}" r="${rnd(r * 0.55)}" fill="none" stroke="${LINE}" stroke-width="${r < 7 ? 0.9 : SW}"/>`;
   return edge + face + pad;
 }
 
@@ -629,7 +639,7 @@ export function bbox(k) {
     case 'ell': return [k.w ?? 16, k.h ?? 14];
     case 'note': return [k.w ?? 9, k.h ?? 18];
     case 'saucer': if (k.view === 'top') return bbox({ ...k, shape: 'saucer-top' }); return [(k.rx ?? 8) * 2, (k.ry ?? 4) * 2 + (k.depth ?? 2)];
-    case 'saucer-top': { const d = ((k.r ?? 8) + (k.rim ?? 1.6)) * 2; return [d, d]; }
+    case 'saucer-top': { const z = SAUCER_SIZES[k.size] || SAUCER_SIZES.md; const d = ((k.r ?? z.r) + (k.rim ?? z.rim)) * 2; return [d, d]; }
     case 'stacked': { const r = k.r ?? 9; return [r * 2 + Math.abs(k.sdx ?? -2.6), r * 2 + Math.abs(k.sdy ?? 2.6)]; }
     case 'club': return [k.w ?? 6, k.h ?? 18];
     default: return [k.w ?? 8, k.h ?? 16];

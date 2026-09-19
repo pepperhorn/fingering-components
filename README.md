@@ -58,7 +58,7 @@ can open from the filesystem.
 | `ell` | boat with an upright arm — flute D♯ foot key |
 | `note` | round head with a stem — flute C♯ foot key |
 | `saucer` | cup seen low down, rim and pad — flute foot C/B and D♯ cups |
-| `saucer-top` | the saucer from straight above: rim, face, pad ring (or `saucer` with `view: "top"`) |
+| `saucer-top` | the saucer from straight above: rim, face, pad ring; `size` sm/md/lg (or `saucer` with `view: "top"`) |
 | `stacked` | cup overlapping a cup behind it — flute G / linked RH cups |
 | `club` | small head on a slim neck — flute RH trill keys |
 
