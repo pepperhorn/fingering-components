@@ -2,7 +2,9 @@
   "id": "saxophone",
   "name": "Saxophone",
   "family": "single-reed",
-  "transposing": true,
+  "transpose": -9,
+  "horn": "alto",
+  "horns": { "soprano": { "name": "B\u266d soprano", "transpose": -2 }, "alto": { "name": "E\u266d alto", "transpose": -9 }, "tenor": { "name": "B\u266d tenor", "transpose": -14 }, "baritone": { "name": "E\u266d baritone", "transpose": -21 } },
   "note": "Layout is written-pitch and identical for soprano/alto/tenor/baritone. Sounding pitch is a property of the horn, not the chart.",
   "viewBox": [0, 0, 106, 236],
   "defaults": {

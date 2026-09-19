@@ -106,6 +106,8 @@ const html = `<!doctype html>
   <p class="hint">Generated from <code>instruments/trumpet.json</code> and <code>fingerings/trumpet.json</code>: upright, then <code>orient: 'horizontal'</code>.</p>
   <div class="scroll" id="trumpet"></div>
   <div class="scroll" id="trumpet-h"></div>
+  <p class="hint">Same fingerings labelled at sounding pitch: <code>{ pitch: 'concert' }</code> applies the layout's <code>transpose</code> (−2).</p>
+  <div class="scroll" id="trumpet-concert"></div>
 
   <h2>Trombone, slide positions</h2>
   <p class="hint">Generated from <code>instruments/trombone.json</code> and <code>fingerings/trombone.json</code>, shown horizontal. Each fingering presses one of <code>pos1</code>–<code>pos7</code>; dotted rails show the slide's travel.</p>
@@ -189,13 +191,14 @@ set('clarinet-h', renderChart(INSTRUMENTS.clarinet, DATA.clarinet.fingerings, { 
 set('dood', renderChart(INSTRUMENTS['nuvo-dood'], DATA['nuvo-dood'].fingerings, { columns: 15, width: 1100 }));
 set('toot', renderChart(INSTRUMENTS['nuvo-toot'], DATA['nuvo-toot'].fingerings, { columns: 20, width: 1240 }));
 set('trumpet', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings, { columns: 16, width: 1100 }));
+set('trumpet-concert', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings, { columns: 16, width: 1100, pitch: 'concert' }));
 set('trumpet-h', renderChart(INSTRUMENTS.trumpet, DATA.trumpet.fingerings.slice(0, 12), { columns: 6, width: 900, orient: 'horizontal' }));
 set('trombone', renderChart(INSTRUMENTS.trombone, DATA.trombone.fingerings, { columns: 7, width: 1240, orient: 'horizontal' }));
 set('trombone-hints', renderChart(INSTRUMENTS.trombone, DATA.trombone.fingerings.slice(0, 7), { columns: 7, width: 1240, orient: 'horizontal', hints: true }));
 set('recorder', renderChart(INSTRUMENTS.recorder, DATA.recorder.fingerings, { columns: 13, width: 1240 }));
 set('whistles', ['d', 'c', 'bb', 'f', 'eb'].map((k) => {
   const d = DATA['tin-whistle-' + k];
-  return \`<h3 style="font-size:.95rem;margin:18px 0 6px">\${d.key} whistle</h3><div class="scroll">\${renderChart(INSTRUMENTS['tin-whistle'], d.fingerings, { columns: 12, width: 1100 })}</div>\`;
+  return \`<h3 style="font-size:.95rem;margin:18px 0 6px">\${INSTRUMENTS['tin-whistle'].horns[d.horn].name}</h3><div class="scroll">\${renderChart(INSTRUMENTS['tin-whistle'], d.fingerings, { columns: 12, width: 1100 })}</div>\`;
 }).join(''));
 
 set('gallery', Object.values(INSTRUMENTS).map((inst) =>

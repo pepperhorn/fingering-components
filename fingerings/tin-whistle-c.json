@@ -1,241 +1,30 @@
 {
   "instrument": "tin-whistle",
-  "pitch": "concert",
-  "key": "C",
-  "note": "C tin whistle, concert pitch, two octaves from the bottom note. Half-holed notes list the hole in \"half\". The second octave repeats the first-octave fingerings, overblown (\"overblow\": true). The natural seventh (C on a D whistle) is cross-fingered, h2 + h3.",
+  "horn": "C",
+  "pitch": "written",
+  "note": "C tin whistle, two octaves from the bottom note. Half-holed notes list the hole in \"half\". The second octave repeats the first-octave fingerings, overblown (\"overblow\": true). The natural seventh (C on a D whistle) is cross-fingered, h2 + h3.",
   "fingerings": [
-    {
-      "note": "C",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6"
-      ]
-    },
-    {
-      "note": "C#",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5"
-      ],
-      "half": [
-        "h6"
-      ]
-    },
-    {
-      "note": "D",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5"
-      ]
-    },
-    {
-      "note": "D#",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4"
-      ],
-      "half": [
-        "h5"
-      ]
-    },
-    {
-      "note": "E",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4"
-      ]
-    },
-    {
-      "note": "F",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2",
-        "h3"
-      ]
-    },
-    {
-      "note": "F#",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2"
-      ],
-      "half": [
-        "h3"
-      ]
-    },
-    {
-      "note": "G",
-      "octave": 5,
-      "down": [
-        "h1",
-        "h2"
-      ]
-    },
-    {
-      "note": "G#",
-      "octave": 5,
-      "down": [
-        "h1"
-      ],
-      "half": [
-        "h2"
-      ]
-    },
-    {
-      "note": "A",
-      "octave": 5,
-      "down": [
-        "h1"
-      ]
-    },
-    {
-      "note": "A#",
-      "octave": 5,
-      "down": [
-        "h2",
-        "h3"
-      ]
-    },
-    {
-      "note": "B",
-      "octave": 5,
-      "down": []
-    },
-    {
-      "note": "C",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5",
-        "h6"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "C#",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5"
-      ],
-      "half": [
-        "h6"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "D",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4",
-        "h5"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "D#",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4"
-      ],
-      "half": [
-        "h5"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "E",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2",
-        "h3",
-        "h4"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "F",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2",
-        "h3"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "F#",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2"
-      ],
-      "half": [
-        "h3"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "G",
-      "octave": 6,
-      "down": [
-        "h1",
-        "h2"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "G#",
-      "octave": 6,
-      "down": [
-        "h1"
-      ],
-      "half": [
-        "h2"
-      ],
-      "overblow": true
-    },
-    {
-      "note": "A",
-      "octave": 6,
-      "down": [
-        "h1"
-      ],
-      "overblow": true
-    }
+    { "note": "C", "octave": 5, "down": ["h1", "h2", "h3", "h4", "h5", "h6"] },
+    { "note": "C#", "octave": 5, "down": ["h1", "h2", "h3", "h4", "h5"], "half": ["h6"] },
+    { "note": "D", "octave": 5, "down": ["h1", "h2", "h3", "h4", "h5"] },
+    { "note": "D#", "octave": 5, "down": ["h1", "h2", "h3", "h4"], "half": ["h5"] },
+    { "note": "E", "octave": 5, "down": ["h1", "h2", "h3", "h4"] },
+    { "note": "F", "octave": 5, "down": ["h1", "h2", "h3"] },
+    { "note": "F#", "octave": 5, "down": ["h1", "h2"], "half": ["h3"] },
+    { "note": "G", "octave": 5, "down": ["h1", "h2"] },
+    { "note": "G#", "octave": 5, "down": ["h1"], "half": ["h2"] },
+    { "note": "A", "octave": 5, "down": ["h1"] },
+    { "note": "A#", "octave": 5, "down": ["h2", "h3"] },
+    { "note": "B", "octave": 5, "down": [] },
+    { "note": "C", "octave": 6, "down": ["h1", "h2", "h3", "h4", "h5", "h6"], "overblow": true },
+    { "note": "C#", "octave": 6, "down": ["h1", "h2", "h3", "h4", "h5"], "half": ["h6"], "overblow": true },
+    { "note": "D", "octave": 6, "down": ["h1", "h2", "h3", "h4", "h5"], "overblow": true },
+    { "note": "D#", "octave": 6, "down": ["h1", "h2", "h3", "h4"], "half": ["h5"], "overblow": true },
+    { "note": "E", "octave": 6, "down": ["h1", "h2", "h3", "h4"], "overblow": true },
+    { "note": "F", "octave": 6, "down": ["h1", "h2", "h3"], "overblow": true },
+    { "note": "F#", "octave": 6, "down": ["h1", "h2"], "half": ["h3"], "overblow": true },
+    { "note": "G", "octave": 6, "down": ["h1", "h2"], "overblow": true },
+    { "note": "G#", "octave": 6, "down": ["h1"], "half": ["h2"], "overblow": true },
+    { "note": "A", "octave": 6, "down": ["h1"], "overblow": true }
   ]
 }
