@@ -433,8 +433,163 @@ export function taper(k) {
   return paint(k, [k.x + x0, k.y - h / 2, x1 - x0, h], geom, k.fillFrom);
 }
 
+/* ------------------------------------------------------------------ */
+/* Flute shapes                                                        */
+/* ------------------------------------------------------------------ */
+
+const rnd = (v) => Math.round(v * 100) / 100;
+
+/*
+ * Outline shape from a path builder. `build(P, s)` returns path data; `P(x, y)`
+ * maps an offset from the key centre (scaled by `s` for the ring hole) to
+ * "x y" in chart space.
+ */
+function outline(k, w, h, build) {
+  const geom = (attr, s = 1) => {
+    const P = (x, y) => `${rnd(k.x + x * s)} ${rnd(k.y + y * s)}`;
+    return `<path d="${build(P, s)}" ${attr}/>`;
+  };
+  return paint(k, [k.x - w / 2, k.y - h / 2, w, h], geom, k.fillFrom);
+}
+
+/**
+ * Flag — a stem rising up the right side, its top curled over to the left
+ * into a rounded loop with a drooping tip, like a note flag. The flute G♯
+ * key standing over LH3. `w` is the loop width, `h` overall height, `t` the
+ * stem thickness. `flip: true` curls it to the right.
+ */
+export function flag(k) {
+  const w = k.w ?? 10, h = k.h ?? 26, t = k.t ?? 2.6;
+  const R = w / 2, top = -h / 2, cy = top + R, tipY = top + w * 1.15;
+  const out = outline(k, w, h, (P, s) => {
+    const r = (v) => rnd(v * s);
+    return `M ${P(R - t, h / 2)} L ${P(R - t, cy + w * 0.35)}`
+      + ` C ${P(R - t - w * 0.1, tipY - w * 0.1)} ${P(-R + w * 0.45, tipY)} ${P(-R + w * 0.18, tipY)}`
+      + ` C ${P(-R, tipY - w * 0.15)} ${P(-R, cy + w * 0.2)} ${P(-R, cy)}`
+      + ` A ${r(R)} ${r(R)} 0 0 1 ${P(R, cy)}`
+      + ` L ${P(R, h / 2)} Z`;
+  });
+  return k.flip ? `<g transform="translate(${rnd(2 * k.x)} 0) scale(-1 1)">${out}</g>` : out;
+}
+
+/**
+ * Crook — the flute B♮ thumb key: a long arm along the top whose left end
+ * bends down round a heel and runs back as a short tail. `w` overall length,
+ * `h` heel height, `t` arm thickness, `tail` how far the lower tail returns.
+ */
+export function crook(k) {
+  const w = k.w ?? 26, h = k.h ?? 9, t = k.t ?? 2.6, tail = k.tail ?? w * 0.22;
+  const R = h / 2, x0 = -w / 2 + R;
+  return outline(k, w, h, (P, s) => {
+    const r = (v) => rnd(v * s);
+    return `M ${P(w / 2 - t / 2, -h / 2)} L ${P(x0, -h / 2)}`
+      + ` A ${r(R)} ${r(R)} 0 0 0 ${P(x0, h / 2)} L ${P(x0 + tail, h / 2)}`
+      + ` A ${r(t / 2)} ${r(t / 2)} 0 0 0 ${P(x0 + tail, h / 2 - t)} L ${P(x0, h / 2 - t)}`
+      + ` A ${r(R - t)} ${r(R - t)} 0 0 1 ${P(x0, -h / 2 + t)} L ${P(w / 2 - t / 2, -h / 2 + t)}`
+      + ` A ${r(t / 2)} ${r(t / 2)} 0 0 0 ${P(w / 2 - t / 2, -h / 2)} Z`;
+  });
+}
+
+/**
+ * Paddle — the flute B♭ thumb lever: a slim bar with a rounded head at the
+ * left end whose underside swells into a belly. `w` overall length, `h`
+ * depth at the belly, `t` bar thickness.
+ */
+export function paddle(k) {
+  const w = k.w ?? 26, h = k.h ?? 7, t = k.t ?? 3;
+  const L = -w / 2, T = -h / 2, rh = Math.min(t, h / 2);
+  return outline(k, w, h, (P, s) => {
+    const r = (v) => rnd(v * s);
+    return `M ${P(L + rh, T)} L ${P(w / 2 - t / 2, T)}`
+      + ` A ${r(t / 2)} ${r(t / 2)} 0 0 1 ${P(w / 2 - t / 2, T + t)} L ${P(L + w * 0.5, T + t)}`
+      + ` C ${P(L + w * 0.36, T + t)} ${P(L + w * 0.32, h / 2)} ${P(L + w * 0.16, h / 2)}`
+      + ` C ${P(L + w * 0.04, h / 2)} ${P(L, h / 2 - h * 0.3)} ${P(L, T + rh)}`
+      + ` A ${r(rh)} ${r(rh)} 0 0 1 ${P(L + rh, T)} Z`;
+  });
+}
+
+/**
+ * Ell — the flute D♯ (E♭) foot key: a rounded boat along the bottom with an
+ * arm standing up from its right end. `w`/`h` overall size, `t` arm
+ * thickness, `base` the boat depth. `flip: true` puts the arm on the left.
+ */
+export function ell(k) {
+  const w = k.w ?? 16, h = k.h ?? 14, t = k.t ?? 2.8, b = k.base ?? h * 0.45;
+  const R = w / 2, B = h / 2;
+  const out = outline(k, w, h, (P, s) => {
+    const r = (v) => rnd(v * s);
+    return `M ${P(R - t, -B + t / 2)} A ${r(t / 2)} ${r(t / 2)} 0 0 1 ${P(R, -B + t / 2)}`
+      + ` L ${P(R, B - b * 0.5)} C ${P(R, B)} ${P(R - w * 0.2, B)} ${P(R - w * 0.4, B)}`
+      + ` L ${P(-R + b / 2, B)} A ${r(b / 2)} ${r(b / 2)} 0 0 1 ${P(-R + b / 2, B - b)}`
+      + ` L ${P(R - t, B - b)} Z`;
+  });
+  return k.flip ? `<g transform="translate(${rnd(2 * k.x)} 0) scale(-1 1)">${out}</g>` : out;
+}
+
+/**
+ * Note — a round head with a stem rising from its right edge, like a
+ * crotchet. The flute C♯ foot key. `w` is the head diameter, `h` overall
+ * height, `t` stem thickness. `flip: true` puts the stem on the left.
+ */
+export function note(k) {
+  const w = k.w ?? 9, h = k.h ?? 18, t = k.t ?? 2.4;
+  const R = w / 2, cy = h / 2 - R, dy = Math.sqrt(R * R - (R - t) ** 2);
+  const out = outline(k, w, h, (P, s) => {
+    const r = (v) => rnd(v * s);
+    return `M ${P(R - t, -h / 2 + t / 2)} A ${r(t / 2)} ${r(t / 2)} 0 0 1 ${P(R, -h / 2 + t / 2)}`
+      + ` L ${P(R, cy)} A ${r(R)} ${r(R)} 0 1 1 ${P(R - t, cy - dy)} Z`;
+  });
+  return k.flip ? `<g transform="translate(${rnd(2 * k.x)} 0) scale(-1 1)">${out}</g>` : out;
+}
+
+/**
+ * Saucer — a key cup seen from low down: a flat ellipse on a shallow rim
+ * with the pad showing as an inner ellipse. The flute foot C / B and
+ * D♯ cups. `rx`/`ry` size the top face, `depth` the rim.
+ */
+export function saucer(k) {
+  const rx = k.rx ?? 8, ry = k.ry ?? 4, d = k.depth ?? 2;
+  const top = { ...k, y: k.y - d / 2 };
+  const rim = `<ellipse cx="${k.x}" cy="${rnd(k.y + d / 2)}" rx="${rx}" ry="${ry}" fill="${LINE}" stroke="${LINE}" stroke-width="${SW}"/>`;
+  const face = oval({ ...top, rx, ry });
+  if (k.state === 'na') return rim + face;
+  const pad = `<ellipse cx="${k.x}" cy="${rnd(top.y)}" rx="${rnd(rx * 0.55)}" ry="${rnd(ry * 0.55)}" fill="none" stroke="${LINE}" stroke-width="${SW}"/>`;
+  return rim + face + pad;
+}
+
+/**
+ * Stacked cup — a key cup overlapping the edge of another cup behind it,
+ * which shows as a crescent. The flute G / offset-G and RH linked cups.
+ * `r` the cup radius, `sdx`/`sdy` where the cup behind sits.
+ */
+export function stacked(k) {
+  const r = k.r ?? 9, dx = k.sdx ?? -2.6, dy = k.sdy ?? 2.6;
+  const back = `<circle cx="${rnd(k.x + dx)}" cy="${rnd(k.y + dy)}" r="${r}" fill="${KEY}" stroke="${LINE}" stroke-width="${SW}"/>`;
+  return back + circle({ ...k, r });
+}
+
+/**
+ * Club — a small rounded head on a slim neck that runs straight down to the
+ * rod. The flute RH trill keys between the stack cups. `w` head diameter,
+ * `h` overall length, `t` neck thickness, `neck` how far down the head
+ * eases into the neck (0–1). Head points up; aim with `dir` or `rot`.
+ */
+export function club(k) {
+  const w = k.w ?? 6, h = k.h ?? 18, t = k.t ?? 2.4, neck = k.neck ?? 0.55;
+  const R = w / 2, hs = t / 2;
+  const hw = (s) => (u) => {
+    if (u >= neck) return hs * s;
+    const v = 1 - u / neck;                           // 1 at the head, 0 at the neck
+    return (hs + (R - hs) * v * v * (3 - 2 * v)) * s;
+  };
+  const geom = (attr, s = 1) =>
+    `<path d="${sweptPath(k.x, k.y, (h - R - hs) * s, 0, hw(s), (hs - R) * s)}" ${attr}/>`;
+  return paint(k, [k.x - R, k.y - h / 2, w, h], geom, k.fillFrom);
+}
+
 export const SHAPES = { circle, oval, pill, bar, spatula, lever, roller, teardrop, drop: teardrop, bean, taper, plate, leaf, dome, cylinder, pin, hook,
-  'lh-hook': hook, 'rh-hook': (k) => hook({ ...k, flip: !k.flip }) };
+  'lh-hook': hook, 'rh-hook': (k) => hook({ ...k, flip: !k.flip }),
+  flag, crook, paddle, ell, note, saucer, stacked, club };
 
 /** Unrotated width/height of a key — used for alignment and relative placement. */
 export function bbox(k) {
@@ -454,6 +609,13 @@ export function bbox(k) {
     case 'dome': return [k.w ?? 16, k.h ?? 8];
     case 'plate': return [k.w ?? 16, k.h ?? 14];
     case 'bean': return [(k.w ?? 8) + Math.abs(k.bend ?? 2.5), k.h ?? 20];
+    case 'flag': return [k.w ?? 10, k.h ?? 26];
+    case 'crook': case 'paddle': return [k.w ?? 26, k.h ?? (k.shape === 'crook' ? 9 : 7)];
+    case 'ell': return [k.w ?? 16, k.h ?? 14];
+    case 'note': return [k.w ?? 9, k.h ?? 18];
+    case 'saucer': return [(k.rx ?? 8) * 2, (k.ry ?? 4) * 2 + (k.depth ?? 2)];
+    case 'stacked': { const r = k.r ?? 9; return [r * 2 + Math.abs(k.sdx ?? -2.6), r * 2 + Math.abs(k.sdy ?? 2.6)]; }
+    case 'club': return [k.w ?? 6, k.h ?? 18];
     default: return [k.w ?? 8, k.h ?? 16];
   }
 }

@@ -124,6 +124,14 @@ const shapeDemos = [
   ['pin', { shape: 'pin', w: 9, h: 18, y: 26 }],
   ['lh-hook', { shape: 'lh-hook', w: 22, h: 9, stem: 10, y: 16 }],
   ['rh-hook', { shape: 'rh-hook', w: 22, h: 9, stem: 10, y: 16 }],
+  ['flag', { shape: 'flag', w: 12, h: 32 }],
+  ['crook', { shape: 'crook', w: 34, h: 12 }],
+  ['paddle', { shape: 'paddle', w: 34, h: 9 }],
+  ['ell', { shape: 'ell', w: 20, h: 18 }],
+  ['note', { shape: 'note', w: 12, h: 24 }],
+  ['saucer', { shape: 'saucer', rx: 12, ry: 6, depth: 3 }],
+  ['stacked', { shape: 'stacked', r: 11 }],
+  ['club', { shape: 'club', w: 8, h: 26 }],
 ];
 set('shapes', shapeDemos.map(([name, geo]) =>
   \`<figure>\${['open', 'closed'].map((state) => \`<svg viewBox="0 0 60 40" width="60" height="40">\${DEFS}\${drawKey({ x: 30, y: 20, state, ...geo })}</svg>\`).join('')}<figcaption>\${name}</figcaption></figure>\`

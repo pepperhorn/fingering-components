@@ -52,6 +52,14 @@ can open from the filesystem.
 | `pin` | teardrop hung from a pivot pearl on an arm |
 | `lh-hook` (alias `hook`) | lobe pointing left, rod down its right side — clarinet RH pinky and trill keys |
 | `rh-hook` | mirrored hook, rod on the left — clarinet LH pinky F/C |
+| `flag` | stem with a loop curled over the top — flute G♯ key |
+| `crook` | long arm bent down round a heel — flute B♮ thumb key |
+| `paddle` | slim bar with a bellied head — flute B♭ thumb lever |
+| `ell` | boat with an upright arm — flute D♯ foot key |
+| `note` | round head with a stem — flute C♯ foot key |
+| `saucer` | cup seen low down, rim and pad — flute foot C/B and D♯ cups |
+| `stacked` | cup overlapping a cup behind it — flute G / linked RH cups |
+| `club` | small head on a slim neck — flute RH trill keys |
 
 `circle` also takes `ringed: true` (a ring key's metal ring) and `hole: true`
 (an open tone hole whose centre stays empty until covered; themable with
