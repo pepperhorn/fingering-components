@@ -333,6 +333,18 @@ sounding(sax, { note: 'C', octave: 5 });             // { note: 'Eb', octave: 4 
 (matching its default horn), every fingering file is `"pitch": "written"`,
 names a real horn if it names one, and gives every note a written octave.
 
+## Ranges
+
+Every layout carries `ranges` — three nested skill bands at **written** pitch:
+
+```json
+"ranges": { "beginner": { "low": "D4", "high": "C6" }, "intermediate": { … }, "pro": { … } }
+```
+
+A horn may override with its own `ranges` (tin whistles do: each sheet is at
+that whistle's pitch). `verify.mjs` checks the bands nest and that every note
+in `pro` has a fingering.
+
 React wrappers are in `src/react.jsx` — `<Fingering>`, `<Chart>`, and
 `<FingeringEditor>` (click a key to cycle its state, so charts get authored by
 clicking rather than by typing key ids).

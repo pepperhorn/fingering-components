@@ -1,16 +1,19 @@
 {
-  "name": "fingering-components",
-  "version": "0.1.0",
+  "name": "@pepperhorn/fingering-components",
+  "version": "0.2.0",
   "description": "SVG key shapes and a JSON spec for woodwind and brass fingering charts",
   "type": "module",
   "main": "src/render.js",
+  "repository": { "type": "git", "url": "git+https://github.com/pepperhorn/fingering-components.git" },
+  "publishConfig": { "access": "public" },
   "exports": {
     ".": "./src/render.js",
     "./keys": "./src/keys.js",
     "./layout": "./src/layout.js",
     "./react": "./src/react.jsx",
     "./instruments/*": "./instruments/*.json",
-    "./fingerings/*": "./fingerings/*.json"
+    "./fingerings/*": "./fingerings/*.json",
+    "./package.json": "./package.json"
   },
   "files": ["src", "instruments", "fingerings", "README.md", "LICENSE"],
   "scripts": {
