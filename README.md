@@ -366,6 +366,50 @@ clicking rather than by typing key ids).
 Theme through CSS custom properties: `--fc-ink`, `--fc-line`, `--fc-paper`,
 `--fc-font`.
 
+## Registers
+
+Beside `ranges`, every layout carries `registers` — an ordered list of bands
+that names a **written** pitch by register rather than by octave number, so an
+app can say "High G" instead of "G5":
+
+```json
+"registers": [
+  { "from": "Bb3", "name": "Low" },
+  { "from": "D4",  "name": "Middle" },
+  { "from": "D5",  "name": "High" },
+  { "from": "G6",  "name": "Altissimo" }
+]
+```
+
+The bands are half-open: each runs from its `from` up to — but not including —
+the next band's `from`, and the last runs to the top of the instrument. The
+first `from` is the lowest written note the layout fingers, so every fingering
+lands in exactly one band. Pitches are spelled as in `ranges`: `Bb3`, `C#4`,
+`F7`.
+
+`name` comes from a fixed set — `Low`, `Middle`, `High`, `Altissimo` — and not
+every instrument uses all four:
+
+| Layout | Bands |
+| --- | --- |
+| `saxophone.json` | Low B♭3 · Middle D4 · High D5 · Altissimo G6 |
+| `clarinet.json` | Low E3 · Middle G4 · High B4 · Altissimo C♯6 |
+| `flute.json` | Low C4 · Middle D5 · High D6 |
+| `recorder.json` | Low C4 · High D5 |
+| `trumpet.json` | Low F♯3 · Middle C5 · High C6 |
+| `trombone.json` | Low E2 · Middle C4 · High F♯4 |
+| `nuvo-toot.json`, `nuvo-dood.json` | Low C4 · High C5 |
+| `tin-whistle.json` | per horn — see below |
+
+The tin whistle is the exception: it has no layout-level `registers`, because
+every whistle is written in its own range. Each horn carries its own list
+beside its own `ranges`, with the high band an octave above the bottom note —
+D whistle Low D5 · High D6, C whistle Low C5 · High C6, and so on.
+
+`verify.mjs` checks the bands ascend, that every `name` is one of the four, and
+that the first band starts on the lowest note in that layout's (or horn's)
+fingerings.
+
 ## Instruments
 
 | Layout | Fingerings |

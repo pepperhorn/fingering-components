@@ -8,6 +8,11 @@
     "intermediate": { "low": "F#3", "high": "G5" },
     "pro":          { "low": "F#3", "high": "C6" }
   },
+  "registers": [
+    { "from": "F#3",  "name": "Low" },
+    { "from": "C5",   "name": "Middle" },
+    { "from": "C6",   "name": "High" }
+  ],
   "note": "Three piston valves, valve 1 (nearest the mouthpiece) at the top; orient: \"horizontal\" lays them in a row, valve 1 on the left. Each valve is a stacked cup: the piston cap over its casing.",
   "viewBox": [0, 0, 60, 98],
   "panels": [{"id": "front"}],

@@ -8,6 +8,11 @@
     "intermediate": { "low": "C4", "high": "E6" },
     "pro":          { "low": "C4", "high": "C7" }
   },
+  "registers": [
+    { "from": "C4",  "name": "Low" },
+    { "from": "D5",  "name": "Middle" },
+    { "from": "D6",  "name": "High" }
+  ],
   "note": "Front view, head joint at the top (turn with orient: \"horizontal\" for the usual sideways chart, head joint left). Thumb keys hang left of the stack, the G♯ key stands right of LH3, trill keys sit between the RH cups, and the foot joint carries the D♯ key and the nested C♯ / C levers. Cups in group \"mech\" are moved by the mechanism, not a finger: they draw as faint tone holes (state na) unless a fingering sets them. Variants: \"body\" adds the tube and rod outline, \"mech-cups\" draws the mechanism cups as full keys.",
   "viewBox": [
     0,

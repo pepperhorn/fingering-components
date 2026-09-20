@@ -8,6 +8,12 @@
     "intermediate": { "low": "E3", "high": "C6" },
     "pro":          { "low": "E3", "high": "A6" }
   },
+  "registers": [
+    { "from": "E3",   "name": "Low" },
+    { "from": "G4",   "name": "Middle" },
+    { "from": "B4",   "name": "High" },
+    { "from": "C#6",  "name": "Altissimo" }
+  ],
   "note": "Front view, facing the instrument (same as the saxophone): left-hand pinky keys on the right at the joint, right-hand pinky keys 2x2 below-right of the stack, trill keys on the left. Thumb hole and register key sit in their own column on the far left.",
   "viewBox": [0, 0, 92, 240],
   "defaults": {
