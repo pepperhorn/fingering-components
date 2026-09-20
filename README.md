@@ -31,6 +31,20 @@ No dependencies and no build step — plain ES modules, and the JSON is plain
 JSON. `build-preview.mjs` only exists to inline everything into one file you
 can open from the filesystem.
 
+### From an installed copy
+
+The generator ships with the package, so an app that depends on it can build
+its own preview at any point — useful as a build step that drops the page into
+a site's static directory.
+
+```bash
+npx fingering-preview public/fingerings.html
+```
+
+The argument is the output path, resolved against the current directory, and
+any missing parent directories are created. With no argument it writes
+`preview.html` next to the package itself.
+
 ## Shapes
 
 | Shape | Used for |

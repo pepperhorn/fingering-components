@@ -1,4 +1,5 @@
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+#!/usr/bin/env node
+import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -211,5 +212,10 @@ document.getElementById('sample').textContent = JSON.stringify(DATA.saxophone.fi
 </html>
 `;
 
-writeFileSync(path.join(root, 'preview.html'), html);
-console.log('preview.html', (html.length / 1024).toFixed(1), 'kB');
+const out = process.argv[2]
+  ? path.resolve(process.cwd(), process.argv[2])
+  : path.join(root, 'preview.html');
+
+mkdirSync(path.dirname(out), { recursive: true });
+writeFileSync(out, html);
+console.log(out, (html.length / 1024).toFixed(1), 'kB');
