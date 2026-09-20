@@ -70,3 +70,34 @@ for (const f of readdirSync('instruments')) {
     console.log(`${(inst.id + (horn ? `/${horn}` : '')).padEnd(22)} ranges ok`);
   }
 }
+
+// --- register names -----------------------------------------------------
+// Ordered half-open bands at written pitch: each runs from its "from" up to
+// (not including) the next one's, the last to the top of the instrument.
+const REGISTER_NAMES = ['Low', 'Middle', 'High', 'Altissimo'];
+for (const f of readdirSync('instruments')) {
+  const inst = J(`instruments/${f}`);
+  const hornIds = inst.horns ? Object.keys(inst.horns) : [undefined];
+  for (const horn of hornIds) {
+    const who = `${inst.id}${horn ? `/${horn}` : ''}`;
+    // a horn may carry its own registers beside its own ranges (tin whistles do)
+    const regs = (horn && inst.horns[horn].registers) || inst.registers;
+    if (!Array.isArray(regs) || !regs.length)
+      throw new Error(`${who}: "registers" is required (an ordered, non-empty list of bands)`);
+    const from = regs.map((b) => {
+      if (!REGISTER_NAMES.includes(b.name))
+        throw new Error(`${who}: register name "${b.name}" must be one of ${REGISTER_NAMES.join(', ')}`);
+      try { return midi(b.from); }
+      catch { throw new Error(`${who}: register "${b.name}" has a bad written pitch "${b.from}"`); }
+    });
+    for (let i = 1; i < from.length; i++)
+      if (from[i] <= from[i - 1])
+        throw new Error(`${who}: registers must ascend; ${regs[i].name} "${regs[i].from}" is not above ${regs[i - 1].name} "${regs[i - 1].from}"`);
+    const sheets = sheetsFor(inst.id, horn);
+    if (!sheets.length) continue;          // layout without fingering data yet
+    const lo = Math.min(...sheets.flatMap((d) => d.fingerings.filter((fg) => fg.note).map(fmidi)));
+    if (from[0] !== lo)
+      throw new Error(`${who}: the first register starts at "${regs[0].from}" (midi ${from[0]}), but the lowest fingering is midi ${lo}`);
+    console.log(`${who.padEnd(22)} registers ok   ${regs.map((b) => `${b.name} ${b.from}`).join(' | ')}`);
+  }
+}
