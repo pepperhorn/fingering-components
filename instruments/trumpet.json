@@ -4,7 +4,7 @@
   "family": "brass",
   "transpose": -2,
   "ranges": {
-    "beginner":     { "low": "C4",  "high": "C5" },
+    "beginner":     { "low": "C4",  "high": "A4" },
     "intermediate": { "low": "F#3", "high": "G5" },
     "pro":          { "low": "F#3", "high": "C6" }
   },

@@ -4,8 +4,8 @@
   "family": "recorder",
   "transpose": 12,
   "ranges": {
-    "beginner":     { "low": "D4", "high": "D5" },
-    "intermediate": { "low": "C4", "high": "A5" },
+    "beginner":     { "low": "C4", "high": "C6" },
+    "intermediate": { "low": "C4", "high": "C6" },
     "pro":          { "low": "C4", "high": "C6" }
   },
   "note": "Thumb takes half/quarter states for pinching. Holes 6 and 7 are double on most baroque instruments, drawn as a twin: one ring with a large (a) and a small (b) hole; treat h6a/h6b and h7a/h7b as one hole on a German-fingering or single-hole instrument.",

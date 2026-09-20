@@ -5,11 +5,11 @@
   "transpose": 0,
   "horn": "D",
   "horns": {
-    "D": { "name": "D whistle", "transpose": 0, "ranges": { "beginner": { "low": "D5", "high": "D6" }, "intermediate": { "low": "D5", "high": "A6" }, "pro": { "low": "D5", "high": "B6" } } },
-    "C": { "name": "C whistle", "transpose": 0, "ranges": { "beginner": { "low": "C5", "high": "C6" }, "intermediate": { "low": "C5", "high": "G6" }, "pro": { "low": "C5", "high": "A6" } } },
-    "Bb": { "name": "B\u266d whistle", "transpose": 0, "ranges": { "beginner": { "low": "Bb4", "high": "Bb5" }, "intermediate": { "low": "Bb4", "high": "F6" }, "pro": { "low": "Bb4", "high": "G6" } } },
-    "F": { "name": "F whistle", "transpose": 0, "ranges": { "beginner": { "low": "F5", "high": "F6" }, "intermediate": { "low": "F5", "high": "C7" }, "pro": { "low": "F5", "high": "D7" } } },
-    "Eb": { "name": "E\u266d whistle", "transpose": 0, "ranges": { "beginner": { "low": "Eb5", "high": "Eb6" }, "intermediate": { "low": "Eb5", "high": "Bb6" }, "pro": { "low": "Eb5", "high": "C7" } } }
+    "D": { "name": "D whistle", "transpose": 0, "ranges": { "beginner": { "low": "D5", "high": "B6" }, "intermediate": { "low": "D5", "high": "B6" }, "pro": { "low": "D5", "high": "B6" } } },
+    "C": { "name": "C whistle", "transpose": 0, "ranges": { "beginner": { "low": "C5", "high": "A6" }, "intermediate": { "low": "C5", "high": "A6" }, "pro": { "low": "C5", "high": "A6" } } },
+    "Bb": { "name": "B\u266d whistle", "transpose": 0, "ranges": { "beginner": { "low": "Bb4", "high": "G6" }, "intermediate": { "low": "Bb4", "high": "G6" }, "pro": { "low": "Bb4", "high": "G6" } } },
+    "F": { "name": "F whistle", "transpose": 0, "ranges": { "beginner": { "low": "F5", "high": "D7" }, "intermediate": { "low": "F5", "high": "D7" }, "pro": { "low": "F5", "high": "D7" } } },
+    "Eb": { "name": "E\u266d whistle", "transpose": 0, "ranges": { "beginner": { "low": "Eb5", "high": "C7" }, "intermediate": { "low": "Eb5", "high": "C7" }, "pro": { "low": "Eb5", "high": "C7" } } }
   },
   "note": "Six holes, no thumb hole. Second octave is produced by overblowing, not by a key, so octave is carried in the fingering metadata rather than as a key state.",
   "viewBox": [
