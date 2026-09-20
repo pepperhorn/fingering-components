@@ -111,7 +111,7 @@
       "keys": { "rh-eb": { "shape": "spatula", "dx": null, "dy": null, "w": null, "h": null }, "rh-c": { "shape": "spatula", "dir": null, "dx": null, "dy": null, "w": null, "h": null }, "rh-roller-top": { "default": "na" }, "rh-roller-bottom": { "default": "na" } }
     },
     "lh-table-spatulas": {
-      "clusters": { "lh-table": { "anchor": [66, 100], "flow": { "axis": "y", "pitch": 14, "drift": 1 }, "defaults": { "shape": "spatula", "w": 14, "h": 12, "rad": 4.5 } } },
+      "clusters": { "lh-table": { "anchor": [66, 100], "flow": { "axis": "y", "pitch": 15, "drift": 1 }, "defaults": { "shape": "spatula", "w": 14, "h": 12, "rad": 4.5 } } },
       "keys": {
         "lh-gs": { "dx": null, "dy": null, "h": null, "radii": null },
         "lh-cs": { "dx": null, "dy": null, "w": null, "h": null, "radii": null },
@@ -121,7 +121,7 @@
       }
     },
     "palm-bean": {
-      "clusters": { "palm": { "flow": { "axis": "x", "pitch": 10.5, "stagger": -6 }, "defaults": { "shape": "bean", "w": 8.5, "h": 18, "bend": 1.3, "taper": 0.72, "tipRound": null } } },
+      "clusters": { "palm": { "flow": { "axis": "x", "pitch": 12, "stagger": -6 }, "defaults": { "shape": "bean", "w": 8.5, "h": 18, "bend": 1.3, "taper": 0.72, "tipRound": null } } },
       "keys": { "palm-f": { "dx": null, "dy": null, "rot": -8 }, "palm-eb": { "dx": null, "dy": null, "rot": 6 }, "palm-d": { "dx": null, "dy": null, "rot": 20 } }
     },
     "plain-circles": {
@@ -129,7 +129,7 @@
       "keys": { "lh1": { "shape": "circle", "size": null }, "lh2": { "shape": "circle", "size": null }, "lh3": { "shape": "circle", "size": null }, "rh1": { "shape": "circle", "size": null }, "rh2": { "shape": "circle", "size": null }, "rh3": { "shape": "circle", "size": null }, "front-f": { "shape": "circle", "size": null, "r": 5 } }
     },
     "palm-taper": {
-      "clusters": { "palm": { "anchor": [66, 30], "flow": { "axis": "x", "pitch": 9.5, "stagger": -7 }, "defaults": { "shape": "taper", "w": 7.5, "h": 24, "tip": 0.8, "bend": 1.4, "curve": 1.7, "tipRound": null } } },
+      "clusters": { "palm": { "anchor": [66, 30], "flow": { "axis": "x", "pitch": 11, "stagger": -7 }, "defaults": { "shape": "taper", "w": 7.5, "h": 24, "tip": 0.8, "bend": 1.4, "curve": 1.7, "tipRound": null } } },
       "keys": { "palm-f": { "dx": null, "dy": null, "rot": -10 }, "palm-eb": { "dx": null, "dy": null, "rot": 2 }, "palm-d": { "dx": null, "dy": null, "rot": 14 } }
     }
   },
