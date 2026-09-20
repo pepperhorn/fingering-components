@@ -56,9 +56,9 @@
     {
       "id": "rh-table",
       "label": "RH pinky keys",
-      "note": "The LH B | C\u266f pair turned 90\u00b0: D\u266f (low E\u266d) above low C, rollers between them at each end, at seven o'clock of the right-hand stack.",
-      "anchor": [21, 208],
-      "rotate": 82,
+      "note": "Default look is the split circle: D\u266f (low E\u266d) and low C as two domes base-to-base, at seven o'clock of the right-hand stack. The cluster defaults stay `plate` so `rh-table-stacked` keeps inheriting a plate; the dome is set per key.",
+      "anchor": [20, 210],
+      "rotate": 0,
       "defaults": { "shape": "plate", "w": 7.5, "h": 20, "radii": [3, 3, 3.5, 3.5] }
     }
   ],
@@ -69,12 +69,13 @@
       "keys": { "palm-f": { "dx": null, "dy": null, "rot": null }, "palm-eb": { "dx": null, "dy": null, "rot": null }, "palm-d": { "dx": null, "dy": null, "rot": null } }
     },
     "rh-table-stacked": {
-      "clusters": { "rh-table": { "anchor": [18, 206], "rotate": -6 } },
+      "note": "`shape`/`dir`/`default` are restated here because the base rh-table keys are now domes with the rollers off; without them this variant would silently inherit the dome look.",
+      "clusters": { "rh-table": { "anchor": [13, 206], "rotate": -6 } },
       "keys": {
-        "rh-eb": { "dx": 0, "dy": -9, "w": 9, "h": 12, "radii": [3, 3, 2, 2] },
-        "rh-c": { "dx": 0, "dy": 10, "w": 10, "h": 16, "radii": [2, 2, 4, 4] },
-        "rh-roller-top": { "dy": -17, "h": 8 },
-        "rh-roller-bottom": { "dy": -0.5, "h": 9 }
+        "rh-eb": { "shape": "plate", "dx": 0, "dy": -9, "w": 9, "h": 12, "radii": [3, 3, 2, 2] },
+        "rh-c": { "shape": "plate", "dir": null, "dx": 0, "dy": 10, "w": 10, "h": 16, "radii": [2, 2, 4, 4] },
+        "rh-roller-top": { "dy": -17, "h": 8, "default": "open" },
+        "rh-roller-bottom": { "dy": -0.5, "h": 9, "default": "open" }
       }
     },
     "lh-table-domes": {
@@ -87,6 +88,7 @@
       }
     },
     "rh-table-domes": {
+      "note": "Now a no-op: this geometry is the base rh-table. Kept so saved boards that name the variant still validate and render identically.",
       "clusters": { "rh-table": { "anchor": [20, 210], "rotate": 0 } },
       "keys": {
         "rh-eb": { "shape": "dome", "w": 17, "h": 8, "dx": 0, "dy": -4.8, "radii": null },
@@ -95,7 +97,7 @@
       }
     },
     "side-levers": {
-      "clusters": { "side": { "anchor": [16, 108], "defaults": { "shape": "lever", "size": "lg", "stemDir": "right", "w": null, "h": null, "bend": null, "taper": null } } }
+      "clusters": { "side": { "anchor": [14, 108], "defaults": { "shape": "lever", "size": "lg", "stemDir": "right", "w": null, "h": null, "bend": null, "taper": null } } }
     },
     "side-pills": {
       "clusters": { "side": { "anchor": [18, 113], "flow": { "axis": "y", "pitch": 12 }, "defaults": { "shape": "pill", "w": 15, "h": 6.5, "rad": 3.2, "bend": null, "taper": null } } }
@@ -104,11 +106,12 @@
       "keys": { "high-fs": { "y": 180 }, "high-g": { "default": "na" } }
     },
     "rh-table-spatulas": {
-      "clusters": { "rh-table": { "anchor": [34, 224], "rotate": 9, "flow": { "axis": "x", "pitch": 18 }, "defaults": { "shape": "spatula", "w": 16, "h": 14, "rad": 5, "radii": null } } },
-      "keys": { "rh-eb": { "dx": null, "dy": null, "w": null, "h": null }, "rh-c": { "dx": null, "dy": null, "w": null, "h": null }, "rh-roller-top": { "default": "na" }, "rh-roller-bottom": { "default": "na" } }
+      "note": "`shape`/`dir` are restated here because the base rh-table keys are now domes; without them this variant would silently inherit the dome look.",
+      "clusters": { "rh-table": { "anchor": [24, 224], "rotate": 9, "flow": { "axis": "x", "pitch": 18 }, "defaults": { "shape": "spatula", "w": 16, "h": 14, "rad": 5, "radii": null } } },
+      "keys": { "rh-eb": { "shape": "spatula", "dx": null, "dy": null, "w": null, "h": null }, "rh-c": { "shape": "spatula", "dir": null, "dx": null, "dy": null, "w": null, "h": null }, "rh-roller-top": { "default": "na" }, "rh-roller-bottom": { "default": "na" } }
     },
     "lh-table-spatulas": {
-      "clusters": { "lh-table": { "anchor": [66, 100], "flow": { "axis": "y", "pitch": 13.5, "drift": 1 }, "defaults": { "shape": "spatula", "w": 14, "h": 12, "rad": 4.5 } } },
+      "clusters": { "lh-table": { "anchor": [66, 100], "flow": { "axis": "y", "pitch": 14, "drift": 1 }, "defaults": { "shape": "spatula", "w": 14, "h": 12, "rad": 4.5 } } },
       "keys": {
         "lh-gs": { "dx": null, "dy": null, "h": null, "radii": null },
         "lh-cs": { "dx": null, "dy": null, "w": null, "h": null, "radii": null },
@@ -118,7 +121,7 @@
       }
     },
     "palm-bean": {
-      "clusters": { "palm": { "flow": { "axis": "x", "pitch": 9.5, "stagger": -6 }, "defaults": { "shape": "bean", "w": 8.5, "h": 18, "bend": 1.3, "taper": 0.72, "tipRound": null } } },
+      "clusters": { "palm": { "flow": { "axis": "x", "pitch": 10.5, "stagger": -6 }, "defaults": { "shape": "bean", "w": 8.5, "h": 18, "bend": 1.3, "taper": 0.72, "tipRound": null } } },
       "keys": { "palm-f": { "dx": null, "dy": null, "rot": -8 }, "palm-eb": { "dx": null, "dy": null, "rot": 6 }, "palm-d": { "dx": null, "dy": null, "rot": 20 } }
     },
     "plain-circles": {
@@ -126,7 +129,7 @@
       "keys": { "lh1": { "shape": "circle", "size": null }, "lh2": { "shape": "circle", "size": null }, "lh3": { "shape": "circle", "size": null }, "rh1": { "shape": "circle", "size": null }, "rh2": { "shape": "circle", "size": null }, "rh3": { "shape": "circle", "size": null }, "front-f": { "shape": "circle", "size": null, "r": 5 } }
     },
     "palm-taper": {
-      "clusters": { "palm": { "anchor": [66, 30], "flow": { "axis": "x", "pitch": 9, "stagger": -7 }, "defaults": { "shape": "taper", "w": 7.5, "h": 24, "tip": 0.8, "bend": 1.4, "curve": 1.7, "tipRound": null } } },
+      "clusters": { "palm": { "anchor": [66, 30], "flow": { "axis": "x", "pitch": 9.5, "stagger": -7 }, "defaults": { "shape": "taper", "w": 7.5, "h": 24, "tip": 0.8, "bend": 1.4, "curve": 1.7, "tipRound": null } } },
       "keys": { "palm-f": { "dx": null, "dy": null, "rot": -10 }, "palm-eb": { "dx": null, "dy": null, "rot": 2 }, "palm-d": { "dx": null, "dy": null, "rot": 14 } }
     }
   },
@@ -166,9 +169,9 @@
 
     { "id": "alt-fs", "label": "Alternate F\u266f", "shape": "oval", "x": 25, "y": 164, "hand": "R", "digit": "3", "group": "rh-aux" },
 
-    { "id": "rh-eb", "label": "Low E\u266d (D\u266f)", "cluster": "rh-table", "dx": -6.79, "dy": 0, "w": 9.43, "h": 14.49, "radii": [2.3, 2.3, 4.02, 4.02], "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-c", "label": "Low C", "cluster": "rh-table", "dx": 6.79, "dy": 0, "w": 9.43, "h": 14.49, "radii": [2.3, 2.3, 4.02, 4.02], "hand": "R", "digit": "4", "group": "rh-table" },
-    { "id": "rh-roller-top", "label": "RH roller (D\u266f | C, one end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": -5.63, "w": 3.91, "h": 8.05, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" },
-    { "id": "rh-roller-bottom", "label": "RH roller (D\u266f | C, other end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": 5.63, "w": 3.91, "h": 8.05, "rot": 90, "radii": null, "hand": "R", "digit": "4", "group": "rollers" }
+    { "id": "rh-eb", "label": "Low E\u266d (D\u266f)", "cluster": "rh-table", "shape": "dome", "dx": 0, "dy": -4.8, "w": 17, "h": 8, "radii": null, "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-c", "label": "Low C", "cluster": "rh-table", "shape": "dome", "dir": "down", "dx": 0, "dy": 4.8, "w": 17, "h": 8, "radii": null, "hand": "R", "digit": "4", "group": "rh-table" },
+    { "id": "rh-roller-top", "label": "RH roller (D\u266f | C, one end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": -5.63, "w": 3.91, "h": 8.05, "rot": 90, "radii": null, "default": "na", "hand": "R", "digit": "4", "group": "rollers" },
+    { "id": "rh-roller-bottom", "label": "RH roller (D\u266f | C, other end)", "cluster": "rh-table", "shape": "cylinder", "dx": 0, "dy": 5.63, "w": 3.91, "h": 8.05, "rot": 90, "radii": null, "default": "na", "hand": "R", "digit": "4", "group": "rollers" }
   ]
 }
