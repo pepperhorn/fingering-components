@@ -378,7 +378,7 @@ app can say "High G" instead of "G5":
   { "from": "C4",  "name": "Low" },
   { "from": "C5",  "name": "Middle" },
   { "from": "C6",  "name": "High" },
-  { "from": "C7",  "name": "Altissimo" }
+  { "from": "G6",  "name": "Altissimo" }
 ]
 ```
 
@@ -404,12 +404,19 @@ clarinet, trumpet and trombone each had several such pairs. Grouping by written
 octave keeps every band under an octave, so a register name plus a note letter
 is unique on every instrument.
 
+Saxophone is the one deliberate exception to the boundary-on-C rule:
+`Altissimo` starts at G6, not C7, because that is exactly where
+`saxophone-altissimo.json` begins. The tier then means "needs an altissimo
+fingering" rather than "is in the seventh octave", which is what the word
+means to a player. G6–F7 spans eleven semitones, so it still holds each pitch
+class once and the names stay unique.
+
 `name` comes from a fixed set — `Lowest`, `Low`, `Middle`, `High`,
 `Altissimo` — and not every instrument uses all five:
 
 | Layout | Bands |
 | --- | --- |
-| `saxophone.json` | Lowest B♭3 · Low C4 · Middle C5 · High C6 · Altissimo C7 |
+| `saxophone.json` | Lowest B♭3 · Low C4 · Middle C5 · High C6 · Altissimo G6 |
 | `clarinet.json` | Lowest E3 · Low C4 · Middle C5 · High C6 |
 | `flute.json` | Low C4 · Middle C5 · High C6 · Altissimo C7 |
 | `recorder.json` | Low C4 · Middle C5 · High C6 |
