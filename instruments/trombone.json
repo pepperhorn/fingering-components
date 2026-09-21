@@ -9,9 +9,10 @@
     "pro":          { "low": "E2", "high": "C5" }
   },
   "registers": [
-    { "from": "E2",   "name": "Low" },
+    { "from": "E2",   "name": "Lowest" },
+    { "from": "C3",   "name": "Low" },
     { "from": "C4",   "name": "Middle" },
-    { "from": "F#4",  "name": "High" }
+    { "from": "C5",   "name": "High" }
   ],
   "note": "Mouthpiece at the top, slide travelling down (orient: \"horizontal\" gives the usual side view, slide to the right). The body (mouthpiece, bell section and bell) is always drawn; dotted rails mark where the slide travels. Spacing follows the real instrument: the slide hand is level with the bell rim at 3rd position. Seven slide keys, pos1 to pos7, are hidden until a fingering presses one: a fingering lists exactly one position. Each position carries its number as a tag. With the hints render option, light dotted marks show the hand positions the slide has passed (keys with showWith appear only while one of those positions is in use).",
   "viewBox": [0, 0, 64, 154],
