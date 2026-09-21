@@ -374,9 +374,10 @@ app can say "High G" instead of "G5":
 
 ```json
 "registers": [
-  { "from": "Bb3", "name": "Low" },
-  { "from": "D4",  "name": "Middle" },
-  { "from": "D5",  "name": "High" },
+  { "from": "Bb3", "name": "Lowest" },
+  { "from": "C4",  "name": "Low" },
+  { "from": "C5",  "name": "Middle" },
+  { "from": "C6",  "name": "High" },
   { "from": "G6",  "name": "Altissimo" }
 ]
 ```
@@ -387,28 +388,57 @@ first `from` is the lowest written note the layout fingers, so every fingering
 lands in exactly one band. Pitches are spelled as in `ranges`: `Bb3`, `C#4`,
 `F7`.
 
-`name` comes from a fixed set — `Low`, `Middle`, `High`, `Altissimo` — and not
-every instrument uses all four:
+**The bands follow the written octave, with the boundary at C** — not the
+instrument's register break. Flute has low C (foot C), middle C (up the
+octave), then high C; alto saxophone has low D (all down), middle D (all down
+with the octave key), high D (palm key) and then altissimo D. A partial group
+below the instrument's first C — the notes under the bottom of its lowest full
+octave — is named `Lowest`; the full octaves above it run `Low`, `Middle`,
+`High`, `Altissimo` in order.
+
+The reason is that a register name is rendered without the octave digit ("Low
+C", not "C4"). A band wider than an octave therefore holds two notes of the
+same pitch class and the name stops identifying a note: anchored at the
+register break, flute C4 and C5 both came out as "Low C", and alto sax,
+clarinet, trumpet and trombone each had several such pairs. Grouping by written
+octave keeps every band under an octave, so a register name plus a note letter
+is unique on every instrument.
+
+Saxophone is the one deliberate exception to the boundary-on-C rule:
+`Altissimo` starts at G6, not C7, because that is exactly where
+`saxophone-altissimo.json` begins. The tier then means "needs an altissimo
+fingering" rather than "is in the seventh octave", which is what the word
+means to a player. G6–F7 spans eleven semitones, so it still holds each pitch
+class once and the names stay unique.
+
+`name` comes from a fixed set — `Lowest`, `Low`, `Middle`, `High`,
+`Altissimo` — and not every instrument uses all five:
 
 | Layout | Bands |
 | --- | --- |
-| `saxophone.json` | Low B♭3 · Middle D4 · High D5 · Altissimo G6 |
-| `clarinet.json` | Low E3 · Middle G4 · High B4 · Altissimo C♯6 |
-| `flute.json` | Low C4 · Middle D5 · High D6 |
-| `recorder.json` | Low C4 · High D5 |
-| `trumpet.json` | Low F♯3 · Middle C5 · High C6 |
-| `trombone.json` | Low E2 · Middle C4 · High F♯4 |
+| `saxophone.json` | Lowest B♭3 · Low C4 · Middle C5 · High C6 · Altissimo G6 |
+| `clarinet.json` | Lowest E3 · Low C4 · Middle C5 · High C6 |
+| `flute.json` | Low C4 · Middle C5 · High C6 · Altissimo C7 |
+| `recorder.json` | Low C4 · Middle C5 · High C6 |
+| `trumpet.json` | Lowest F♯3 · Low C4 · Middle C5 · High C6 |
+| `trombone.json` | Lowest E2 · Low C3 · Middle C4 · High C5 |
 | `nuvo-toot.json`, `nuvo-dood.json` | Low C4 · High C5 |
 | `tin-whistle.json` | per horn — see below |
 
-The tin whistle is the exception: it has no layout-level `registers`, because
-every whistle is written in its own range. Each horn carries its own list
-beside its own `ranges`, with the high band an octave above the bottom note —
-D whistle Low D5 · High D6, C whistle Low C5 · High C6, and so on.
+The tin whistle is the documented exception: it has no layout-level
+`registers`, because every whistle is written in its own range, and its bands
+are anchored on the horn's **tonic** rather than on C. Each horn carries its
+own list beside its own `ranges`, with the high band an octave above the bottom
+note — D whistle Low D5 · High D6, C whistle Low C5 · High C6, and so on. That
+is musically right for a two-register instrument whose bottom note is its
+tonic, and it is still collision-free: each band is exactly an octave wide.
 
-`verify.mjs` checks the bands ascend, that every `name` is one of the four, and
+`verify.mjs` checks the bands ascend, that every `name` is one of the five,
 that the first band starts on the lowest note in that layout's (or horn's)
-fingerings.
+fingerings, and — the check that matters — that no band contains two
+fingerings of the same pitch class, walking the real fingerings of every
+instrument and every tin-whistle horn and naming the offending notes if it
+finds a pair.
 
 ## Instruments
 

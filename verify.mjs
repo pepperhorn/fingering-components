@@ -74,7 +74,11 @@ for (const f of readdirSync('instruments')) {
 // --- register names -----------------------------------------------------
 // Ordered half-open bands at written pitch: each runs from its "from" up to
 // (not including) the next one's, the last to the top of the instrument.
-const REGISTER_NAMES = ['Low', 'Middle', 'High', 'Altissimo'];
+// Consumers drop the octave digit ("High G", not "G5"), so a band must never
+// be wide enough to hold two notes of the same pitch class — see the
+// collision check below.
+const REGISTER_NAMES = ['Lowest', 'Low', 'Middle', 'High', 'Altissimo'];
+const PITCH_CLASS = (m) => ((m % 12) + 12) % 12;
 for (const f of readdirSync('instruments')) {
   const inst = J(`instruments/${f}`);
   const hornIds = inst.horns ? Object.keys(inst.horns) : [undefined];
@@ -98,6 +102,33 @@ for (const f of readdirSync('instruments')) {
     const lo = Math.min(...sheets.flatMap((d) => d.fingerings.filter((fg) => fg.note).map(fmidi)));
     if (from[0] !== lo)
       throw new Error(`${who}: the first register starts at "${regs[0].from}" (midi ${from[0]}), but the lowest fingering is midi ${lo}`);
-    console.log(`${who.padEnd(22)} registers ok   ${regs.map((b) => `${b.name} ${b.from}`).join(' | ')}`);
+
+    // A register name is rendered without the octave digit ("High G"), so two
+    // fingerings in the same band that share a pitch class would print the
+    // same name for two different notes. Walk the real fingerings and prove
+    // it cannot happen.
+    const bandOf = (m) => { let i = -1; while (i + 1 < from.length && from[i + 1] <= m) i++; return i; };
+    const seen = regs.map(() => new Map());   // band index -> pitch class -> "C5"
+    const clashes = [];
+    for (const d of sheets)
+      for (const fg of d.fingerings) {
+        if (!fg.note) continue;
+        const m = fmidi(fg), i = bandOf(m), spelled = `${fg.note}${fg.octave}`;
+        if (i < 0)
+          throw new Error(`${who}: ${spelled} is below the first register (${regs[0].name} "${regs[0].from}"), so it has no register name`);
+        const pc = PITCH_CLASS(m), had = seen[i].get(pc);
+        if (had) clashes.push(`${regs[i].name} ${fg.note}: ${had} and ${spelled}`);
+        else seen[i].set(pc, spelled);
+      }
+    if (clashes.length)
+      throw new Error(
+        `${who}: register bands collide — these notes would render the same register name:\n` +
+        clashes.map((c) => `    ${c}`).join('\n') +
+        `\n  Bands: ${regs.map((b) => `${b.name} ${b.from}`).join(' | ')}` +
+        `\n  A band must span less than an octave; anchor the bands on C (the written octave) so each name is unique.`
+      );
+
+    const named = regs.map((b, i) => `${b.name} ${[...seen[i].values()].length}`).join(', ');
+    console.log(`${who.padEnd(22)} registers ok   ${regs.map((b) => `${b.name} ${b.from}`).join(' | ')}   (no collisions: ${named})`);
   }
 }

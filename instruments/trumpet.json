@@ -9,7 +9,8 @@
     "pro":          { "low": "F#3", "high": "C6" }
   },
   "registers": [
-    { "from": "F#3",  "name": "Low" },
+    { "from": "F#3",  "name": "Lowest" },
+    { "from": "C4",   "name": "Low" },
     { "from": "C5",   "name": "Middle" },
     { "from": "C6",   "name": "High" }
   ],

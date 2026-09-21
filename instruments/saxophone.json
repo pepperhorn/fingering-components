@@ -9,9 +9,10 @@
     "pro":          { "low": "Bb3", "high": "F7" }
   },
   "registers": [
-    { "from": "Bb3",  "name": "Low" },
-    { "from": "D4",   "name": "Middle" },
-    { "from": "D5",   "name": "High" },
+    { "from": "Bb3",  "name": "Lowest" },
+    { "from": "C4",   "name": "Low" },
+    { "from": "C5",   "name": "Middle" },
+    { "from": "C6",   "name": "High" },
     { "from": "G6",   "name": "Altissimo" }
   ],
   "horn": "alto",
