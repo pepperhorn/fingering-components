@@ -1,11 +1,16 @@
 {
   "name": "@pepperhorn/fingering-components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "SVG key shapes and a JSON spec for woodwind and brass fingering charts",
   "type": "module",
   "main": "src/render.js",
-  "repository": { "type": "git", "url": "git+https://github.com/pepperhorn/fingering-components.git" },
-  "publishConfig": { "access": "public" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pepperhorn/fingering-components.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": "./src/render.js",
     "./keys": "./src/keys.js",
@@ -16,14 +21,32 @@
     "./build-preview": "./build-preview.mjs",
     "./package.json": "./package.json"
   },
-  "bin": { "fingering-preview": "./build-preview.mjs" },
-  "files": ["src", "instruments", "fingerings", "build-preview.mjs", "README.md", "LICENSE"],
+  "bin": {
+    "fingering-preview": "./build-preview.mjs"
+  },
+  "files": [
+    "src",
+    "instruments",
+    "fingerings",
+    "build-preview.mjs",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "verify": "node verify.mjs",
     "preview": "node build-preview.mjs",
     "prepublishOnly": "node verify.mjs"
   },
-  "keywords": ["fingering-chart", "saxophone", "clarinet", "flute", "recorder", "tin-whistle", "music-education", "svg"],
+  "keywords": [
+    "fingering-chart",
+    "saxophone",
+    "clarinet",
+    "flute",
+    "recorder",
+    "tin-whistle",
+    "music-education",
+    "svg"
+  ],
   "license": "MIT",
   "sideEffects": false
 }
